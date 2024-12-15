@@ -1,0 +1,12 @@
+C:\Users\good1\source\repos\StoresPlace\StoresPlace-DataAccess\bin\Debug\net8.0\StoresPlace-DataAccess.deps.json
+C:\Users\good1\source\repos\StoresPlace\StoresPlace-DataAccess\bin\Debug\net8.0\StoresPlace-DataAccess.dll
+C:\Users\good1\source\repos\StoresPlace\StoresPlace-DataAccess\bin\Debug\net8.0\StoresPlace-DataAccess.pdb
+C:\Users\good1\source\repos\StoresPlace\StoresPlace-DataAccess\obj\Debug\net8.0\StoresPlace-DataAccess.csproj.AssemblyReference.cache
+C:\Users\good1\source\repos\StoresPlace\StoresPlace-DataAccess\obj\Debug\net8.0\StoresPlace-DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\good1\source\repos\StoresPlace\StoresPlace-DataAccess\obj\Debug\net8.0\StoresPlace-DataAccess.AssemblyInfoInputs.cache
+C:\Users\good1\source\repos\StoresPlace\StoresPlace-DataAccess\obj\Debug\net8.0\StoresPlace-DataAccess.AssemblyInfo.cs
+C:\Users\good1\source\repos\StoresPlace\StoresPlace-DataAccess\obj\Debug\net8.0\StoresPlace-DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\good1\source\repos\StoresPlace\StoresPlace-DataAccess\obj\Debug\net8.0\StoresPlace-DataAccess.dll
+C:\Users\good1\source\repos\StoresPlace\StoresPlace-DataAccess\obj\Debug\net8.0\refint\StoresPlace-DataAccess.dll
+C:\Users\good1\source\repos\StoresPlace\StoresPlace-DataAccess\obj\Debug\net8.0\StoresPlace-DataAccess.pdb
+C:\Users\good1\source\repos\StoresPlace\StoresPlace-DataAccess\obj\Debug\net8.0\ref\StoresPlace-DataAccess.dll

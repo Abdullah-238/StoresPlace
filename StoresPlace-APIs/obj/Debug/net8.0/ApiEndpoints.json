@@ -1,0 +1,114 @@
+[
+  {
+    "ContainingType": "StoresPlace_API.Categories.CategoryController",
+    "Method": "GetAllNewCategory",
+    "RelativePath": "api/Category/AllCategories",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[StoresPlace_DataAccess.CategoryDTO, StoresPlace-DataAccess, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ],
+    "EndpointName": "GetAllCategories"
+  },
+  {
+    "ContainingType": "StoresPlace_API.StoresController",
+    "Method": "GetAllStoreByCategoryNameAr",
+    "RelativePath": "api/Stores/AllStoreByCategoryNameAr",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "CategoryNameAr",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "TypeID",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[StoresPlace_DataAccess.StoreDetailsDTO, StoresPlace-DataAccess, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ],
+    "EndpointName": "GetAllStoreByCategoryNameAr"
+  },
+  {
+    "ContainingType": "StoresPlace_API.StoresController",
+    "Method": "GetAllStoreByCategoryNameEn",
+    "RelativePath": "api/Stores/AllStoreByCategoryNameEn",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "CategoryNameAr",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "TypeID",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[StoresPlace_DataAccess.StoreDetailsDTO, StoresPlace-DataAccess, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ],
+    "EndpointName": "GetAllStoreByCategoryNameEn"
+  }
+]

@@ -1,0 +1,15 @@
+C:\Users\good1\source\repos\StoresPlace\StoresPlace-Business\bin\Release\net8.0\StoresPlace-Business.deps.json
+C:\Users\good1\source\repos\StoresPlace\StoresPlace-Business\bin\Release\net8.0\StoresPlace-Business.dll
+C:\Users\good1\source\repos\StoresPlace\StoresPlace-Business\bin\Release\net8.0\StoresPlace-Business.pdb
+C:\Users\good1\source\repos\StoresPlace\StoresPlace-Business\bin\Release\net8.0\StoresPlace-DataAccess.dll
+C:\Users\good1\source\repos\StoresPlace\StoresPlace-Business\bin\Release\net8.0\StoresPlace-DataAccess.pdb
+C:\Users\good1\source\repos\StoresPlace\StoresPlace-Business\obj\Release\net8.0\StoresPlace-Business.csproj.AssemblyReference.cache
+C:\Users\good1\source\repos\StoresPlace\StoresPlace-Business\obj\Release\net8.0\StoresPlace-Business.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\good1\source\repos\StoresPlace\StoresPlace-Business\obj\Release\net8.0\StoresPlace-Business.AssemblyInfoInputs.cache
+C:\Users\good1\source\repos\StoresPlace\StoresPlace-Business\obj\Release\net8.0\StoresPlace-Business.AssemblyInfo.cs
+C:\Users\good1\source\repos\StoresPlace\StoresPlace-Business\obj\Release\net8.0\StoresPlace-Business.csproj.CoreCompileInputs.cache
+C:\Users\good1\source\repos\StoresPlace\StoresPlace-Business\obj\Release\net8.0\StoresPl.6B851D30.Up2Date
+C:\Users\good1\source\repos\StoresPlace\StoresPlace-Business\obj\Release\net8.0\StoresPlace-Business.dll
+C:\Users\good1\source\repos\StoresPlace\StoresPlace-Business\obj\Release\net8.0\refint\StoresPlace-Business.dll
+C:\Users\good1\source\repos\StoresPlace\StoresPlace-Business\obj\Release\net8.0\StoresPlace-Business.pdb
+C:\Users\good1\source\repos\StoresPlace\StoresPlace-Business\obj\Release\net8.0\ref\StoresPlace-Business.dll
