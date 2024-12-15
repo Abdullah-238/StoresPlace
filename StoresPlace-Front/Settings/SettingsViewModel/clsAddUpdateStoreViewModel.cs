@@ -365,9 +365,9 @@ namespace StoresPlace_Front.Settings.SettingsViewModel
                     Store.DistrictsID = clsDistrict.FindDistrictsNameEn(SelectedDistrict).DistrictsID;
             }
 
-            //UploadImageToFtp();
+            UploadImageToFtp();
 
-            UploadImageToFTP(Store.Photo);
+            //UploadImageToFTP(Store.Photo);
 
             if (Store.Save())
             {
@@ -471,7 +471,7 @@ namespace StoresPlace_Front.Settings.SettingsViewModel
                 {
                      client.UploadFile(new Uri(fileUrl), WebRequestMethods.Ftp.UploadFile, Store.Photo);
 
-                    string publicUrl = $"http://abdullah0-001-site1.mtempurl.com/{remoteFolder}/{fileName}";
+                    string publicUrl = $"http://abdullah0-001-site1.mtempurl.com/{fileName}";
 
 
                     Store.Photo = publicUrl;
@@ -511,47 +511,48 @@ namespace StoresPlace_Front.Settings.SettingsViewModel
 
         }
 
-        public  void UploadImageToFTP(string filePath)
 
-        {     
+        //public  void UploadImageToFTP(string filePath)
+
+        //{     
             
-            string ftpServer = "ftp://win6057.site4now.net", ftpUsername = @"abdullah0-001", ftpPassword = @"Qq-12341234", remoteFolder = "storesplace";
+        //    string ftpServer = "ftp://win6057.site4now.net", ftpUsername = @"abdullah0-001", ftpPassword = @"Qq-12341234", remoteFolder = "storesplace";
 
-        // Get the file name from the photo's path
-            string fileName = Path.GetFileName(filePath);
-            // Construct the FTP URL for uploading the image
-            string fileUrl = $"{ftpServer}/{remoteFolder}/{fileName}";
+        //// Get the file name from the photo's path
+        //    string fileName = Path.GetFileName(filePath);
+        //    // Construct the FTP URL for uploading the image
+        //    string fileUrl = $"{ftpServer}/{remoteFolder}/{fileName}";
 
-            using (WebClient client = new WebClient())
-            {
-                // Set the FTP credentials
-                client.Credentials = new NetworkCredential(ftpUsername, ftpPassword);
+        //    using (WebClient client = new WebClient())
+        //    {
+        //        // Set the FTP credentials
+        //        client.Credentials = new NetworkCredential(ftpUsername, ftpPassword);
 
-                try
-                {
-                    // Upload the file to the FTP server
-                    client.UploadFile(new Uri(fileUrl), WebRequestMethods.Ftp.UploadFile, filePath);
+        //        try
+        //        {
+        //            // Upload the file to the FTP server
+        //            client.UploadFile(new Uri(fileUrl), WebRequestMethods.Ftp.UploadFile, filePath);
 
-                    // Construct the public URL to access the uploaded image
-                    string publicUrl = $"http://abdullah0-001-site1.mtempurl.com/{remoteFolder}/{fileName}";
+        //            // Construct the public URL to access the uploaded image
+        //            string publicUrl = $"http://abdullah0-001-site1.mtempurl.com/{remoteFolder}/{fileName}";
 
-                    Store.Photo = publicUrl;
-                    // Assuming you have a property to store the URL, update it
-                    // Example: Store.Photo = publicUrl; (adjust based on your implementation)
-                    Console.WriteLine($"Image uploaded successfully. Access it at: {publicUrl}");
+        //            Store.Photo = publicUrl;
+        //            // Assuming you have a property to store the URL, update it
+        //            // Example: Store.Photo = publicUrl; (adjust based on your implementation)
+        //            Console.WriteLine($"Image uploaded successfully. Access it at: {publicUrl}");
 
-                    // Optionally, update the Store.Photo or relevant property to the public URL
-                    // Store.Photo = publicUrl; // Update your store with the public URL
+        //            // Optionally, update the Store.Photo or relevant property to the public URL
+        //            // Store.Photo = publicUrl; // Update your store with the public URL
 
-                }
-                catch (Exception ex)
-                {
-                    // Log the exception (you can use your custom logging method here)
-                    Console.WriteLine("Error uploading file: " + ex.Message);
-                    clsUtil.WriteExceptionInLogFile(ex);  // Assuming you use clsUtil for logging
-                }
-            }
-        }
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            // Log the exception (you can use your custom logging method here)
+        //            Console.WriteLine("Error uploading file: " + ex.Message);
+        //            clsUtil.WriteExceptionInLogFile(ex);  // Assuming you use clsUtil for logging
+        //        }
+        //    }
+        //}
 
         public event PropertyChangedEventHandler? PropertyChanged;
         protected virtual void OnPropertyChanged(string propertyName = null)

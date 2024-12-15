@@ -1140,3 +1140,4 @@ C:\Users\good1\source\repos\StoresPlace\StoresPlace-Front\obj\Debug\net8.0-andro
 C:\Users\good1\source\repos\StoresPlace\StoresPlace-Front\obj\Debug\net8.0-android\resizetizer\r\drawable-xxxhdpi\account.png
 C:\Users\good1\source\repos\StoresPlace\StoresPlace-Front\obj\Debug\net8.0-android\resizetizer\r\drawable-xxxhdpi\home.png
 C:\Users\good1\source\repos\StoresPlace\StoresPlace-Front\obj\Debug\net8.0-android\resizetizer\r\drawable-xxxhdpi\sell.png
+C:\Users\good1\source\repos\StoresPlace\StoresPlace-Front\obj\Debug\net8.0-android\StoresPlace-Front.sourcelink.json
