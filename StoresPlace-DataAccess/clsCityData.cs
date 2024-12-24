@@ -286,5 +286,74 @@ namespace StoresPlace_DataAccess
         }
 
 
+
+        public static string GetCityNameEnByDistrictsID(int? DistrictsID)
+        {
+            string CategoryNameAr = null;
+
+            try
+            {
+                using (SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlCommand Command = new SqlCommand("Sp_GetCityNameEnByDistrictsID", Connection))
+                {
+                    Command.CommandType = CommandType.StoredProcedure;
+
+                    Command.Parameters.AddWithValue("@DistrictsID", DistrictsID);
+
+                    Connection.Open();
+
+                    using (SqlDataReader reader = Command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            CategoryNameAr = reader.GetString(reader.GetOrdinal("CityNameEn"));
+                        }
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clsUtil.WriteExceptionInLogFile(ex);
+            }
+
+            return CategoryNameAr;
+        }
+
+        public static string GetCityNameArByDistrictsID(int? DistrictsID)
+        {
+            string CategoryNameAr = null;
+
+            try
+            {
+                using (SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlCommand Command = new SqlCommand("Sp_GetCityNameArByDistrictsID", Connection))
+                {
+                    Command.CommandType = CommandType.StoredProcedure;
+
+                    Command.Parameters.AddWithValue("@DistrictsID", DistrictsID);
+
+                    Connection.Open();
+
+                    using (SqlDataReader reader = Command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            CategoryNameAr = reader.GetString(reader.GetOrdinal("CityNameAr"));
+                        }
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clsUtil.WriteExceptionInLogFile(ex);
+            }
+
+            return CategoryNameAr;
+        }
+
+
+
     }
 }

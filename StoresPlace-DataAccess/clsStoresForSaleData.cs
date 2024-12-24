@@ -115,7 +115,7 @@ namespace StoresPlace_DataAccess
             return StoreForSaleID;
         }
 
-        public static StoresForSaleDTO FindStoresForSale(int? StoreForSaleID)
+        public static StoresForSaleDTO FindStoresForSale(int? @StoreID)
         {
             try
             {
@@ -124,7 +124,7 @@ namespace StoresPlace_DataAccess
                 {
                     Command.CommandType = CommandType.StoredProcedure;
 
-                    Command.Parameters.AddWithValue("@StoreForSaleID", StoreForSaleID);
+                    Command.Parameters.AddWithValue("@StoreID", @StoreID);
 
 
                     Connection.Open();
@@ -183,7 +183,7 @@ namespace StoresPlace_DataAccess
             return Updated;
         }
 
-        public static bool IsStoresForSaleExists(int? StoreForSaleID)
+        public static bool IsStoresForSaleExists(int? StoreID)
         {
 
             bool isFound = false;
@@ -195,7 +195,7 @@ namespace StoresPlace_DataAccess
                     Connection.Open();
                     Command.CommandType = CommandType.StoredProcedure;
 
-                    Command.Parameters.AddWithValue("@StoreForSaleID", StoreForSaleID);
+                    Command.Parameters.AddWithValue("@StoreID", StoreID);
 
                     SqlParameter returnParameter = new SqlParameter("@ReturnVal", SqlDbType.Int)
                     {
@@ -275,8 +275,8 @@ namespace StoresPlace_DataAccess
                                         (!reader.IsDBNull(reader.GetOrdinal("NumberOfRates")) ? reader.GetDecimal("NumberOfRates") : null),
                                         (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : ""),
                                       (!reader.IsDBNull(reader.GetOrdinal("NumbersOfClick")) ? reader.GetDecimal("NumbersOfClick") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : ""),
                                     (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : ""),
+                                     (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : ""),
                                  reader.GetInt32(reader.GetOrdinal("StoreID")),
                                  (!reader.IsDBNull(reader.GetOrdinal("Price")) ? reader.GetDecimal("Price") : null),
                                    reader.GetString(reader.GetOrdinal("StoresForSaleStatus"))
@@ -327,8 +327,8 @@ namespace StoresPlace_DataAccess
                                         (!reader.IsDBNull(reader.GetOrdinal("NumberOfRates")) ? reader.GetDecimal("NumberOfRates") : null),
                                         (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : ""),
                                       (!reader.IsDBNull(reader.GetOrdinal("NumbersOfClick")) ? reader.GetDecimal("NumbersOfClick") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : ""),
                                     (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : ""),
+                                   (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : ""),
                                  reader.GetInt32(reader.GetOrdinal("StoreID")),
                                  (!reader.IsDBNull(reader.GetOrdinal("Price")) ? reader.GetDecimal("Price") : null),
                                    reader.GetString(reader.GetOrdinal("StoresForSaleStatus"))

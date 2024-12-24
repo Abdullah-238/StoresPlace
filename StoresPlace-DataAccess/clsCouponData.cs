@@ -265,5 +265,43 @@ namespace StoresPlace_DataAccess
         }
 
 
+        public static List<CouponDTO> GetAllCoupon(int? StoreID)
+        {
+            List<CouponDTO> coupon = new List<CouponDTO>();
+            try
+            {
+                using (SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlCommand Command = new SqlCommand("SP_GetAllCouponInDetilesByStoreID", Connection))
+                {
+                    Command.CommandType = CommandType.StoredProcedure;
+
+                    Command.Parameters.AddWithValue("@StoreID", StoreID);
+
+                    Connection.Open();
+                    using (SqlDataReader reader = Command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            coupon.Add(new CouponDTO
+                              (
+                                 reader.GetInt32(reader.GetOrdinal("CouponID")),
+                                     reader.GetString(reader.GetOrdinal("Coupon")),
+                                 reader.GetInt32(reader.GetOrdinal("StoreID")),
+                                     reader.GetDateTime(reader.GetOrdinal("ExpiryDate")),
+                                     reader.GetBoolean(reader.GetOrdinal("IsActive"))
+                              ));
+                        };
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clsUtil.WriteExceptionInLogFile(ex);
+            }
+
+            return coupon;
+        }
+
+
     }
 }

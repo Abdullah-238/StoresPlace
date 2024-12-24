@@ -89,6 +89,12 @@ namespace StoresPlace_Business
             return clsCouponData.GetAllCoupon();
         }
 
+        public static List<CouponDTO> GetAll(int ?StoreID)
+        {
+
+            return clsCouponData.GetAllCoupon(StoreID);
+        }
+
         public static List<string> GetAllCouponByStoreID(int ?StoreID)
         {
 

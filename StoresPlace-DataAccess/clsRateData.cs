@@ -21,6 +21,8 @@ namespace StoresPlace_DataAccess
             this.PersonID = personid;
 
         }
+
+
     }
 
     public class clsRateData
@@ -75,6 +77,45 @@ namespace StoresPlace_DataAccess
 
                     Command.Parameters.AddWithValue("@RateID", RateID);
 
+
+                    Connection.Open();
+                    using (SqlDataReader reader = Command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            return new RateDTO
+                              (
+                                 reader.GetInt32(reader.GetOrdinal("RateID")),
+                                 reader.GetInt32(reader.GetOrdinal("StoreID")),
+                                     reader.GetString(reader.GetOrdinal("Comment")),
+                                     reader.GetByte(reader.GetOrdinal("Rate")),
+                                 reader.GetInt32(reader.GetOrdinal("PersonID"))
+                              );
+                        }
+                        else
+                            return null;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clsUtil.WriteExceptionInLogFile(ex);
+            }
+
+            return null;
+        }
+
+        public static RateDTO FindRate(int? StoreID, int? PersonID)
+        {
+            try
+            {
+                using (SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlCommand Command = new SqlCommand("SP_FindRateByStoreIDAndPersonID", Connection))
+                {
+                    Command.CommandType = CommandType.StoredProcedure;
+
+                    Command.Parameters.AddWithValue("@PersonID", PersonID);
+                    Command.Parameters.AddWithValue("@StoreID", StoreID);
 
                     Connection.Open();
                     using (SqlDataReader reader = Command.ExecuteReader())
@@ -231,6 +272,39 @@ namespace StoresPlace_DataAccess
             return rate;
         }
 
+        public static bool IsRateExists(int? StoreID,int? PersonID)
+        {
+
+            bool isFound = false;
+            try
+            {
+                using (SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlCommand Command = new SqlCommand("SP_IsRateExistsByStoreIDAndPersonID", Connection))
+                {
+                    Connection.Open();
+                    Command.CommandType = CommandType.StoredProcedure;
+
+                    Command.Parameters.AddWithValue("@PersonID", PersonID);
+                    Command.Parameters.AddWithValue("@StoreID", StoreID);
+
+                    SqlParameter returnParameter = new SqlParameter("@ReturnVal", SqlDbType.Int)
+                    {
+                        Direction = ParameterDirection.ReturnValue
+
+                    };
+                    Command.Parameters.Add(returnParameter);
+                    Command.ExecuteNonQuery();
+                    isFound = (int)returnParameter.Value == 1;
+
+                };
+
+            }
+            catch (Exception ex)
+            {
+                clsUtil.WriteExceptionInLogFile(ex);
+            }
+            return isFound;
+        }
 
 
     }

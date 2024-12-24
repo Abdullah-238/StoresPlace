@@ -6,6 +6,7 @@ C:\Users\good1\source\repos\StoresPlace\StoresPlace-DataAccess\obj\Debug\net8.0\
 C:\Users\good1\source\repos\StoresPlace\StoresPlace-DataAccess\obj\Debug\net8.0\StoresPlace-DataAccess.AssemblyInfoInputs.cache
 C:\Users\good1\source\repos\StoresPlace\StoresPlace-DataAccess\obj\Debug\net8.0\StoresPlace-DataAccess.AssemblyInfo.cs
 C:\Users\good1\source\repos\StoresPlace\StoresPlace-DataAccess\obj\Debug\net8.0\StoresPlace-DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\good1\source\repos\StoresPlace\StoresPlace-DataAccess\obj\Debug\net8.0\StoresPlace-DataAccess.sourcelink.json
 C:\Users\good1\source\repos\StoresPlace\StoresPlace-DataAccess\obj\Debug\net8.0\StoresPlace-DataAccess.dll
 C:\Users\good1\source\repos\StoresPlace\StoresPlace-DataAccess\obj\Debug\net8.0\refint\StoresPlace-DataAccess.dll
 C:\Users\good1\source\repos\StoresPlace\StoresPlace-DataAccess\obj\Debug\net8.0\StoresPlace-DataAccess.pdb

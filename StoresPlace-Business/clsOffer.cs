@@ -88,5 +88,10 @@ namespace StoresPlace_Business
         {
             return clsOfferData.GetAllOfferByStoreID(StoreID);
         }
+
+        public static List<OfferDTO> GetAllOffer(int? StoreID)
+        {
+            return clsOfferData.GetAllOffer(StoreID);
+        }
     }
 }

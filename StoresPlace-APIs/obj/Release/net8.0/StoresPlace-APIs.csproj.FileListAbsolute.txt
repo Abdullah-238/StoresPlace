@@ -57,6 +57,7 @@ C:\Users\good1\source\repos\StoresPlace\StoresPlace-APIs\obj\Release\net8.0\Stor
 C:\Users\good1\source\repos\StoresPlace\StoresPlace-APIs\obj\Release\net8.0\StoresPlace-APIs.csproj.CoreCompileInputs.cache
 C:\Users\good1\source\repos\StoresPlace\StoresPlace-APIs\obj\Release\net8.0\StoresPlace-APIs.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\good1\source\repos\StoresPlace\StoresPlace-APIs\obj\Release\net8.0\StoresPlace-APIs.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\good1\source\repos\StoresPlace\StoresPlace-APIs\obj\Release\net8.0\StoresPlace-APIs.sourcelink.json
 C:\Users\good1\source\repos\StoresPlace\StoresPlace-APIs\obj\Release\net8.0\scopedcss\bundle\StoresPlace-APIs.styles.css
 C:\Users\good1\source\repos\StoresPlace\StoresPlace-APIs\obj\Release\net8.0\staticwebassets.build.json
 C:\Users\good1\source\repos\StoresPlace\StoresPlace-APIs\obj\Release\net8.0\staticwebassets.development.json

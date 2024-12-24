@@ -280,5 +280,142 @@ namespace StoresPlace_DataAccess
 
             return region;
         }
+
+
+        public static string GetRegionNameArByRegionID(int? RegionID)
+        {
+            string RegionNameAr = null;
+
+            try
+            {
+                using (SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlCommand Command = new SqlCommand("Sp_GetRegionNameArByRegionID", Connection))
+                {
+                    Command.CommandType = CommandType.StoredProcedure;
+
+                    Command.Parameters.AddWithValue("@RegionID", RegionID);
+
+                    Connection.Open();
+
+                    using (SqlDataReader reader = Command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            RegionNameAr = reader.GetString(reader.GetOrdinal("RegionNameAr"));
+                        }
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clsUtil.WriteExceptionInLogFile(ex);
+            }
+
+            return RegionNameAr;
+        }
+
+        public static string GetCategoryNameEnByRegionID(int? RegionID)
+        {
+            string RegionNameAr = null;
+
+            try
+            {
+                using (SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlCommand Command = new SqlCommand("Sp_GetRegionNameEnByRegionID", Connection))
+                {
+                    Command.CommandType = CommandType.StoredProcedure;
+
+                    Command.Parameters.AddWithValue("@RegionID", RegionID);
+
+                    Connection.Open();
+
+                    using (SqlDataReader reader = Command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            RegionNameAr = reader.GetString(reader.GetOrdinal("RegionNameEn"));
+                        }
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clsUtil.WriteExceptionInLogFile(ex);
+            }
+
+            return RegionNameAr;
+        }
+
+
+
+        public static string GetRegionNameArByDistrictsID(int? DistrictsID)
+        {
+            string RegionNameAr = null;
+
+            try
+            {
+                using (SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlCommand Command = new SqlCommand("Sp_GetRegionNameArByDistrictsID", Connection))
+                {
+                    Command.CommandType = CommandType.StoredProcedure;
+
+                    Command.Parameters.AddWithValue("@DistrictsID", DistrictsID);
+
+                    Connection.Open();
+
+                    using (SqlDataReader reader = Command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            RegionNameAr = reader.GetString(reader.GetOrdinal("RegionNameAr"));
+                        }
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clsUtil.WriteExceptionInLogFile(ex);
+            }
+
+            return RegionNameAr;
+        }
+
+        public static string GetRegionNameEnByDistrictsID(int? DistrictsID)
+        {
+            string RegionNameAr = null;
+
+            try
+            {
+                using (SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlCommand Command = new SqlCommand("Sp_GetRegionNameEnByDistrictsID", Connection))
+                {
+                    Command.CommandType = CommandType.StoredProcedure;
+
+                    Command.Parameters.AddWithValue("@DistrictsID", DistrictsID);
+
+                    Connection.Open();
+
+                    using (SqlDataReader reader = Command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            RegionNameAr = reader.GetString(reader.GetOrdinal("RegionNameEn"));
+                        }
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clsUtil.WriteExceptionInLogFile(ex);
+            }
+
+            return RegionNameAr;
+        }
+
+
     }
 }

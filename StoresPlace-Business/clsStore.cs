@@ -217,5 +217,18 @@ namespace StoresPlace_Business
         {
             return clsStoreData.GetAllStoresInDetailsByPersonIDEn(PersonID);
         }
+
+
+        public static bool UpdateStoreRating(byte? Rate, int? StoreID)
+        {
+            return clsStoreData.UpdateStoreRating(Rate,StoreID);
+        }
+
+        public static bool UpdateStoreRating(byte? Rate, byte? OldRate, int? StoreID)
+        {
+            return clsStoreData.UpdateStoreRating(Rate, OldRate, StoreID);
+        }
+
+
     }
 }

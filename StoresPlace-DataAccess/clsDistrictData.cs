@@ -363,6 +363,143 @@ namespace StoresPlace_DataAccess
         }
 
 
+        public static string GetDistrictsNameEnByDistrictsID(int? DistrictsID)
+        {
+            string CategoryNameAr = null;
+
+            try
+            {
+                using (SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlCommand Command = new SqlCommand("Sp_GetDistrictsNameEnByDistrictsID", Connection))
+                {
+                    Command.CommandType = CommandType.StoredProcedure;
+
+                    Command.Parameters.AddWithValue("@DistrictsID", DistrictsID);
+
+                    Connection.Open();
+
+                    using (SqlDataReader reader = Command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            CategoryNameAr = reader.GetString(reader.GetOrdinal("DistrictsNameEn"));
+                        }
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clsUtil.WriteExceptionInLogFile(ex);
+            }
+
+            return CategoryNameAr;
+        }
+
+        public static string GetDistrictsNameArByDistrictsID(int? DistrictsID)
+        {
+            string CategoryNameAr = null;
+
+            try
+            {
+                using (SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlCommand Command = new SqlCommand("Sp_GetDistrictsNameArByDistrictsID", Connection))
+                {
+                    Command.CommandType = CommandType.StoredProcedure;
+
+                    Command.Parameters.AddWithValue("@DistrictsID", DistrictsID);
+
+                    Connection.Open();
+
+                    using (SqlDataReader reader = Command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            CategoryNameAr = reader.GetString(reader.GetOrdinal("DistrictsNameAr"));
+                        }
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clsUtil.WriteExceptionInLogFile(ex);
+            }
+
+            return CategoryNameAr;
+        }
+
+
+
+
+        
+        public static int? GetDistrictsIDByDistrictNameEn(string DistrictNameEn)
+        {
+            int? DistrictsID = null;
+
+            try
+            {
+                using (SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlCommand Command = new SqlCommand("Sp_GetDistrictsIDByDistrictsNameEn", Connection))
+                {
+                    Command.CommandType = CommandType.StoredProcedure;
+
+                    Command.Parameters.AddWithValue("@DistrictsNameEn", DistrictNameEn);
+
+                    Connection.Open();
+
+                    using (SqlDataReader reader = Command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            DistrictsID = reader.GetInt32(reader.GetOrdinal("DistrictsID"));
+                        }
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clsUtil.WriteExceptionInLogFile(ex);
+            }
+
+            return DistrictsID;
+        }
+
+        public static int? GetDistrictsIDByDistrictNameAr(string DistrictNameAr)
+        {
+            int? DistrictsID = null;
+
+            try
+            {
+                using (SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlCommand Command = new SqlCommand("Sp_GetDistrictsIDByDistrictsNameAr", Connection))
+                {
+                    Command.CommandType = CommandType.StoredProcedure;
+
+                    Command.Parameters.AddWithValue("@DistrictsNameAr", DistrictNameAr);
+
+                    Connection.Open();
+
+                    using (SqlDataReader reader = Command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            DistrictsID = reader.GetInt32(reader.GetOrdinal("DistrictsID"));
+                        }
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clsUtil.WriteExceptionInLogFile(ex);
+            }
+
+            return DistrictsID;
+        }
+
+
 
     }
 }

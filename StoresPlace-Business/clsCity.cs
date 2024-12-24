@@ -104,5 +104,17 @@ namespace StoresPlace_Business
         }
 
 
+
+        public static string GetCityNameArByDistrictsID(int? DistrictsID)
+        {
+            return clsCityData.GetCityNameArByDistrictsID(DistrictsID);
+        }
+
+        public static string GetCityNameEnByDistrictsID(int? DistrictsID)
+        {
+            return clsCityData.GetCityNameEnByDistrictsID(DistrictsID);
+        }
+
+
     }
 }

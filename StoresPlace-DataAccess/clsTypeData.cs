@@ -353,6 +353,141 @@ namespace StoresPlace_DataAccess
             return Types;
         }
 
+        public static string GetTypeNameArByTypeID(int? TypeID)
+        {
+            string TypeNameAr = null;
+
+            try
+            {
+                using (SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlCommand Command = new SqlCommand("Sp_GetTypeNameArByTypeID", Connection))
+                {
+                    Command.CommandType = CommandType.StoredProcedure;
+
+                    Command.Parameters.AddWithValue("@TypeID", TypeID);
+
+                    Connection.Open();
+
+                    using (SqlDataReader reader = Command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            TypeNameAr = reader.GetString(reader.GetOrdinal("TypeNameAr"));
+                        }
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clsUtil.WriteExceptionInLogFile(ex);
+            }
+
+            return TypeNameAr;
+        }
+
+        public static string GetTypeNameEnByTypeID(int? TypeID)
+        {
+            string TypeNameEn = null;
+
+            try
+            {
+                using (SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlCommand Command = new SqlCommand("Sp_GetTypeNameEnByTypeID", Connection))
+                {
+                    Command.CommandType = CommandType.StoredProcedure;
+
+                    Command.Parameters.AddWithValue("@TypeID", TypeID);
+
+                    Connection.Open();
+
+                    using (SqlDataReader reader = Command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            TypeNameEn = reader.GetString(reader.GetOrdinal("TypeNameEn"));
+                        }
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clsUtil.WriteExceptionInLogFile(ex);
+            }
+
+            return TypeNameEn;
+        }
+
+
+        public static int? GetTypeIDByTypeNameEn(string  TypeNameEn)
+        {
+            int? TypeID = null;
+
+            try
+            {
+                using (SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlCommand Command = new SqlCommand("Sp_GetTypeIDByTypeNameEn", Connection))
+                {
+                    Command.CommandType = CommandType.StoredProcedure;
+
+                    Command.Parameters.AddWithValue("@TypeNameEn", TypeNameEn);
+
+                    Connection.Open();
+
+                    using (SqlDataReader reader = Command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            TypeID = reader.GetInt32(reader.GetOrdinal("TypeID"));
+                        }
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clsUtil.WriteExceptionInLogFile(ex);
+            }
+
+            return TypeID;
+        }
+
+        public static int? GetTypeIDByTypeNameAr(string TypeNameAr)
+        {
+            int? TypeID = null;
+
+            try
+            {
+                using (SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlCommand Command = new SqlCommand("Sp_GetTypeIDByTypeNameAr", Connection))
+                {
+
+
+                    Command.CommandType = CommandType.StoredProcedure;
+
+                    Command.Parameters.AddWithValue("@TypeNameAr", TypeNameAr);
+
+                    Connection.Open();
+
+                    using (SqlDataReader reader = Command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            TypeID = reader.GetInt32(reader.GetOrdinal("TypeID"));
+                        }
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clsUtil.WriteExceptionInLogFile(ex);
+            }
+
+            return TypeID;
+        }
+
     }
 
 }

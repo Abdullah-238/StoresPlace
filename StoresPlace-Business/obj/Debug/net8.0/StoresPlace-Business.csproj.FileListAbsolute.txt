@@ -8,6 +8,7 @@ C:\Users\good1\source\repos\StoresPlace\StoresPlace-Business\obj\Debug\net8.0\St
 C:\Users\good1\source\repos\StoresPlace\StoresPlace-Business\obj\Debug\net8.0\StoresPlace-Business.AssemblyInfoInputs.cache
 C:\Users\good1\source\repos\StoresPlace\StoresPlace-Business\obj\Debug\net8.0\StoresPlace-Business.AssemblyInfo.cs
 C:\Users\good1\source\repos\StoresPlace\StoresPlace-Business\obj\Debug\net8.0\StoresPlace-Business.csproj.CoreCompileInputs.cache
+C:\Users\good1\source\repos\StoresPlace\StoresPlace-Business\obj\Debug\net8.0\StoresPlace-Business.sourcelink.json
 C:\Users\good1\source\repos\StoresPlace\StoresPlace-Business\obj\Debug\net8.0\StoresPl.6B851D30.Up2Date
 C:\Users\good1\source\repos\StoresPlace\StoresPlace-Business\obj\Debug\net8.0\StoresPlace-Business.dll
 C:\Users\good1\source\repos\StoresPlace\StoresPlace-Business\obj\Debug\net8.0\refint\StoresPlace-Business.dll

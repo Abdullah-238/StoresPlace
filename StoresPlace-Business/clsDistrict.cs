@@ -119,5 +119,33 @@ namespace StoresPlace_Business
         {
             return clsDistrictData.GetAllDistrictByCityNameAr(CityNameAr);
         }
+
+
+
+        public static string GetDistrictsNameArByDistrictsID(int? DistrictsID)
+        {
+            return clsDistrictData.GetDistrictsNameArByDistrictsID(DistrictsID);
+        }
+
+
+        public static string GetDistrictsNameEnByDistrictsID(int? DistrictsID)
+        {
+            return clsDistrictData.GetDistrictsNameEnByDistrictsID(DistrictsID);
+        }
+
+
+
+
+
+
+        public static int? GetDistrictsIDByDistrictNameAr(string DistrictNameAr)
+        {
+            return clsDistrictData.GetDistrictsIDByDistrictNameAr(DistrictNameAr);
+        }
+
+        public static int? GetDistrictsIDByDistrictNameEn(string DistrictNameEn)
+        {
+            return clsDistrictData.GetDistrictsIDByDistrictNameEn(DistrictNameEn);
+        }
     }
 }

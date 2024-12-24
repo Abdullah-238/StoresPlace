@@ -1,6 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
 using System;
 using System.Data;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 
 namespace StoresPlace_DataAccess
@@ -213,8 +214,9 @@ namespace StoresPlace_DataAccess
                                         (!reader.IsDBNull(reader.GetOrdinal("NumberOfRates")) ? reader.GetDecimal("NumberOfRates") : null),
                                         (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : ""),
                                       (!reader.IsDBNull(reader.GetOrdinal("NumbersOfClick")) ? reader.GetDecimal("NumbersOfClick") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : ""),
                                     (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : ""),
+                                                                           (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : ""),
+
                                  reader.GetInt32(reader.GetOrdinal("StoreID"))
                               );
                         }
@@ -263,8 +265,9 @@ namespace StoresPlace_DataAccess
                                         (!reader.IsDBNull(reader.GetOrdinal("NumberOfRates")) ? reader.GetDecimal("NumberOfRates") : null),
                                         (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : ""),
                                       (!reader.IsDBNull(reader.GetOrdinal("NumbersOfClick")) ? reader.GetDecimal("NumbersOfClick") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : ""),
                                     (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : ""),
+                                                                           (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : ""),
+
                                  reader.GetInt32(reader.GetOrdinal("StoreID"))
                               );
                         }
@@ -505,8 +508,8 @@ namespace StoresPlace_DataAccess
                                         (!reader.IsDBNull(reader.GetOrdinal("NumberOfRates")) ? reader.GetDecimal("NumberOfRates") : null),
                                         (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : ""),
                                       (!reader.IsDBNull(reader.GetOrdinal("NumbersOfClick")) ? reader.GetDecimal("NumbersOfClick") : null),
+                                                                          (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : ""),
                                        (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : ""),
-                                    (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : ""),
                                  reader.GetInt32(reader.GetOrdinal("StoreID"))
                               ));
                         };
@@ -556,8 +559,9 @@ namespace StoresPlace_DataAccess
                                         (!reader.IsDBNull(reader.GetOrdinal("NumberOfRates")) ? reader.GetDecimal("NumberOfRates") : null),
                                         (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : ""),
                                       (!reader.IsDBNull(reader.GetOrdinal("NumbersOfClick")) ? reader.GetDecimal("NumbersOfClick") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : ""),
                                     (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : ""),
+                                                                           (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : ""),
+
                                  reader.GetInt32(reader.GetOrdinal("StoreID"))
                               ));
                         };
@@ -605,8 +609,8 @@ namespace StoresPlace_DataAccess
                                         (!reader.IsDBNull(reader.GetOrdinal("NumberOfRates")) ? reader.GetDecimal("NumberOfRates") : null),
                                         (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : ""),
                                       (!reader.IsDBNull(reader.GetOrdinal("NumbersOfClick")) ? reader.GetDecimal("NumbersOfClick") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : ""),
                                     (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : ""),
+                                                                           (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : ""),
                                  reader.GetInt32(reader.GetOrdinal("StoreID"))
                               ));
                         };
@@ -655,8 +659,8 @@ namespace StoresPlace_DataAccess
                                         (!reader.IsDBNull(reader.GetOrdinal("NumberOfRates")) ? reader.GetDecimal("NumberOfRates") : null),
                                         (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : ""),
                                       (!reader.IsDBNull(reader.GetOrdinal("NumbersOfClick")) ? reader.GetDecimal("NumbersOfClick") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : ""),
                                     (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : ""),
+                                                                           (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : ""),
                                  reader.GetInt32(reader.GetOrdinal("StoreID"))
                                ));
                         };
@@ -705,8 +709,8 @@ namespace StoresPlace_DataAccess
                                         (!reader.IsDBNull(reader.GetOrdinal("NumberOfRates")) ? reader.GetDecimal("NumberOfRates") : null),
                                         (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : ""),
                                       (!reader.IsDBNull(reader.GetOrdinal("NumbersOfClick")) ? reader.GetDecimal("NumbersOfClick") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : ""),
                                     (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : ""),
+                                                                           (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : ""),
                                  reader.GetInt32(reader.GetOrdinal("StoreID"))
                                ));
                         };
@@ -755,8 +759,9 @@ namespace StoresPlace_DataAccess
                                         (!reader.IsDBNull(reader.GetOrdinal("NumberOfRates")) ? reader.GetDecimal("NumberOfRates") : null),
                                         (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : ""),
                                       (!reader.IsDBNull(reader.GetOrdinal("NumbersOfClick")) ? reader.GetDecimal("NumbersOfClick") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : ""),
                                     (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : ""),
+                                                                           (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : ""),
+
                                  reader.GetInt32(reader.GetOrdinal("StoreID"))
                               ));
                         };
@@ -805,8 +810,9 @@ namespace StoresPlace_DataAccess
                                         (!reader.IsDBNull(reader.GetOrdinal("NumberOfRates")) ? reader.GetDecimal("NumberOfRates") : null),
                                         (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : ""),
                                       (!reader.IsDBNull(reader.GetOrdinal("NumbersOfClick")) ? reader.GetDecimal("NumbersOfClick") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : ""),
                                     (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : ""),
+                                                                           (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : ""),
+
                                  reader.GetInt32(reader.GetOrdinal("StoreID"))
                               ));
                         };
@@ -855,8 +861,9 @@ namespace StoresPlace_DataAccess
                                         (!reader.IsDBNull(reader.GetOrdinal("NumberOfRates")) ? reader.GetDecimal("NumberOfRates") : null),
                                         (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : ""),
                                       (!reader.IsDBNull(reader.GetOrdinal("NumbersOfClick")) ? reader.GetDecimal("NumbersOfClick") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : ""),
                                     (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : ""),
+                                                                           (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : ""),
+
                                  reader.GetInt32(reader.GetOrdinal("StoreID"))
                               ));
                         };
@@ -905,8 +912,8 @@ namespace StoresPlace_DataAccess
                                         (!reader.IsDBNull(reader.GetOrdinal("NumberOfRates")) ? reader.GetDecimal("NumberOfRates") : null),
                                         (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : ""),
                                       (!reader.IsDBNull(reader.GetOrdinal("NumbersOfClick")) ? reader.GetDecimal("NumbersOfClick") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : ""),
                                     (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : ""),
+                                                                           (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : ""),
                                  reader.GetInt32(reader.GetOrdinal("StoreID"))
                                ));
                         };
@@ -930,7 +937,7 @@ namespace StoresPlace_DataAccess
             try
             {
                 using (SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                using (SqlCommand Command = new SqlCommand("SP_GetAllStoreAr", Connection))
+                using (SqlCommand Command = new SqlCommand("Sp_GetAllStoresInDetailsAR", Connection))
                 {
                     Command.CommandType = CommandType.StoredProcedure;
 
@@ -954,8 +961,9 @@ namespace StoresPlace_DataAccess
                                         (!reader.IsDBNull(reader.GetOrdinal("NumberOfRates")) ? reader.GetDecimal("NumberOfRates") : null),
                                         (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : ""),
                                       (!reader.IsDBNull(reader.GetOrdinal("NumbersOfClick")) ? reader.GetDecimal("NumbersOfClick") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : ""),
                                     (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : ""),
+                                                                           (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : ""),
+
                                  reader.GetInt32(reader.GetOrdinal("StoreID"))
                               ));
                         };
@@ -1002,8 +1010,8 @@ namespace StoresPlace_DataAccess
                                         (!reader.IsDBNull(reader.GetOrdinal("NumberOfRates")) ? reader.GetDecimal("NumberOfRates") : null),
                                         (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : ""),
                                       (!reader.IsDBNull(reader.GetOrdinal("NumbersOfClick")) ? reader.GetDecimal("NumbersOfClick") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : ""),
                                     (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : ""),
+                                      (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : ""),
                                  reader.GetInt32(reader.GetOrdinal("StoreID"))
                               ));
                         };
@@ -1024,7 +1032,7 @@ namespace StoresPlace_DataAccess
             try
             {
                 using (SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                using (SqlCommand Command = new SqlCommand("SP_GetAllStoreEn", Connection))
+                using (SqlCommand Command = new SqlCommand("Sp_GetAllStoresInDetailsEn", Connection))
                 {
                     Command.CommandType = CommandType.StoredProcedure;
 
@@ -1048,8 +1056,9 @@ namespace StoresPlace_DataAccess
                                         (!reader.IsDBNull(reader.GetOrdinal("NumberOfRates")) ? reader.GetDecimal("NumberOfRates") : null),
                                         (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : ""),
                                       (!reader.IsDBNull(reader.GetOrdinal("NumbersOfClick")) ? reader.GetDecimal("NumbersOfClick") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : ""),
                                     (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : ""),
+                                                                           (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : ""),
+
                                  reader.GetInt32(reader.GetOrdinal("StoreID"))
                               ));
                         };
@@ -1096,8 +1105,9 @@ namespace StoresPlace_DataAccess
                                         (!reader.IsDBNull(reader.GetOrdinal("NumberOfRates")) ? reader.GetDecimal("NumberOfRates") : null),
                                         (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : ""),
                                       (!reader.IsDBNull(reader.GetOrdinal("NumbersOfClick")) ? reader.GetDecimal("NumbersOfClick") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : ""),
                                     (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : ""),
+                                                                           (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : ""),
+
                                  reader.GetInt32(reader.GetOrdinal("StoreID"))
                               ));
                         };
@@ -1112,6 +1122,65 @@ namespace StoresPlace_DataAccess
             return store;
         }
 
+
+        public static bool UpdateStoreRating(byte ? Rate, int ? StoreID)
+        {
+            bool Updated = false;
+
+            try
+            {
+                using (SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlCommand Command = new SqlCommand("SP_UpdateStoreRating", Connection))
+                {
+                    Command.CommandType = CommandType.StoredProcedure;
+
+
+                    Command.Parameters.AddWithValue("@Rate", Rate);
+                    Command.Parameters.AddWithValue("@StoreID", StoreID);
+
+                    Connection.Open();
+                    int RowsAffected = Command.ExecuteNonQuery();
+
+                    Updated = (RowsAffected > 0);
+                }
+            }
+            catch (Exception ex)
+            {
+                clsUtil.WriteExceptionInLogFile(ex);
+            }
+
+            return Updated;
+        }
+
+        public static bool UpdateStoreRating(byte? Rate,byte ? OldRate ,  int? StoreID)
+        {
+            bool Updated = false;
+
+            try
+            {
+                using (SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlCommand Command = new SqlCommand("SP_UpdateOldStoreRating", Connection))
+                {
+                    Command.CommandType = CommandType.StoredProcedure;
+
+
+                    Command.Parameters.AddWithValue("@Rate", Rate);
+                    Command.Parameters.AddWithValue("@OldRate", OldRate);
+                    Command.Parameters.AddWithValue("@StoreID", StoreID);
+
+                    Connection.Open();
+                    int RowsAffected = Command.ExecuteNonQuery();
+
+                    Updated = (RowsAffected > 0);
+                }
+            }
+            catch (Exception ex)
+            {
+                clsUtil.WriteExceptionInLogFile(ex);
+            }
+
+            return Updated;
+        }
 
     }
 }

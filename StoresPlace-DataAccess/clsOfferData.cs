@@ -250,6 +250,40 @@ namespace StoresPlace_DataAccess
             return offer;
         }
 
+        public static List<OfferDTO> GetAllOffer(int? StoreID)
+        {
+            List<OfferDTO> offer = new List<OfferDTO>();
+            try
+            {
+                using (SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlCommand Command = new SqlCommand("SP_GetAllOfferByStoreID", Connection))
+                {
+                    Command.CommandType = CommandType.StoredProcedure;
+
+                    Command.Parameters.AddWithValue("@StoreID", StoreID);
+
+                    Connection.Open();
+                    using (SqlDataReader reader = Command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            offer.Add(new OfferDTO
+                              (
+                                 reader.GetInt32(reader.GetOrdinal("OfferID")),
+                                     reader.GetString(reader.GetOrdinal("Offer")),
+                                 reader.GetInt32(reader.GetOrdinal("StoreID"))
+                              ));
+                        };
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clsUtil.WriteExceptionInLogFile(ex);
+            }
+
+            return offer;
+        }
 
 
     }

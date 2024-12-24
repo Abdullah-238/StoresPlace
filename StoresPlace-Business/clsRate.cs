@@ -72,9 +72,23 @@ namespace StoresPlace_Business
             else
                 return null;
         }
+
+        public static clsRate Find(int? StoreID, int? PersonID)
+        {
+            RateDTO RDTO = clsRateData.FindRate( StoreID, PersonID);
+            if (RDTO != null)
+                return new clsRate(RDTO, enMode.UPDATE);
+            else
+                return null;
+        }
         public static bool IsExist(int? RateID)
         {
             return clsRateData.IsRateExists(RateID);
+        }
+
+        public static bool IsRateExists(int? StoreID, int? PersonID)
+        {
+            return clsRateData.IsRateExists(StoreID, PersonID);
         }
 
         public static bool Delete(int? RateID)

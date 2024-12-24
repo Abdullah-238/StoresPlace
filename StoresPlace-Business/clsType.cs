@@ -111,5 +111,27 @@ namespace StoresPlace_Business
         {
             return clsTypeData.FindTypeEn(TypeNameEn);
         }
+
+        public static string GetTypeNameArByTypeID(int? TypeID)
+        {
+            return clsTypeData.GetTypeNameArByTypeID(TypeID);
+        }
+
+        public static string GetTypeNameEnByTypeID(int? TypeID)
+        {
+            return clsTypeData.GetTypeNameEnByTypeID(TypeID);
+        }
+
+
+        public static int? GetTypeIDByTypeNameAr(string TypeNameAr)
+        {
+            return clsTypeData.GetTypeIDByTypeNameAr(TypeNameAr);
+        }
+
+        public static int? GetTypeIDByTypeNameEn( string TypeNameEn)
+        {
+            return clsTypeData.GetTypeIDByTypeNameEn(TypeNameEn);
+        }
+
     }
 }

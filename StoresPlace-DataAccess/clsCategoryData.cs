@@ -408,6 +408,141 @@ namespace StoresPlace_DataAccess
             return Category;
         }
 
+        public static string GetCategoryNameArByCategoryID(int? CategoryID)
+        {
+            string CategoryNameAr = null;
+
+            try
+            {
+                using (SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlCommand Command = new SqlCommand("Sp_GetCategoryNameArByCategoryID", Connection))
+                {
+                    Command.CommandType = CommandType.StoredProcedure;
+
+                    Command.Parameters.AddWithValue("@CategoryID", CategoryID);
+
+                    Connection.Open();
+
+                    using (SqlDataReader reader = Command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            CategoryNameAr =  reader.GetString(reader.GetOrdinal("CategoryNameAr"));
+                        }
+                     
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clsUtil.WriteExceptionInLogFile(ex);
+            }
+
+            return CategoryNameAr;
+        }
+
+        public static string GetCategoryNameEnByCategoryID(int? CategoryID)
+        {
+            string CategoryNameAr = null;
+
+            try
+            {
+                using (SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlCommand Command = new SqlCommand("Sp_GetCategoryNameEnByCategoryID", Connection))
+                {
+                    Command.CommandType = CommandType.StoredProcedure;
+
+                    Command.Parameters.AddWithValue("@CategoryID", CategoryID);
+
+                    Connection.Open();
+
+                    using (SqlDataReader reader = Command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            CategoryNameAr = reader.GetString(reader.GetOrdinal("CategoryNameEn"));
+                        }
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clsUtil.WriteExceptionInLogFile(ex);
+            }
+
+            return CategoryNameAr;
+        }
+
+
+
+        public static int? GetCategoryIdByCategoryNameEn(string CategoryNameEn)
+        {
+            int? Category = null;
+
+            try
+            {
+                using (SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlCommand Command = new SqlCommand("Sp_GetCategoryidByCategoryNameEn", Connection))
+                {
+                    Command.CommandType = CommandType.StoredProcedure;
+
+                    Command.Parameters.AddWithValue("@CategoryNameEn", CategoryNameEn);
+
+                    Connection.Open();
+
+                    using (SqlDataReader reader = Command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            Category = reader.GetInt32(reader.GetOrdinal("Categoryid"));
+                        }
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clsUtil.WriteExceptionInLogFile(ex);
+            }
+
+            return Category;
+        }
+
+        public static int? GetCategoryIdByCategoryNameAr(string CategoryNameAr)
+        {
+            int? Category = null;
+
+            try
+            {
+                using (SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlCommand Command = new SqlCommand("Sp_GetCategoryidByCategoryNameAr", Connection))
+                {
+                    Command.CommandType = CommandType.StoredProcedure;
+
+                    Command.Parameters.AddWithValue("@CategoryNameAr", CategoryNameAr);
+
+                    Connection.Open();
+
+                    using (SqlDataReader reader = Command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            Category = reader.GetInt32(reader.GetOrdinal("Categoryid"));
+                        }
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clsUtil.WriteExceptionInLogFile(ex);
+            }
+
+            return Category;
+        }
+
 
     }
+
 }

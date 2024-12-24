@@ -95,5 +95,30 @@ namespace StoresPlace_Business
         {
             return clsRegionData.GetAllRegionsByNameEn();
         }
+
+
+        public static string GetRegionNameArByRegionID(int? RegionID)
+        {
+            return clsRegionData.GetRegionNameArByRegionID(RegionID);
+        }
+
+        public static string GetRegionNameEnByRegionID(int? RegionID)
+        {
+            return clsRegionData.GetCategoryNameEnByRegionID(RegionID);
+        }
+
+
+        public static string GetRegionNameArByDistrictsID(int? DistrictsID)
+        {
+            return clsRegionData.GetRegionNameArByDistrictsID(DistrictsID);
+        }
+
+        public static string GetRegionNameEnByDistrictsID(int? DistrictsID)
+        {
+            return clsRegionData.GetRegionNameEnByDistrictsID(DistrictsID);
+        }
+
+
+
     }
 }

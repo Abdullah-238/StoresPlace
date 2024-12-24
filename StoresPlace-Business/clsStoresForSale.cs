@@ -62,17 +62,17 @@ namespace StoresPlace_Business
             return false;
         }
 
-        public static clsStoresForSale Find(int? StoreForSaleID)
+        public static clsStoresForSale Find(int? @StoreID)
         {
-            StoresForSaleDTO SDTO = clsStoresForSaleData.FindStoresForSale(StoreForSaleID);
+            StoresForSaleDTO SDTO = clsStoresForSaleData.FindStoresForSale(StoreID);
             if (SDTO != null)
                 return new clsStoresForSale(SDTO, enMode.UPDATE);
             else
                 return null;
         }
-        public static bool IsExist(int? StoreForSaleID)
+        public static bool IsStoresForSaleExists(int? StoreID)
         {
-            return clsStoresForSaleData.IsStoresForSaleExists(StoreForSaleID);
+            return clsStoresForSaleData.IsStoresForSaleExists(StoreID);
         }
 
         public static bool Delete(int? StoreForSaleID)
