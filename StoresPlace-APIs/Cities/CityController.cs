@@ -9,65 +9,6 @@ namespace StoresPlace_APIs.Cities
     [ApiController]
     public class CityController : ControllerBase
     {
-        [HttpPost("AddCity", Name = "AddCity")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public ActionResult<CityDTO> AddCity( CityDTO cityDTO)
-        {
-            clsCity newCity = new clsCity(cityDTO);
-
-            if (newCity.Save())
-            {
-                return Ok(newCity.CDTO);
-            }
-            else
-            {
-                return BadRequest("Failed to add the city.");
-            }
-        }
-
-        [HttpPut("UpdateCity/{CityID}", Name = "UpdateCity")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<CityDTO> UpdateCity(int CityID, CityDTO cityDTO)
-        {
-            if (CityID != cityDTO.CityID)
-            {
-                return BadRequest("CityID mismatch.");
-            }
-
-            clsCity existingCity = clsCity.Find(CityID);
-            existingCity.CityNameEn = cityDTO.CityNameEn;
-            existingCity.CityNameAr = cityDTO.CityNameAr;
-            existingCity.RegionID = cityDTO.RegionID;
-
-
-            if (existingCity != null && existingCity.Save())
-            {
-                return Ok(existingCity.CDTO);
-            }
-            else
-            {
-                return StatusCode(500, new { message = "Can't update this city" });
-            }
-        }
-
-        [HttpDelete("DeleteCity/{CityID}", Name = "DeleteCity")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<string> DeleteCity(int CityID)
-        {
-            bool result = clsCity.Delete(CityID);
-            if (result)
-            {
-                return Ok($"City with ID {CityID} deleted successfully.");
-            }
-            else
-            {
-                return NotFound($"City with ID {CityID} not found.");
-            }
-        }
-
         [HttpGet("GetCity/{CityID}", Name = "GetCity")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

@@ -46,7 +46,7 @@ namespace StoresPlace_DataAccess
 
         public static void WriteExceptionInLogFile(Exception ex)
         {
-            Send_Message(ex.Message);
+            Send_Message(ex.Message + ex.Source);
         }
 
         public static string ComputeHash(string input)

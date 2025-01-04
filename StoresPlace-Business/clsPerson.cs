@@ -112,7 +112,11 @@ namespace StoresPlace_Business
         }
 
 
-   
+        public static bool UpdatePassword(string Email, string Password)
+        {
+            return clsPersonData.UpdatePassword(Email,Password);
+        }
+
 
 
     }

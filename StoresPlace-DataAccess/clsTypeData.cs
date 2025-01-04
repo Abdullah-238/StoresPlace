@@ -22,43 +22,7 @@ namespace StoresPlace_DataAccess
             }
         }
 
-        public static Nullable<int> AddNewType(TypeDTO type)
-        {
-            Nullable<int> TypeID = null;
-            try
-            {
-
-                using (SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                using (SqlCommand Command = new SqlCommand("SP_AddNewType", Connection))
-                {
-                    Command.CommandType = CommandType.StoredProcedure;
-
-                    Command.Parameters.AddWithValue("@TypeNameAr", type.TypeNameAr);
-                    Command.Parameters.AddWithValue("@TypeNameEn", type.TypeNameEn);
-
-
-                    // Output parameter
-                    SqlParameter outputParameter = new SqlParameter($"@NewTypeID", SqlDbType.Int)
-                    {
-                        Direction = ParameterDirection.Output
-                    };
-                    Command.Parameters.Add(outputParameter);
-
-                    Connection.Open();
-                    Command.ExecuteScalar();
-
-                    TypeID = (int)Command.Parameters[$"@NewTypeID"].Value;
-
-                }
-            }
-            catch (Exception ex)
-            {
-                clsUtil.WriteExceptionInLogFile(ex);
-            }
-
-            return TypeID;
-        }
-
+    
         public static TypeDTO FindType(int? TypeID)
         {
             try
@@ -171,97 +135,6 @@ namespace StoresPlace_DataAccess
             }
 
             return null;
-        }
-
-        public static bool UpdateType(TypeDTO type)
-        {
-            bool Updated = false;
-
-            try
-            {
-                using (SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                using (SqlCommand Command = new SqlCommand("SP_UpdateType", Connection))
-                {
-                    Command.CommandType = CommandType.StoredProcedure;
-
-                    Command.Parameters.AddWithValue("@TypeID", type.TypeID);
-                    Command.Parameters.AddWithValue("@TypeNameAr", type.TypeNameAr);
-                    Command.Parameters.AddWithValue("@TypeNameEn", type.TypeNameEn);
-
-                    Connection.Open();
-                    int RowsAffected = Command.ExecuteNonQuery();
-
-                    Updated = (RowsAffected > 0);
-                }
-            }
-            catch (Exception ex)
-            {
-                clsUtil.WriteExceptionInLogFile(ex);
-            }
-
-            return Updated;
-        }
-
-        public static bool IsTypeExists(int? TypeID)
-        {
-
-            bool isFound = false;
-            try
-            {
-                using (SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                using (SqlCommand Command = new SqlCommand("SP_IsTypeExists", Connection))
-                {
-                    Connection.Open();
-                    Command.CommandType = CommandType.StoredProcedure;
-
-                    Command.Parameters.AddWithValue("@TypeID", TypeID);
-
-                    SqlParameter returnParameter = new SqlParameter("@ReturnVal", SqlDbType.Int)
-                    {
-                        Direction = ParameterDirection.ReturnValue
-
-                    };
-                    Command.Parameters.Add(returnParameter);
-                    Command.ExecuteNonQuery();
-                    isFound = (int)returnParameter.Value == 1;
-
-                };
-
-            }
-            catch (Exception ex)
-            {
-                clsUtil.WriteExceptionInLogFile(ex);
-            }
-            return isFound;
-        }
-
-        public static bool DeleteType(int? TypeID)
-        {
-            bool Deleted = false;
-            try
-            {
-
-                using (SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                {
-                    Connection.Open();
-                    using (SqlCommand Command = new SqlCommand("SP_DeleteType", Connection))
-                    {
-                        Command.CommandType = CommandType.StoredProcedure;
-
-                        Command.Parameters.AddWithValue("@TypeID", TypeID);
-
-
-                        int RowsAffected = Command.ExecuteNonQuery();
-
-                        Deleted = (RowsAffected > 0);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                clsUtil.WriteExceptionInLogFile(ex);
-            }
-            return Deleted;
         }
 
         public static List<TypeDTO> GetAllType()

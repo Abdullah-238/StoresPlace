@@ -150,6 +150,20 @@ namespace StoresPlace_APIs.Persons
             }
         }
 
+        [HttpGet("UpdatePass/{Email}/{Password}", Name = "UpdatePass")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+
+        public ActionResult IsPersonExists(string Email, string Password)
+        {
+            bool exists = clsPerson.UpdatePassword(Email,Password);
+
+            if (exists)
+            return Ok();
+            else
+                return StatusCode(500, new { message = "Can't update this password" });
+
+        }
 
     }
 }

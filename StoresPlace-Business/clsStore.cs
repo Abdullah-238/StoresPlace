@@ -13,19 +13,26 @@ namespace StoresPlace_Business
         public enMode Mode;
 
         public int? StoreID { get; set; }
-        public string Name { get; set; }
-        public string CommercialNumber { get; set; }
+        public string? Name { get; set; }
+        public string? CommercialNumber { get; set; }
         public int? DistrictsID { get; set; }
-        public string Website { get; set; }
-        public string Address { get; set; }
+        public string? Website { get; set; }
+        public string? Address { get; set; }
         public int? CategoryID { get; set; }
         public int? TypeID { get; set; }
         public byte? Rating { get; set; }
         public decimal? NumberOfRates { get; set; }
         public byte? Status { get; set; }
         public decimal? NumbersOfClick { get; set; }
-        public string Photo { get; set; }
+        public string? Photo { get; set; }
         public int? PeronID { get; set; }
+
+        public string? Phone { get; set; }
+        public int? CityID { get; set; }
+        public string? Email { get; set; }
+
+      
+
 
         public enum enStoresType
         {
@@ -38,7 +45,8 @@ namespace StoresPlace_Business
         }
         public StoreDTO SDTO
         {
-            get { return (new StoreDTO(this.StoreID, this.Name, this.CommercialNumber, this.DistrictsID, this.Website, this.Address, this.CategoryID, this.TypeID, this.Rating, this.NumberOfRates, this.Status, this.NumbersOfClick, this.Photo, this.PeronID)); }
+            get { return (new StoreDTO(this.StoreID, this.Name, this.CommercialNumber, this.DistrictsID, this.Website, this.Address, this.CategoryID,
+                this.TypeID, this.Rating, this.NumberOfRates, this.Status, this.NumbersOfClick, this.Photo, this.PeronID,this.Phone,this.CityID,this.Email)); }
         }
         public clsStore(StoreDTO SDTO, enMode cMode = enMode.ADD)
         {
@@ -56,6 +64,9 @@ namespace StoresPlace_Business
             this.NumbersOfClick = SDTO.NumbersOfClick;
             this.Photo = SDTO.Photo;
             this.PeronID = SDTO.PeronID;
+            this.Phone = SDTO.Phone;
+            this.CityID = SDTO.CityID;
+            this.Email = SDTO.Email;
 
             Mode = cMode; ;
         }
@@ -63,18 +74,18 @@ namespace StoresPlace_Business
         public clsStore()
         {
             this.StoreID = null;
-            this.Name = "";
-            this.CommercialNumber = "";
+            this.Name = null;
+            this.CommercialNumber = null;
             this.DistrictsID = null;
-            this.Website = "";
-            this.Address = "";
+            this.Website = null;
+            this.Address = null;
             this.CategoryID = null;
             this.TypeID = null;
             this.Rating = null;
             this.NumberOfRates = null;
             this.Status = null;
             this.NumbersOfClick = null;
-            this.Photo = "";
+            this.Photo = null;
             this.PeronID = null;
 
             Mode = enMode.ADD; ;

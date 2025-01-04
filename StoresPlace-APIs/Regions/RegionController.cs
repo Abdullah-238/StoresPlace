@@ -9,61 +9,7 @@ namespace StoresPlace_APIs.Regions
     [ApiController]
     public class RegionController : ControllerBase
     {
-        [HttpPost("AddRegion", Name = "AddRegion")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public ActionResult<RegionDTO> AddRegion(RegionDTO regionDTO)
-        {
-            clsRegion newRegion = new clsRegion(regionDTO);
-
-            if (newRegion.Save())
-            {
-                return Ok(newRegion.RDTO);
-            }
-            else
-            {
-                return BadRequest("Failed to add the region.");
-            }
-        }
-
-        [HttpPut("UpdateRegion/{RegionID}", Name = "UpdateRegion")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<RegionDTO> UpdateRegion(int RegionID, RegionDTO regionDTO)
-        {
-            if (RegionID != regionDTO.RegionID)
-            {
-                return BadRequest("RegionID mismatch.");
-            }
-
-            clsRegion existingRegion = clsRegion.Find(RegionID);
-
-            if (existingRegion != null && existingRegion.Save())
-            {
-                return Ok(existingRegion.RDTO);
-            }
-            else
-            {
-                return NotFound("Region not found for update.");
-            }
-        }
-
-        [HttpDelete("DeleteRegion/{RegionID}", Name = "DeleteRegion")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<string> DeleteRegion(int RegionID)
-        {
-            bool result = clsRegion.Delete(RegionID);
-            if (result)
-            {
-                return Ok($"Region with ID {RegionID} deleted successfully.");
-            }
-            else
-            {
-                return NotFound($"Region with ID {RegionID} not found.");
-            }
-        }
-
+      
         [HttpGet("GetRegion/{RegionID}", Name = "GetRegion")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

@@ -17,7 +17,6 @@ namespace StoresPlace_APIs.Stores
         public ActionResult<StoreDTO> AddStore(StoreDTO storeDTO)
         {
 
-
             if (storeDTO.PeronID == null || storeDTO.CategoryID == null || storeDTO.TypeID == null)
             {
                 return BadRequest("Invalid category data");
@@ -72,6 +71,9 @@ namespace StoresPlace_APIs.Stores
             existingStore.NumbersOfClick = storeDTO.NumbersOfClick;
             existingStore.PeronID = storeDTO.PeronID;
             existingStore.CategoryID = storeDTO.CategoryID;
+            existingStore.Email = storeDTO.Email;
+            existingStore.CityID = storeDTO.CityID;
+            existingStore.Phone = storeDTO.Phone;
 
             if (existingStore.Save())
             {
@@ -353,6 +355,7 @@ namespace StoresPlace_APIs.Stores
         {
 
             var storeDetails = clsStoreData.GetAllStoresInDetailsByPersonIDEn(PersonID);
+
             if (storeDetails != null && storeDetails.Count > 0)
             {
                 return Ok(storeDetails);
@@ -419,4 +422,7 @@ namespace StoresPlace_APIs.Stores
             }
         }
     }
+
+
+
 }

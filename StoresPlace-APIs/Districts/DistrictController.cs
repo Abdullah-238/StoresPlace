@@ -10,82 +10,6 @@ namespace StoresPlace_APIs.Districts
     public class DistrictController : ControllerBase
     {
 
-        [HttpPost("AddDistrict", Name = "AddDistrict")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public ActionResult<DistrictDTO> AddDistrict(DistrictDTO districtDTO)
-        {
-            try
-            {
-                clsDistrict newDistrict = new clsDistrict(districtDTO);
-
-                if (newDistrict.Save())
-                {
-                    return Ok(newDistrict.DDTO);
-                }
-                else
-                {
-                    return BadRequest("Failed to add the district.");
-                }
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"Internal server error: {ex.Message}");
-            }
-        }
-
-        [HttpPut("UpdateDistrict/{DistrictID}", Name = "UpdateDistrict")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<DistrictDTO> UpdateDistrict(int DistrictID, DistrictDTO districtDTO)
-        {
-
-            if (DistrictID != districtDTO.DistrictsID)
-            {
-                return BadRequest("DistrictID mismatch.");
-            }
-
-            clsDistrict existingDistrict = clsDistrict.Find(DistrictID);
-
-            existingDistrict.DistrictsNameEn = districtDTO.DistrictsNameEn;
-            existingDistrict.DistrictsNameAr = districtDTO.DistrictsNameAr;
-            existingDistrict.CityID = districtDTO.CityID;
-
-            if (existingDistrict != null && existingDistrict.Save())
-            {
-                return Ok(existingDistrict.DDTO);  // Return updated district data
-            }
-            else
-            {
-                return StatusCode(500, new { message = "Can't update this district" });
-            }
-
-        }
-
-        [HttpDelete("DeleteDistrict/{DistrictID}", Name = "DeleteDistrict")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<string> DeleteDistrict(int DistrictID)
-        {
-            try
-            {
-                // Attempt to delete the district
-                bool result = clsDistrict.Delete(DistrictID);
-                if (result)
-                {
-                    return Ok($"District with ID {DistrictID} deleted successfully.");
-                }
-                else
-                {
-                    return NotFound($"District with ID {DistrictID} not found.");
-                }
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"Internal server error: {ex.Message}");
-            }
-        }
-
         [HttpGet("GetDistrict/{DistrictID}", Name = "GetDistrict")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -206,8 +130,6 @@ namespace StoresPlace_APIs.Districts
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
-
-
 
 
         [HttpGet("GetDistrictsNameArByDistrictsID/{DistrictsID}", Name = "GetDistrictsNameArByDistrictsID")]

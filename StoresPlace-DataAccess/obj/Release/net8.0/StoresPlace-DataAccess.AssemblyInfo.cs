@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("StoresPlace-DataAccess")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e46dea1b6ec5a8222628784c2b321c3eb3eff9e7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+17857afba30300dbca93b17ac7e3991f4c0a70b5")]
 [assembly: System.Reflection.AssemblyProductAttribute("StoresPlace-DataAccess")]
 [assembly: System.Reflection.AssemblyTitleAttribute("StoresPlace-DataAccess")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

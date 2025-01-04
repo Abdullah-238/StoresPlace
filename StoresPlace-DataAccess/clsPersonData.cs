@@ -343,5 +343,34 @@ namespace StoresPlace_DataAccess
 
             return null;
         }
+
+        public static bool UpdatePassword(string Email, string Password)
+        {
+            bool Updated = false;
+
+            try
+            {
+                using (SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlCommand Command = new SqlCommand("SP_ChangePassword", Connection))
+                {
+                    Command.CommandType = CommandType.StoredProcedure;
+
+                    Command.Parameters.AddWithValue("@Email", Email);
+                    Command.Parameters.AddWithValue("@Password", Password);
+
+                    Connection.Open();
+                    int RowsAffected = Command.ExecuteNonQuery();
+
+                    Updated = (RowsAffected > 0);
+                }
+            }
+            catch (Exception ex)
+            {
+                clsUtil.WriteExceptionInLogFile(ex);
+            }
+
+            return Updated;
+        }
+
     }
 }

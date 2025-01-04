@@ -51,7 +51,7 @@ namespace StoresPlace_DataAccess
             }
             catch (Exception ex)
             {
-                clsUtil.WriteExceptionInLogFile(ex);
+                clsUtil.WriteExceptionInLogFile(ex); ;
             }
 
             return UserID;

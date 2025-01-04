@@ -10,21 +10,24 @@ namespace StoresPlace_DataAccess
     {
         public int? StoreID { get; set; }
         public string Name { get; set; }
-        public string CommercialNumber { get; set; }
+        public string? CommercialNumber { get; set; }
         public int? DistrictsID { get; set; }
-        public string Website { get; set; }
-        public string Address { get; set; }
+        public string? Website { get; set; }
+        public string? Address { get; set; }
         public int? CategoryID { get; set; }
         public int? TypeID { get; set; }
         public byte? Rating { get; set; }
         public decimal? NumberOfRates { get; set; }
         public byte? Status { get; set; }
         public decimal? NumbersOfClick { get; set; }
-        public string Photo { get; set; }
+        public string? Photo { get; set; }
         public int? PeronID { get; set; }
+        public string? Phone { get; set; }
+        public int? CityID { get; set; }
+        public string? Email { get; set; }
 
-
-        public StoreDTO(int? storeid, string name, string commercialnumber, int? districtsid, string website, string address, int? categoryid, int? typeid, byte? rating, decimal? numberofrates, byte? status, decimal? numbersofclick, string photo, int? peronid)
+        public StoreDTO(int? storeid, string name, string? commercialnumber, int? districtsid, string? website, string? address, int? categoryid,
+            int? typeid, byte? rating, decimal? numberofrates, byte? status, decimal? numbersofclick, string? photo, int? peronid,string? phone , int ?cityID ,string ?email)
         {
             this.StoreID = storeid;
             this.Name = name;
@@ -40,30 +43,35 @@ namespace StoresPlace_DataAccess
             this.NumbersOfClick = numbersofclick;
             this.Photo = photo;
             this.PeronID = peronid;
+            this.Phone = phone;
+            this.CityID = cityID;
+            this.Email = email;
 
         }
+
+
     }
      public class StoreDetailsDTO
     {
         public string Name { get; set; }
-        public string RegionName { get; set; }
-        public string CityName { get; set; }
-        public string DistrictsName { get; set; }
-        public string CommercialNumber { get; set; }
-        public string Website { get; set; }
-        public string Address { get; set; }
-        public string CategoryName { get; set; }
-        public string TypeName { get; set; }
+        public string? RegionName { get; set; }
+        public string? CityName { get; set; }
+        public string? DistrictsName { get; set; }
+        public string? CommercialNumber { get; set; }
+        public string? Website { get; set; }
+        public string? Address { get; set; }
+        public string? CategoryName { get; set; }
+        public string? TypeName { get; set; }
         public byte? Rating { get; set; }
         public decimal? NumberOfRates { get; set; }
-        public string StoreStatus { get; set; }
+        public string? StoreStatus { get; set; }
         public decimal? NumbersOfClick { get; set; }
-        public string Photo { get; set; }
-        public string PersonName { get; set; }
+        public string? Photo { get; set; }
+        public string? PersonName { get; set; }
         public int? StoreID { get; set; }
 
-        public StoreDetailsDTO(string name, string regionNameAr, string cityNameAr, string districtsNameAr, string commercialNumber, string website, string address,
-            string categoryNameAr, string typeNameAr, byte? rating, decimal? numberOfRates, string storeStatus, decimal? numbersOfClick, string photo, string personName, int? storeid)
+        public StoreDetailsDTO(string name, string? regionNameAr, string? cityNameAr, string? districtsNameAr, string? commercialNumber, string? website, string? address,
+            string? categoryNameAr, string? typeNameAr, byte? rating, decimal? numberOfRates, string? storeStatus, decimal? numbersOfClick, string? photo, string? personName, int? storeid)
         {
             Name = name;
             RegionName = regionNameAr;
@@ -110,6 +118,9 @@ namespace StoresPlace_DataAccess
                     Command.Parameters.AddWithValue("@Status", store.Status);
                     Command.Parameters.AddWithValue("@NumbersOfClick", (store.NumbersOfClick == null ? DBNull.Value : store.NumbersOfClick));
                     Command.Parameters.AddWithValue("@Photo", (store.Photo == null ? DBNull.Value : store.Photo));
+                    Command.Parameters.AddWithValue("@Phone", (store.Phone == null ? DBNull.Value : store.Phone));
+                    Command.Parameters.AddWithValue("@CityID", (store.CityID == null ? DBNull.Value : store.CityID));
+                    Command.Parameters.AddWithValue("@Email", (store.Email == null ? DBNull.Value : store.Email));
                     Command.Parameters.AddWithValue("@PeronID", store.PeronID);
 
                     // Output parameter
@@ -155,18 +166,21 @@ namespace StoresPlace_DataAccess
                               (
                                  reader.GetInt32(reader.GetOrdinal("StoreID")),
                                      reader.GetString(reader.GetOrdinal("Name")),
-                                     (!reader.IsDBNull(reader.GetOrdinal("CommercialNumber")) ? reader.GetString("CommercialNumber") : ""),
+                                     (!reader.IsDBNull(reader.GetOrdinal("CommercialNumber")) ? reader.GetString("CommercialNumber") : null),
                                       (!reader.IsDBNull(reader.GetOrdinal("DistrictsID")) ? reader.GetInt32("DistrictsID") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Website")) ? reader.GetString("Website") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Address")) ? reader.GetString("Address") : ""),
+                                       (!reader.IsDBNull(reader.GetOrdinal("Website")) ? reader.GetString("Website") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("Address")) ? reader.GetString("Address") : null),
                                  reader.GetInt32(reader.GetOrdinal("CategoryID")),
                                  reader.GetInt32(reader.GetOrdinal("TypeID")),
                                         (!reader.IsDBNull(reader.GetOrdinal("Rating")) ? reader.GetByte("Rating") : null),
                                         (!reader.IsDBNull(reader.GetOrdinal("NumberOfRates")) ? reader.GetDecimal("NumberOfRates") : null),
                                      reader.GetByte(reader.GetOrdinal("Status")),
                                       (!reader.IsDBNull(reader.GetOrdinal("NumbersOfClick")) ? reader.GetDecimal("NumbersOfClick") : null),
-                                    (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : ""),
-                                 reader.GetInt32(reader.GetOrdinal("PeronID"))
+                                    (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : null),
+                                 reader.GetInt32(reader.GetOrdinal("PeronID")),
+                                    (!reader.IsDBNull(reader.GetOrdinal("Phone")) ? reader.GetString("Phone") : null),
+                                    (!reader.IsDBNull(reader.GetOrdinal("CityID")) ? reader.GetInt32("CityID") : null),
+                                    (!reader.IsDBNull(reader.GetOrdinal("Email")) ? reader.GetString("Email") : null)
                               );
                         }
                         else
@@ -202,20 +216,20 @@ namespace StoresPlace_DataAccess
                             return new StoreDetailsDTO
                               (
                                      reader.GetString(reader.GetOrdinal("Name")),
-                                     (!reader.IsDBNull(reader.GetOrdinal("RegionName")) ? reader.GetString("RegionName") : ""),
-                                      (!reader.IsDBNull(reader.GetOrdinal("CityName")) ? reader.GetString("CityName") : ""),
-                                     (!reader.IsDBNull(reader.GetOrdinal("DistrictsName")) ? reader.GetString("DistrictsName") : ""),
-                                     (!reader.IsDBNull(reader.GetOrdinal("CommercialNumber")) ? reader.GetString("CommercialNumber") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Website")) ? reader.GetString("Website") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Address")) ? reader.GetString("Address") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("CategoryName")) ? reader.GetString("CategoryName") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("TypeName")) ? reader.GetString("TypeName") : ""),
+                                     (!reader.IsDBNull(reader.GetOrdinal("RegionName")) ? reader.GetString("RegionName") : null),
+                                      (!reader.IsDBNull(reader.GetOrdinal("CityName")) ? reader.GetString("CityName") : null),
+                                     (!reader.IsDBNull(reader.GetOrdinal("DistrictsName")) ? reader.GetString("DistrictsName") : null),
+                                     (!reader.IsDBNull(reader.GetOrdinal("CommercialNumber")) ? reader.GetString("CommercialNumber") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("Website")) ? reader.GetString("Website") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("Address")) ? reader.GetString("Address") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("CategoryName")) ? reader.GetString("CategoryName") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("TypeName")) ? reader.GetString("TypeName") : null),
                                         (!reader.IsDBNull(reader.GetOrdinal("Rating")) ? reader.GetByte("Rating") : null),
                                         (!reader.IsDBNull(reader.GetOrdinal("NumberOfRates")) ? reader.GetDecimal("NumberOfRates") : null),
-                                        (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : ""),
+                                        (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : null),
                                       (!reader.IsDBNull(reader.GetOrdinal("NumbersOfClick")) ? reader.GetDecimal("NumbersOfClick") : null),
-                                    (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : ""),
-                                                                           (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : ""),
+                                    (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : null),
+                                                                           (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : null),
 
                                  reader.GetInt32(reader.GetOrdinal("StoreID"))
                               );
@@ -253,20 +267,20 @@ namespace StoresPlace_DataAccess
                             return new StoreDetailsDTO
                               (
                                   reader.GetString(reader.GetOrdinal("Name")),
-                                     (!reader.IsDBNull(reader.GetOrdinal("RegionName")) ? reader.GetString("RegionName") : ""),
-                                      (!reader.IsDBNull(reader.GetOrdinal("CityName")) ? reader.GetString("CityName") : ""),
-                                     (!reader.IsDBNull(reader.GetOrdinal("DistrictsName")) ? reader.GetString("DistrictsName") : ""),
-                                     (!reader.IsDBNull(reader.GetOrdinal("CommercialNumber")) ? reader.GetString("CommercialNumber") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Website")) ? reader.GetString("Website") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Address")) ? reader.GetString("Address") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("CategoryName")) ? reader.GetString("CategoryName") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("TypeName")) ? reader.GetString("TypeName") : ""),
+                                     (!reader.IsDBNull(reader.GetOrdinal("RegionName")) ? reader.GetString("RegionName") : null),
+                                      (!reader.IsDBNull(reader.GetOrdinal("CityName")) ? reader.GetString("CityName") : null),
+                                     (!reader.IsDBNull(reader.GetOrdinal("DistrictsName")) ? reader.GetString("DistrictsName") : null),
+                                     (!reader.IsDBNull(reader.GetOrdinal("CommercialNumber")) ? reader.GetString("CommercialNumber") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("Website")) ? reader.GetString("Website") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("Address")) ? reader.GetString("Address") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("CategoryName")) ? reader.GetString("CategoryName") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("TypeName")) ? reader.GetString("TypeName") : null),
                                         (!reader.IsDBNull(reader.GetOrdinal("Rating")) ? reader.GetByte("Rating") : null),
                                         (!reader.IsDBNull(reader.GetOrdinal("NumberOfRates")) ? reader.GetDecimal("NumberOfRates") : null),
-                                        (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : ""),
+                                        (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : null),
                                       (!reader.IsDBNull(reader.GetOrdinal("NumbersOfClick")) ? reader.GetDecimal("NumbersOfClick") : null),
-                                    (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : ""),
-                                                                           (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : ""),
+                                    (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : null),
+                                                                           (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : null),
 
                                  reader.GetInt32(reader.GetOrdinal("StoreID"))
                               );
@@ -308,6 +322,9 @@ namespace StoresPlace_DataAccess
                     Command.Parameters.AddWithValue("@Status", store.Status);
                     Command.Parameters.AddWithValue("@NumbersOfClick", (store.NumbersOfClick == null ? DBNull.Value : store.NumbersOfClick));
                     Command.Parameters.AddWithValue("@Photo", (store.Photo == null ? DBNull.Value : store.Photo));
+                    Command.Parameters.AddWithValue("@Phone", (store.Phone == null ? DBNull.Value : store.Phone));
+                    Command.Parameters.AddWithValue("@CityID", (store.CityID == null ? DBNull.Value : store.CityID));
+                    Command.Parameters.AddWithValue("@Email", (store.Email == null ? DBNull.Value : store.Email));
                     Command.Parameters.AddWithValue("@PeronID", store.PeronID);
 
                     Connection.Open();
@@ -405,18 +422,21 @@ namespace StoresPlace_DataAccess
                               (
                                   reader.GetInt32(reader.GetOrdinal("StoreID")),
                                      reader.GetString(reader.GetOrdinal("Name")),
-                                     (!reader.IsDBNull(reader.GetOrdinal("CommercialNumber")) ? reader.GetString("CommercialNumber") : ""),
+                                     (!reader.IsDBNull(reader.GetOrdinal("CommercialNumber")) ? reader.GetString("CommercialNumber") : null),
                                       (!reader.IsDBNull(reader.GetOrdinal("DistrictsID")) ? reader.GetInt32("DistrictsID") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Website")) ? reader.GetString("Website") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Address")) ? reader.GetString("Address") : ""),
+                                       (!reader.IsDBNull(reader.GetOrdinal("Website")) ? reader.GetString("Website") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("Address")) ? reader.GetString("Address") : null),
                                  reader.GetInt32(reader.GetOrdinal("CategoryID")),
                                  reader.GetInt32(reader.GetOrdinal("TypeID")),
                                         (!reader.IsDBNull(reader.GetOrdinal("Rating")) ? reader.GetByte("Rating") : null),
                                         (!reader.IsDBNull(reader.GetOrdinal("NumberOfRates")) ? reader.GetDecimal("NumberOfRates") : null),
                                      reader.GetByte(reader.GetOrdinal("Status")),
                                       (!reader.IsDBNull(reader.GetOrdinal("NumbersOfClick")) ? reader.GetDecimal("NumbersOfClick") : null),
-                                    (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : ""),
-                                 reader.GetInt32(reader.GetOrdinal("PeronID"))
+                                    (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : null),
+                                 reader.GetInt32(reader.GetOrdinal("PeronID")),
+                                    (!reader.IsDBNull(reader.GetOrdinal("Phone")) ? reader.GetString("Phone") : null),
+                                    (!reader.IsDBNull(reader.GetOrdinal("CityID")) ? reader.GetInt32("CityID") : null),
+                                    (!reader.IsDBNull(reader.GetOrdinal("Email")) ? reader.GetString("Email") : null)
                               ));
                         };
                     }
@@ -451,18 +471,21 @@ namespace StoresPlace_DataAccess
                               (
                                   reader.GetInt32(reader.GetOrdinal("StoreID")),
                                      reader.GetString(reader.GetOrdinal("Name")),
-                                     (!reader.IsDBNull(reader.GetOrdinal("CommercialNumber")) ? reader.GetString("CommercialNumber") : ""),
+                                     (!reader.IsDBNull(reader.GetOrdinal("CommercialNumber")) ? reader.GetString("CommercialNumber") : null),
                                       (!reader.IsDBNull(reader.GetOrdinal("DistrictsID")) ? reader.GetInt32("DistrictsID") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Website")) ? reader.GetString("Website") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Address")) ? reader.GetString("Address") : ""),
+                                       (!reader.IsDBNull(reader.GetOrdinal("Website")) ? reader.GetString("Website") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("Address")) ? reader.GetString("Address") : null),
                                  reader.GetInt32(reader.GetOrdinal("CategoryID")),
                                  reader.GetInt32(reader.GetOrdinal("TypeID")),
                                         (!reader.IsDBNull(reader.GetOrdinal("Rating")) ? reader.GetByte("Rating") : null),
                                         (!reader.IsDBNull(reader.GetOrdinal("NumberOfRates")) ? reader.GetDecimal("NumberOfRates") : null),
                                      reader.GetByte(reader.GetOrdinal("Status")),
                                       (!reader.IsDBNull(reader.GetOrdinal("NumbersOfClick")) ? reader.GetDecimal("NumbersOfClick") : null),
-                                    (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : ""),
-                                 reader.GetInt32(reader.GetOrdinal("PeronID"))
+                                    (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : null),
+                                    reader.GetInt32(reader.GetOrdinal("PeronID")),
+                                    (!reader.IsDBNull(reader.GetOrdinal("Phone")) ? reader.GetString("Phone") : null),
+                                    (!reader.IsDBNull(reader.GetOrdinal("CityID")) ? reader.GetInt32("CityID") : null),
+                                    (!reader.IsDBNull(reader.GetOrdinal("Email")) ? reader.GetString("Email") : null)
                               ));
                         };
                     }
@@ -496,20 +519,20 @@ namespace StoresPlace_DataAccess
                             store.Add(new StoreDetailsDTO
                               (
                                       reader.GetString(reader.GetOrdinal("Name")),
-                                     (!reader.IsDBNull(reader.GetOrdinal("RegionName")) ? reader.GetString("RegionName") : ""),
-                                      (!reader.IsDBNull(reader.GetOrdinal("CityName")) ? reader.GetString("CityName") : ""),
-                                     (!reader.IsDBNull(reader.GetOrdinal("DistrictsName")) ? reader.GetString("DistrictsName") : ""),
-                                     (!reader.IsDBNull(reader.GetOrdinal("CommercialNumber")) ? reader.GetString("CommercialNumber") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Website")) ? reader.GetString("Website") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Address")) ? reader.GetString("Address") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("CategoryName")) ? reader.GetString("CategoryName") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("TypeName")) ? reader.GetString("TypeName") : ""),
+                                     (!reader.IsDBNull(reader.GetOrdinal("RegionName")) ? reader.GetString("RegionName") : null),
+                                      (!reader.IsDBNull(reader.GetOrdinal("CityName")) ? reader.GetString("CityName") : null),
+                                     (!reader.IsDBNull(reader.GetOrdinal("DistrictsName")) ? reader.GetString("DistrictsName") : null),
+                                     (!reader.IsDBNull(reader.GetOrdinal("CommercialNumber")) ? reader.GetString("CommercialNumber") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("Website")) ? reader.GetString("Website") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("Address")) ? reader.GetString("Address") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("CategoryName")) ? reader.GetString("CategoryName") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("TypeName")) ? reader.GetString("TypeName") : null),
                                         (!reader.IsDBNull(reader.GetOrdinal("Rating")) ? reader.GetByte("Rating") : null),
                                         (!reader.IsDBNull(reader.GetOrdinal("NumberOfRates")) ? reader.GetDecimal("NumberOfRates") : null),
-                                        (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : ""),
+                                        (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : null),
                                       (!reader.IsDBNull(reader.GetOrdinal("NumbersOfClick")) ? reader.GetDecimal("NumbersOfClick") : null),
-                                                                          (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : ""),
+                                                                          (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : null),
                                  reader.GetInt32(reader.GetOrdinal("StoreID"))
                               ));
                         };
@@ -547,20 +570,20 @@ namespace StoresPlace_DataAccess
                             store.Add(new StoreDetailsDTO
                               (
                                      reader.GetString(reader.GetOrdinal("Name")),
-                                     (!reader.IsDBNull(reader.GetOrdinal("RegionName")) ? reader.GetString("RegionName") : ""),
-                                      (!reader.IsDBNull(reader.GetOrdinal("CityName")) ? reader.GetString("CityName") : ""),
-                                     (!reader.IsDBNull(reader.GetOrdinal("DistrictsName")) ? reader.GetString("DistrictsName") : ""),
-                                     (!reader.IsDBNull(reader.GetOrdinal("CommercialNumber")) ? reader.GetString("CommercialNumber") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Website")) ? reader.GetString("Website") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Address")) ? reader.GetString("Address") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("CategoryName")) ? reader.GetString("CategoryName") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("TypeName")) ? reader.GetString("TypeName") : ""),
+                                     (!reader.IsDBNull(reader.GetOrdinal("RegionName")) ? reader.GetString("RegionName") : null),
+                                      (!reader.IsDBNull(reader.GetOrdinal("CityName")) ? reader.GetString("CityName") : null),
+                                     (!reader.IsDBNull(reader.GetOrdinal("DistrictsName")) ? reader.GetString("DistrictsName") : null),
+                                     (!reader.IsDBNull(reader.GetOrdinal("CommercialNumber")) ? reader.GetString("CommercialNumber") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("Website")) ? reader.GetString("Website") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("Address")) ? reader.GetString("Address") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("CategoryName")) ? reader.GetString("CategoryName") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("TypeName")) ? reader.GetString("TypeName") : null),
                                         (!reader.IsDBNull(reader.GetOrdinal("Rating")) ? reader.GetByte("Rating") : null),
                                         (!reader.IsDBNull(reader.GetOrdinal("NumberOfRates")) ? reader.GetDecimal("NumberOfRates") : null),
-                                        (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : ""),
+                                        (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : null),
                                       (!reader.IsDBNull(reader.GetOrdinal("NumbersOfClick")) ? reader.GetDecimal("NumbersOfClick") : null),
-                                    (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : ""),
-                                                                           (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : ""),
+                                    (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : null),
+                                                                           (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : null),
 
                                  reader.GetInt32(reader.GetOrdinal("StoreID"))
                               ));
@@ -597,20 +620,20 @@ namespace StoresPlace_DataAccess
                             store.Add(new StoreDetailsDTO
                               (
                                      reader.GetString(reader.GetOrdinal("Name")),
-                                     (!reader.IsDBNull(reader.GetOrdinal("RegionName")) ? reader.GetString("RegionName") : ""),
-                                      (!reader.IsDBNull(reader.GetOrdinal("CityName")) ? reader.GetString("CityName") : ""),
-                                     (!reader.IsDBNull(reader.GetOrdinal("DistrictsName")) ? reader.GetString("DistrictsName") : ""),
-                                     (!reader.IsDBNull(reader.GetOrdinal("CommercialNumber")) ? reader.GetString("CommercialNumber") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Website")) ? reader.GetString("Website") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Address")) ? reader.GetString("Address") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("CategoryName")) ? reader.GetString("CategoryName") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("TypeName")) ? reader.GetString("TypeName") : ""),
+                                     (!reader.IsDBNull(reader.GetOrdinal("RegionName")) ? reader.GetString("RegionName") : null),
+                                      (!reader.IsDBNull(reader.GetOrdinal("CityName")) ? reader.GetString("CityName") : null),
+                                     (!reader.IsDBNull(reader.GetOrdinal("DistrictsName")) ? reader.GetString("DistrictsName") : null),
+                                     (!reader.IsDBNull(reader.GetOrdinal("CommercialNumber")) ? reader.GetString("CommercialNumber") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("Website")) ? reader.GetString("Website") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("Address")) ? reader.GetString("Address") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("CategoryName")) ? reader.GetString("CategoryName") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("TypeName")) ? reader.GetString("TypeName") : null),
                                         (!reader.IsDBNull(reader.GetOrdinal("Rating")) ? reader.GetByte("Rating") : null),
                                         (!reader.IsDBNull(reader.GetOrdinal("NumberOfRates")) ? reader.GetDecimal("NumberOfRates") : null),
-                                        (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : ""),
+                                        (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : null),
                                       (!reader.IsDBNull(reader.GetOrdinal("NumbersOfClick")) ? reader.GetDecimal("NumbersOfClick") : null),
-                                    (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : ""),
-                                                                           (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : ""),
+                                    (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : null),
+                                                                           (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : null),
                                  reader.GetInt32(reader.GetOrdinal("StoreID"))
                               ));
                         };
@@ -647,20 +670,20 @@ namespace StoresPlace_DataAccess
                             store.Add(new StoreDetailsDTO
                                (
                                       reader.GetString(reader.GetOrdinal("Name")),
-                                     (!reader.IsDBNull(reader.GetOrdinal("RegionName")) ? reader.GetString("RegionName") : ""),
-                                      (!reader.IsDBNull(reader.GetOrdinal("CityName")) ? reader.GetString("CityName") : ""),
-                                     (!reader.IsDBNull(reader.GetOrdinal("DistrictsName")) ? reader.GetString("DistrictsName") : ""),
-                                     (!reader.IsDBNull(reader.GetOrdinal("CommercialNumber")) ? reader.GetString("CommercialNumber") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Website")) ? reader.GetString("Website") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Address")) ? reader.GetString("Address") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("CategoryName")) ? reader.GetString("CategoryName") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("TypeName")) ? reader.GetString("TypeName") : ""),
+                                     (!reader.IsDBNull(reader.GetOrdinal("RegionName")) ? reader.GetString("RegionName") : null),
+                                      (!reader.IsDBNull(reader.GetOrdinal("CityName")) ? reader.GetString("CityName") : null),
+                                     (!reader.IsDBNull(reader.GetOrdinal("DistrictsName")) ? reader.GetString("DistrictsName") : null),
+                                     (!reader.IsDBNull(reader.GetOrdinal("CommercialNumber")) ? reader.GetString("CommercialNumber") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("Website")) ? reader.GetString("Website") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("Address")) ? reader.GetString("Address") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("CategoryName")) ? reader.GetString("CategoryName") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("TypeName")) ? reader.GetString("TypeName") : null),
                                         (!reader.IsDBNull(reader.GetOrdinal("Rating")) ? reader.GetByte("Rating") : null),
                                         (!reader.IsDBNull(reader.GetOrdinal("NumberOfRates")) ? reader.GetDecimal("NumberOfRates") : null),
-                                        (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : ""),
+                                        (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : null),
                                       (!reader.IsDBNull(reader.GetOrdinal("NumbersOfClick")) ? reader.GetDecimal("NumbersOfClick") : null),
-                                    (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : ""),
-                                                                           (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : ""),
+                                    (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : null),
+                                                                           (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : null),
                                  reader.GetInt32(reader.GetOrdinal("StoreID"))
                                ));
                         };
@@ -697,20 +720,20 @@ namespace StoresPlace_DataAccess
                             store.Add(new StoreDetailsDTO
                                (
                                      reader.GetString(reader.GetOrdinal("Name")),
-                                     (!reader.IsDBNull(reader.GetOrdinal("RegionName")) ? reader.GetString("RegionName") : ""),
-                                      (!reader.IsDBNull(reader.GetOrdinal("CityName")) ? reader.GetString("CityName") : ""),
-                                     (!reader.IsDBNull(reader.GetOrdinal("DistrictsName")) ? reader.GetString("DistrictsName") : ""),
-                                     (!reader.IsDBNull(reader.GetOrdinal("CommercialNumber")) ? reader.GetString("CommercialNumber") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Website")) ? reader.GetString("Website") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Address")) ? reader.GetString("Address") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("CategoryName")) ? reader.GetString("CategoryName") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("TypeName")) ? reader.GetString("TypeName") : ""),
+                                     (!reader.IsDBNull(reader.GetOrdinal("RegionName")) ? reader.GetString("RegionName") : null),
+                                      (!reader.IsDBNull(reader.GetOrdinal("CityName")) ? reader.GetString("CityName") : null),
+                                     (!reader.IsDBNull(reader.GetOrdinal("DistrictsName")) ? reader.GetString("DistrictsName") : null),
+                                     (!reader.IsDBNull(reader.GetOrdinal("CommercialNumber")) ? reader.GetString("CommercialNumber") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("Website")) ? reader.GetString("Website") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("Address")) ? reader.GetString("Address") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("CategoryName")) ? reader.GetString("CategoryName") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("TypeName")) ? reader.GetString("TypeName") : null),
                                         (!reader.IsDBNull(reader.GetOrdinal("Rating")) ? reader.GetByte("Rating") : null),
                                         (!reader.IsDBNull(reader.GetOrdinal("NumberOfRates")) ? reader.GetDecimal("NumberOfRates") : null),
-                                        (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : ""),
+                                        (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : null),
                                       (!reader.IsDBNull(reader.GetOrdinal("NumbersOfClick")) ? reader.GetDecimal("NumbersOfClick") : null),
-                                    (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : ""),
-                                                                           (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : ""),
+                                    (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : null),
+                                                                           (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : null),
                                  reader.GetInt32(reader.GetOrdinal("StoreID"))
                                ));
                         };
@@ -747,20 +770,20 @@ namespace StoresPlace_DataAccess
                             store.Add(new StoreDetailsDTO
                               (
                                     reader.GetString(reader.GetOrdinal("Name")),
-                                     (!reader.IsDBNull(reader.GetOrdinal("RegionName")) ? reader.GetString("RegionName") : ""),
-                                      (!reader.IsDBNull(reader.GetOrdinal("CityName")) ? reader.GetString("CityName") : ""),
-                                     (!reader.IsDBNull(reader.GetOrdinal("DistrictsName")) ? reader.GetString("DistrictsName") : ""),
-                                     (!reader.IsDBNull(reader.GetOrdinal("CommercialNumber")) ? reader.GetString("CommercialNumber") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Website")) ? reader.GetString("Website") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Address")) ? reader.GetString("Address") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("CategoryName")) ? reader.GetString("CategoryName") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("TypeName")) ? reader.GetString("TypeName") : ""),
+                                     (!reader.IsDBNull(reader.GetOrdinal("RegionName")) ? reader.GetString("RegionName") : null),
+                                      (!reader.IsDBNull(reader.GetOrdinal("CityName")) ? reader.GetString("CityName") : null),
+                                     (!reader.IsDBNull(reader.GetOrdinal("DistrictsName")) ? reader.GetString("DistrictsName") : null),
+                                     (!reader.IsDBNull(reader.GetOrdinal("CommercialNumber")) ? reader.GetString("CommercialNumber") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("Website")) ? reader.GetString("Website") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("Address")) ? reader.GetString("Address") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("CategoryName")) ? reader.GetString("CategoryName") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("TypeName")) ? reader.GetString("TypeName") : null),
                                         (!reader.IsDBNull(reader.GetOrdinal("Rating")) ? reader.GetByte("Rating") : null),
                                         (!reader.IsDBNull(reader.GetOrdinal("NumberOfRates")) ? reader.GetDecimal("NumberOfRates") : null),
-                                        (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : ""),
+                                        (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : null),
                                       (!reader.IsDBNull(reader.GetOrdinal("NumbersOfClick")) ? reader.GetDecimal("NumbersOfClick") : null),
-                                    (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : ""),
-                                                                           (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : ""),
+                                    (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : null),
+                                                                           (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : null),
 
                                  reader.GetInt32(reader.GetOrdinal("StoreID"))
                               ));
@@ -798,20 +821,20 @@ namespace StoresPlace_DataAccess
                             store.Add(new StoreDetailsDTO
                               (
                                     reader.GetString(reader.GetOrdinal("Name")),
-                                     (!reader.IsDBNull(reader.GetOrdinal("RegionName")) ? reader.GetString("RegionName") : ""),
-                                      (!reader.IsDBNull(reader.GetOrdinal("CityName")) ? reader.GetString("CityName") : ""),
-                                     (!reader.IsDBNull(reader.GetOrdinal("DistrictsName")) ? reader.GetString("DistrictsName") : ""),
-                                     (!reader.IsDBNull(reader.GetOrdinal("CommercialNumber")) ? reader.GetString("CommercialNumber") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Website")) ? reader.GetString("Website") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Address")) ? reader.GetString("Address") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("CategoryName")) ? reader.GetString("CategoryName") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("TypeName")) ? reader.GetString("TypeName") : ""),
+                                     (!reader.IsDBNull(reader.GetOrdinal("RegionName")) ? reader.GetString("RegionName") : null),
+                                      (!reader.IsDBNull(reader.GetOrdinal("CityName")) ? reader.GetString("CityName") : null),
+                                     (!reader.IsDBNull(reader.GetOrdinal("DistrictsName")) ? reader.GetString("DistrictsName") : null),
+                                     (!reader.IsDBNull(reader.GetOrdinal("CommercialNumber")) ? reader.GetString("CommercialNumber") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("Website")) ? reader.GetString("Website") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("Address")) ? reader.GetString("Address") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("CategoryName")) ? reader.GetString("CategoryName") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("TypeName")) ? reader.GetString("TypeName") : null),
                                         (!reader.IsDBNull(reader.GetOrdinal("Rating")) ? reader.GetByte("Rating") : null),
                                         (!reader.IsDBNull(reader.GetOrdinal("NumberOfRates")) ? reader.GetDecimal("NumberOfRates") : null),
-                                        (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : ""),
+                                        (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : null),
                                       (!reader.IsDBNull(reader.GetOrdinal("NumbersOfClick")) ? reader.GetDecimal("NumbersOfClick") : null),
-                                    (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : ""),
-                                                                           (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : ""),
+                                    (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : null),
+                                                                           (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : null),
 
                                  reader.GetInt32(reader.GetOrdinal("StoreID"))
                               ));
@@ -849,20 +872,20 @@ namespace StoresPlace_DataAccess
                             store.Add(new StoreDetailsDTO
                               (
                                     reader.GetString(reader.GetOrdinal("Name")),
-                                     (!reader.IsDBNull(reader.GetOrdinal("RegionName")) ? reader.GetString("RegionName") : ""),
-                                      (!reader.IsDBNull(reader.GetOrdinal("CityName")) ? reader.GetString("CityName") : ""),
-                                     (!reader.IsDBNull(reader.GetOrdinal("DistrictsName")) ? reader.GetString("DistrictsName") : ""),
-                                     (!reader.IsDBNull(reader.GetOrdinal("CommercialNumber")) ? reader.GetString("CommercialNumber") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Website")) ? reader.GetString("Website") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Address")) ? reader.GetString("Address") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("CategoryName")) ? reader.GetString("CategoryName") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("TypeName")) ? reader.GetString("TypeName") : ""),
+                                     (!reader.IsDBNull(reader.GetOrdinal("RegionName")) ? reader.GetString("RegionName") : null),
+                                      (!reader.IsDBNull(reader.GetOrdinal("CityName")) ? reader.GetString("CityName") : null),
+                                     (!reader.IsDBNull(reader.GetOrdinal("DistrictsName")) ? reader.GetString("DistrictsName") : null),
+                                     (!reader.IsDBNull(reader.GetOrdinal("CommercialNumber")) ? reader.GetString("CommercialNumber") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("Website")) ? reader.GetString("Website") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("Address")) ? reader.GetString("Address") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("CategoryName")) ? reader.GetString("CategoryName") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("TypeName")) ? reader.GetString("TypeName") : null),
                                         (!reader.IsDBNull(reader.GetOrdinal("Rating")) ? reader.GetByte("Rating") : null),
                                         (!reader.IsDBNull(reader.GetOrdinal("NumberOfRates")) ? reader.GetDecimal("NumberOfRates") : null),
-                                        (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : ""),
+                                        (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : null),
                                       (!reader.IsDBNull(reader.GetOrdinal("NumbersOfClick")) ? reader.GetDecimal("NumbersOfClick") : null),
-                                    (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : ""),
-                                                                           (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : ""),
+                                    (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : null),
+                                                                           (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : null),
 
                                  reader.GetInt32(reader.GetOrdinal("StoreID"))
                               ));
@@ -900,20 +923,20 @@ namespace StoresPlace_DataAccess
                             store.Add(new StoreDetailsDTO
                                (
                                       reader.GetString(reader.GetOrdinal("Name")),
-                                     (!reader.IsDBNull(reader.GetOrdinal("RegionName")) ? reader.GetString("RegionName") : ""),
-                                      (!reader.IsDBNull(reader.GetOrdinal("CityName")) ? reader.GetString("CityName") : ""),
-                                     (!reader.IsDBNull(reader.GetOrdinal("DistrictsName")) ? reader.GetString("DistrictsName") : ""),
-                                     (!reader.IsDBNull(reader.GetOrdinal("CommercialNumber")) ? reader.GetString("CommercialNumber") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Website")) ? reader.GetString("Website") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Address")) ? reader.GetString("Address") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("CategoryName")) ? reader.GetString("CategoryName") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("TypeName")) ? reader.GetString("TypeName") : ""),
+                                     (!reader.IsDBNull(reader.GetOrdinal("RegionName")) ? reader.GetString("RegionName") : null),
+                                      (!reader.IsDBNull(reader.GetOrdinal("CityName")) ? reader.GetString("CityName") : null),
+                                     (!reader.IsDBNull(reader.GetOrdinal("DistrictsName")) ? reader.GetString("DistrictsName") : null),
+                                     (!reader.IsDBNull(reader.GetOrdinal("CommercialNumber")) ? reader.GetString("CommercialNumber") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("Website")) ? reader.GetString("Website") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("Address")) ? reader.GetString("Address") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("CategoryName")) ? reader.GetString("CategoryName") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("TypeName")) ? reader.GetString("TypeName") : null),
                                         (!reader.IsDBNull(reader.GetOrdinal("Rating")) ? reader.GetByte("Rating") : null),
                                         (!reader.IsDBNull(reader.GetOrdinal("NumberOfRates")) ? reader.GetDecimal("NumberOfRates") : null),
-                                        (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : ""),
+                                        (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : null),
                                       (!reader.IsDBNull(reader.GetOrdinal("NumbersOfClick")) ? reader.GetDecimal("NumbersOfClick") : null),
-                                    (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : ""),
-                                                                           (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : ""),
+                                    (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : null),
+                                                                           (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : null),
                                  reader.GetInt32(reader.GetOrdinal("StoreID"))
                                ));
                         };
@@ -949,20 +972,20 @@ namespace StoresPlace_DataAccess
                             store.Add(new StoreDetailsDTO
                               (
                                      reader.GetString(reader.GetOrdinal("Name")),
-                                     (!reader.IsDBNull(reader.GetOrdinal("RegionName")) ? reader.GetString("RegionName") : ""),
-                                      (!reader.IsDBNull(reader.GetOrdinal("CityName")) ? reader.GetString("CityName") : ""),
-                                     (!reader.IsDBNull(reader.GetOrdinal("DistrictsName")) ? reader.GetString("DistrictsName") : ""),
-                                     (!reader.IsDBNull(reader.GetOrdinal("CommercialNumber")) ? reader.GetString("CommercialNumber") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Website")) ? reader.GetString("Website") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Address")) ? reader.GetString("Address") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("CategoryName")) ? reader.GetString("CategoryName") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("TypeName")) ? reader.GetString("TypeName") : ""),
+                                     (!reader.IsDBNull(reader.GetOrdinal("RegionName")) ? reader.GetString("RegionName") : null),
+                                      (!reader.IsDBNull(reader.GetOrdinal("CityName")) ? reader.GetString("CityName") : null),
+                                     (!reader.IsDBNull(reader.GetOrdinal("DistrictsName")) ? reader.GetString("DistrictsName") : null),
+                                     (!reader.IsDBNull(reader.GetOrdinal("CommercialNumber")) ? reader.GetString("CommercialNumber") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("Website")) ? reader.GetString("Website") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("Address")) ? reader.GetString("Address") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("CategoryName")) ? reader.GetString("CategoryName") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("TypeName")) ? reader.GetString("TypeName") : null),
                                         (!reader.IsDBNull(reader.GetOrdinal("Rating")) ? reader.GetByte("Rating") : null),
                                         (!reader.IsDBNull(reader.GetOrdinal("NumberOfRates")) ? reader.GetDecimal("NumberOfRates") : null),
-                                        (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : ""),
+                                        (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : null),
                                       (!reader.IsDBNull(reader.GetOrdinal("NumbersOfClick")) ? reader.GetDecimal("NumbersOfClick") : null),
-                                    (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : ""),
-                                                                           (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : ""),
+                                    (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : null),
+                                                                           (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : null),
 
                                  reader.GetInt32(reader.GetOrdinal("StoreID"))
                               ));
@@ -998,20 +1021,20 @@ namespace StoresPlace_DataAccess
                             store.Add(new StoreDetailsDTO
                               (
                                       reader.GetString(reader.GetOrdinal("Name")),
-                                     (!reader.IsDBNull(reader.GetOrdinal("RegionName")) ? reader.GetString("RegionName") : ""),
-                                      (!reader.IsDBNull(reader.GetOrdinal("CityName")) ? reader.GetString("CityName") : ""),
-                                     (!reader.IsDBNull(reader.GetOrdinal("DistrictsName")) ? reader.GetString("DistrictsName") : ""),
-                                     (!reader.IsDBNull(reader.GetOrdinal("CommercialNumber")) ? reader.GetString("CommercialNumber") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Website")) ? reader.GetString("Website") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Address")) ? reader.GetString("Address") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("CategoryName")) ? reader.GetString("CategoryName") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("TypeName")) ? reader.GetString("TypeName") : ""),
+                                     (!reader.IsDBNull(reader.GetOrdinal("RegionName")) ? reader.GetString("RegionName") : null),
+                                      (!reader.IsDBNull(reader.GetOrdinal("CityName")) ? reader.GetString("CityName") : null),
+                                     (!reader.IsDBNull(reader.GetOrdinal("DistrictsName")) ? reader.GetString("DistrictsName") : null),
+                                     (!reader.IsDBNull(reader.GetOrdinal("CommercialNumber")) ? reader.GetString("CommercialNumber") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("Website")) ? reader.GetString("Website") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("Address")) ? reader.GetString("Address") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("CategoryName")) ? reader.GetString("CategoryName") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("TypeName")) ? reader.GetString("TypeName") : null),
                                         (!reader.IsDBNull(reader.GetOrdinal("Rating")) ? reader.GetByte("Rating") : null),
                                         (!reader.IsDBNull(reader.GetOrdinal("NumberOfRates")) ? reader.GetDecimal("NumberOfRates") : null),
-                                        (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : ""),
+                                        (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : null),
                                       (!reader.IsDBNull(reader.GetOrdinal("NumbersOfClick")) ? reader.GetDecimal("NumbersOfClick") : null),
-                                    (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : ""),
-                                      (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : ""),
+                                    (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : null),
+                                      (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : null),
                                  reader.GetInt32(reader.GetOrdinal("StoreID"))
                               ));
                         };
@@ -1044,20 +1067,20 @@ namespace StoresPlace_DataAccess
                             store.Add(new StoreDetailsDTO
                               (
                                    reader.GetString(reader.GetOrdinal("Name")),
-                                     (!reader.IsDBNull(reader.GetOrdinal("RegionName")) ? reader.GetString("RegionName") : ""),
-                                      (!reader.IsDBNull(reader.GetOrdinal("CityName")) ? reader.GetString("CityName") : ""),
-                                     (!reader.IsDBNull(reader.GetOrdinal("DistrictsName")) ? reader.GetString("DistrictsName") : ""),
-                                     (!reader.IsDBNull(reader.GetOrdinal("CommercialNumber")) ? reader.GetString("CommercialNumber") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Website")) ? reader.GetString("Website") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Address")) ? reader.GetString("Address") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("CategoryName")) ? reader.GetString("CategoryName") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("TypeName")) ? reader.GetString("TypeName") : ""),
+                                     (!reader.IsDBNull(reader.GetOrdinal("RegionName")) ? reader.GetString("RegionName") : null),
+                                      (!reader.IsDBNull(reader.GetOrdinal("CityName")) ? reader.GetString("CityName") : null),
+                                     (!reader.IsDBNull(reader.GetOrdinal("DistrictsName")) ? reader.GetString("DistrictsName") : null),
+                                     (!reader.IsDBNull(reader.GetOrdinal("CommercialNumber")) ? reader.GetString("CommercialNumber") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("Website")) ? reader.GetString("Website") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("Address")) ? reader.GetString("Address") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("CategoryName")) ? reader.GetString("CategoryName") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("TypeName")) ? reader.GetString("TypeName") : null),
                                         (!reader.IsDBNull(reader.GetOrdinal("Rating")) ? reader.GetByte("Rating") : null),
                                         (!reader.IsDBNull(reader.GetOrdinal("NumberOfRates")) ? reader.GetDecimal("NumberOfRates") : null),
-                                        (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : ""),
+                                        (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : null),
                                       (!reader.IsDBNull(reader.GetOrdinal("NumbersOfClick")) ? reader.GetDecimal("NumbersOfClick") : null),
-                                    (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : ""),
-                                                                           (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : ""),
+                                    (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : null),
+                                                                           (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : null),
 
                                  reader.GetInt32(reader.GetOrdinal("StoreID"))
                               ));
@@ -1093,21 +1116,20 @@ namespace StoresPlace_DataAccess
                             store.Add(new StoreDetailsDTO
                               (
                                     reader.GetString(reader.GetOrdinal("Name")),
-                                     (!reader.IsDBNull(reader.GetOrdinal("RegionName")) ? reader.GetString("RegionName") : ""),
-                                      (!reader.IsDBNull(reader.GetOrdinal("CityName")) ? reader.GetString("CityName") : ""),
-                                     (!reader.IsDBNull(reader.GetOrdinal("DistrictsName")) ? reader.GetString("DistrictsName") : ""),
-                                     (!reader.IsDBNull(reader.GetOrdinal("CommercialNumber")) ? reader.GetString("CommercialNumber") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Website")) ? reader.GetString("Website") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Address")) ? reader.GetString("Address") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("CategoryName")) ? reader.GetString("CategoryName") : ""),
-                                       (!reader.IsDBNull(reader.GetOrdinal("TypeName")) ? reader.GetString("TypeName") : ""),
+                                     (!reader.IsDBNull(reader.GetOrdinal("RegionName")) ? reader.GetString("RegionName") : null),
+                                      (!reader.IsDBNull(reader.GetOrdinal("CityName")) ? reader.GetString("CityName") : null),
+                                     (!reader.IsDBNull(reader.GetOrdinal("DistrictsName")) ? reader.GetString("DistrictsName") : null),
+                                     (!reader.IsDBNull(reader.GetOrdinal("CommercialNumber")) ? reader.GetString("CommercialNumber") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("Website")) ? reader.GetString("Website") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("Address")) ? reader.GetString("Address") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("CategoryName")) ? reader.GetString("CategoryName") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("TypeName")) ? reader.GetString("TypeName") : null),
                                         (!reader.IsDBNull(reader.GetOrdinal("Rating")) ? reader.GetByte("Rating") : null),
                                         (!reader.IsDBNull(reader.GetOrdinal("NumberOfRates")) ? reader.GetDecimal("NumberOfRates") : null),
-                                        (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : ""),
+                                        (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : null),
                                       (!reader.IsDBNull(reader.GetOrdinal("NumbersOfClick")) ? reader.GetDecimal("NumbersOfClick") : null),
-                                    (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : ""),
-                                                                           (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : ""),
-
+                                    (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : null),
+                                    (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : null),
                                  reader.GetInt32(reader.GetOrdinal("StoreID"))
                               ));
                         };

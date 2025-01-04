@@ -25,63 +25,32 @@
           "text/json"
         ],
         "StatusCode": 404
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 500
       }
     ],
     "EndpointName": "GetVersionString"
   },
   {
     "ContainingType": "StoresPlace_API.Categories.CategoryController",
-    "Method": "AddCategory",
-    "RelativePath": "api/Category/AddCategory",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "categoryDTO",
-        "Type": "StoresPlace_DataAccess.CategoryDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "StoresPlace_DataAccess.CategoryDTO",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 400
-      }
-    ],
-    "EndpointName": "AddCategory"
-  },
-  {
-    "ContainingType": "StoresPlace_API.Categories.CategoryController",
-    "Method": "DeleteCategory",
-    "RelativePath": "api/Category/DeleteCategory/{CategoryID}",
-    "HttpMethod": "DELETE",
+    "Method": "IsCategoryExists",
+    "RelativePath": "api/Category/Exists/{CategoryID}",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "CategoryID",
-        "Type": "System.Int32",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "System.String",
+        "Type": "System.Boolean",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -97,33 +66,6 @@
           "text/json"
         ],
         "StatusCode": 404
-      }
-    ],
-    "EndpointName": "DeleteCategory"
-  },
-  {
-    "ContainingType": "StoresPlace_API.Categories.CategoryController",
-    "Method": "IsCategoryExists",
-    "RelativePath": "api/Category/Exists/{CategoryID}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "CategoryID",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Boolean",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
       }
     ],
     "EndpointName": "IsCategoryExists"
@@ -145,6 +87,15 @@
           "text/json"
         ],
         "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
       }
     ],
     "EndpointName": "GetAllCategories"
@@ -166,6 +117,15 @@
           "text/json"
         ],
         "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
       }
     ],
     "EndpointName": "GetAllCategoryAr"
@@ -193,6 +153,24 @@
           "text/json"
         ],
         "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
       }
     ],
     "EndpointName": "GetAllCategoryAvailableByNameAr"
@@ -220,6 +198,24 @@
           "text/json"
         ],
         "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
       }
     ],
     "EndpointName": "GetAllCategoryAvailableByNameEn"
@@ -241,6 +237,15 @@
           "text/json"
         ],
         "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
       }
     ],
     "EndpointName": "GetAllCategoryEn"
@@ -248,15 +253,15 @@
   {
     "ContainingType": "StoresPlace_API.Categories.CategoryController",
     "Method": "GetCategory",
-    "RelativePath": "api/Category/GetCategory/{CategoryID}",
+    "RelativePath": "api/Category/GetCategory",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "CategoryID",
-        "Type": "System.Int32",
-        "IsRequired": true
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
@@ -277,6 +282,15 @@
           "text/json"
         ],
         "StatusCode": 404
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
       }
     ],
     "EndpointName": "GetCategory"
@@ -304,6 +318,15 @@
           "text/json"
         ],
         "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
       },
       {
         "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
@@ -349,6 +372,15 @@
           "text/json"
         ],
         "StatusCode": 404
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
       }
     ],
     "EndpointName": "GetCategoryIDByCategoryNameEn"
@@ -385,6 +417,15 @@
           "text/json"
         ],
         "StatusCode": 404
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
       }
     ],
     "EndpointName": "GetCategoryNameArByCategoryID"
@@ -421,70 +462,6 @@
           "text/json"
         ],
         "StatusCode": 404
-      }
-    ],
-    "EndpointName": "GetCategoryNameEnByCategoryID"
-  },
-  {
-    "ContainingType": "StoresPlace_API.Categories.CategoryController",
-    "Method": "UpdateCategory",
-    "RelativePath": "api/Category/UpdateCategory/{CategoryID}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "CategoryID",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "categoryDTO",
-        "Type": "StoresPlace_DataAccess.CategoryDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "StoresPlace_DataAccess.CategoryDTO",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      },
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 500
-      }
-    ],
-    "EndpointName": "UpdateCategory"
-  },
-  {
-    "ContainingType": "StoresPlace_APIs.Cities.CityController",
-    "Method": "AddCity",
-    "RelativePath": "api/City/AddCity",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "cityDTO",
-        "Type": "StoresPlace_DataAccess.CityDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "StoresPlace_DataAccess.CityDTO",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
       },
       {
         "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
@@ -496,43 +473,7 @@
         "StatusCode": 400
       }
     ],
-    "EndpointName": "AddCity"
-  },
-  {
-    "ContainingType": "StoresPlace_APIs.Cities.CityController",
-    "Method": "DeleteCity",
-    "RelativePath": "api/City/DeleteCity/{CityID}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "CityID",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.String",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
-      }
-    ],
-    "EndpointName": "DeleteCity"
+    "EndpointName": "GetCategoryNameEnByCategoryID"
   },
   {
     "ContainingType": "StoresPlace_APIs.Cities.CityController",
@@ -772,43 +713,6 @@
     "EndpointName": "GetCityNameEnByDistrictsID"
   },
   {
-    "ContainingType": "StoresPlace_APIs.Cities.CityController",
-    "Method": "UpdateCity",
-    "RelativePath": "api/City/UpdateCity/{CityID}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "CityID",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "cityDTO",
-        "Type": "StoresPlace_DataAccess.CityDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "StoresPlace_DataAccess.CityDTO",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      },
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 500
-      }
-    ],
-    "EndpointName": "UpdateCity"
-  },
-  {
     "ContainingType": "StoresPlace_APIs.Coupons.CouponController",
     "Method": "AddCoupon",
     "RelativePath": "api/Coupons/AddCoupon",
@@ -1040,78 +944,6 @@
       }
     ],
     "EndpointName": "UpdateCoupon"
-  },
-  {
-    "ContainingType": "StoresPlace_APIs.Districts.DistrictController",
-    "Method": "AddDistrict",
-    "RelativePath": "api/District/AddDistrict",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "districtDTO",
-        "Type": "StoresPlace_DataAccess.DistrictDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "StoresPlace_DataAccess.DistrictDTO",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 400
-      }
-    ],
-    "EndpointName": "AddDistrict"
-  },
-  {
-    "ContainingType": "StoresPlace_APIs.Districts.DistrictController",
-    "Method": "DeleteDistrict",
-    "RelativePath": "api/District/DeleteDistrict/{DistrictID}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "DistrictID",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.String",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
-      }
-    ],
-    "EndpointName": "DeleteDistrict"
   },
   {
     "ContainingType": "StoresPlace_APIs.Districts.DistrictController",
@@ -1385,43 +1217,6 @@
       }
     ],
     "EndpointName": "GetDistrictsNameEnByDistrictsID"
-  },
-  {
-    "ContainingType": "StoresPlace_APIs.Districts.DistrictController",
-    "Method": "UpdateDistrict",
-    "RelativePath": "api/District/UpdateDistrict/{DistrictID}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "DistrictID",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "districtDTO",
-        "Type": "StoresPlace_DataAccess.DistrictDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "StoresPlace_DataAccess.DistrictDTO",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      },
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 500
-      }
-    ],
-    "EndpointName": "UpdateDistrict"
   },
   {
     "ContainingType": "StoresPlace_APIs.Offers.OfferController",
@@ -1923,6 +1718,39 @@
   },
   {
     "ContainingType": "StoresPlace_APIs.Persons.PersonController",
+    "Method": "IsPersonExists",
+    "RelativePath": "api/Persons/UpdatePass/{Email}/{Password}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Email",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "Password",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 500
+      }
+    ],
+    "EndpointName": "UpdatePass"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Persons.PersonController",
     "Method": "UpdatePerson",
     "RelativePath": "api/Persons/UpdatePerson/{PersonID}",
     "HttpMethod": "PUT",
@@ -1949,6 +1777,15 @@
           "text/json"
         ],
         "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
       },
       {
         "Type": "System.Void",
@@ -2230,78 +2067,6 @@
   },
   {
     "ContainingType": "StoresPlace_APIs.Regions.RegionController",
-    "Method": "AddRegion",
-    "RelativePath": "api/Region/AddRegion",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "regionDTO",
-        "Type": "StoresPlace_DataAccess.RegionDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "StoresPlace_DataAccess.RegionDTO",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 400
-      }
-    ],
-    "EndpointName": "AddRegion"
-  },
-  {
-    "ContainingType": "StoresPlace_APIs.Regions.RegionController",
-    "Method": "DeleteRegion",
-    "RelativePath": "api/Region/DeleteRegion/{RegionID}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "RegionID",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.String",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
-      }
-    ],
-    "EndpointName": "DeleteRegion"
-  },
-  {
-    "ContainingType": "StoresPlace_APIs.Regions.RegionController",
     "Method": "GetAllRegions",
     "RelativePath": "api/Region/GetAllRegions",
     "HttpMethod": "GET",
@@ -2542,47 +2307,6 @@
       }
     ],
     "EndpointName": "GetRegionNameEnByRegionID"
-  },
-  {
-    "ContainingType": "StoresPlace_APIs.Regions.RegionController",
-    "Method": "UpdateRegion",
-    "RelativePath": "api/Region/UpdateRegion/{RegionID}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "RegionID",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "regionDTO",
-        "Type": "StoresPlace_DataAccess.RegionDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "StoresPlace_DataAccess.RegionDTO",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
-      }
-    ],
-    "EndpointName": "UpdateRegion"
   },
   {
     "ContainingType": "StoresPlace_APIs.SavedStores.SavedStoresController",
@@ -2940,6 +2664,11 @@
           "text/json"
         ],
         "StatusCode": 400
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 500
       }
     ],
     "EndpointName": "AddStore"
@@ -3696,6 +3425,24 @@
         "StatusCode": 200
       },
       {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
         "Type": "System.Void",
         "MediaTypes": [],
         "StatusCode": 500
@@ -3706,7 +3453,7 @@
   {
     "ContainingType": "StoresPlace_APIs.Stores.StoresController",
     "Method": "UpdateStoreRating",
-    "RelativePath": "api/Stores/UpdateStoreRating/{StoreID}",
+    "RelativePath": "api/Stores/UpdateStoreRating/{StoreID}/{Rate}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -3714,7 +3461,7 @@
       {
         "Name": "Rate",
         "Type": "System.Nullable\u00601[[System.Byte, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "IsRequired": false
+        "IsRequired": true
       },
       {
         "Name": "StoreID",
@@ -3740,25 +3487,30 @@
           "text/json"
         ],
         "StatusCode": 400
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 500
       }
     ],
     "EndpointName": "UpdateStoreRating"
   },
   {
     "ContainingType": "StoresPlace_APIs.Stores.StoresController",
-    "Method": "UpdateStoreRating",
-    "RelativePath": "api/Stores/UpdateStoreRatingWithOldRate/{StoreID}/{OldRate}/{Rate}",
-    "HttpMethod": "GET",
+    "Method": "UpdateStoreRatingWithOldRate",
+    "RelativePath": "api/Stores/UpdateStoreRatingWithOldRate/{StoreID}/{OldRate}/{NewRate}",
+    "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "Rate",
+        "Name": "OldRate",
         "Type": "System.Nullable\u00601[[System.Byte, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "IsRequired": true
       },
       {
-        "Name": "OldRate",
+        "Name": "NewRate",
         "Type": "System.Nullable\u00601[[System.Byte, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "IsRequired": true
       },
@@ -3782,6 +3534,11 @@
           "text/json"
         ],
         "StatusCode": 400
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 500
       }
     ],
     "EndpointName": "UpdateStoreRatingWithOldRate"
@@ -4003,78 +3760,6 @@
       }
     ],
     "EndpointName": "UpdateStoresForSale"
-  },
-  {
-    "ContainingType": "StoresPlace_APIs.Types.TypeController",
-    "Method": "AddType",
-    "RelativePath": "api/Types/AddType",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "typeDTO",
-        "Type": "StoresPlace_DataAccess.clsTypeData\u002BTypeDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "StoresPlace_DataAccess.clsTypeData\u002BTypeDTO",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 400
-      }
-    ],
-    "EndpointName": "AddType"
-  },
-  {
-    "ContainingType": "StoresPlace_APIs.Types.TypeController",
-    "Method": "DeleteType",
-    "RelativePath": "api/Types/DeleteType/{TypeID}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "TypeID",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.String",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
-      }
-    ],
-    "EndpointName": "DeleteType"
   },
   {
     "ContainingType": "StoresPlace_APIs.Types.TypeController",
@@ -4390,46 +4075,5 @@
       }
     ],
     "EndpointName": "GetTypeNameEnByTypeID"
-  },
-  {
-    "ContainingType": "StoresPlace_APIs.Types.TypeController",
-    "Method": "UpdateType",
-    "RelativePath": "api/Types/UpdateType/{TypeID}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "TypeID",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "typeDTO",
-        "Type": "StoresPlace_DataAccess.clsTypeData\u002BTypeDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "StoresPlace_DataAccess.clsTypeData\u002BTypeDTO",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
-      }
-    ],
-    "EndpointName": "UpdateType"
   }
 ]

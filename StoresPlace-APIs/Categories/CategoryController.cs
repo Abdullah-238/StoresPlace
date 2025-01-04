@@ -11,97 +11,10 @@ namespace StoresPlace_API.Categories
     [ApiController]
     public class CategoryController : ControllerBase
     {
-   
-        [HttpPost("AddCategory", Name = "AddCategory")]
+        [HttpGet("GetCategory", Name = "GetCategory")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<CategoryDTO> AddCategory(CategoryDTO categoryDTO)
-        {
-            if (categoryDTO.CategoryNameEn == null || categoryDTO.CategoryNameAr == null )
-            {
-                return BadRequest("Invalid category data");
-            }
-
-            clsCategories newCategory = new clsCategories(categoryDTO);
-
-            if (newCategory.Save())
-            {
-                return Ok(newCategory.CDTO);
-            }
-            else
-            {
-                return StatusCode(500, $"Internal server error");
-            }
-        }
-
-        [HttpPut("UpdateCategory/{CategoryID}", Name = "UpdateCategory")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<CategoryDTO> UpdateCategory(int? CategoryID,  CategoryDTO categoryDTO)
-        {
-          
-            if (CategoryID == null ||  categoryDTO == null || CategoryID < 1 ||  string.IsNullOrEmpty(categoryDTO.CategoryNameEn) || string.IsNullOrEmpty( categoryDTO.CategoryNameAr))
-            {
-                return BadRequest("Invalid Category data.");
-            }
-
-            clsCategories existingCategory =  clsCategories.Find(CategoryID);
-
-            if (existingCategory == null)
-            {
-                return NotFound($"Category with ID {CategoryID} not found.");
-            }
-
-
-            existingCategory.CategoryNameEn = categoryDTO.CategoryNameEn;
-            existingCategory.CategoryNameAr = categoryDTO.CategoryNameAr;
-
-            if (existingCategory.Save())
-            {
-                return Ok(existingCategory.CDTO);
-            }
-            else
-            {
-                return StatusCode(500, $"Internal server error");
-            }
-        }
-
-        [HttpDelete("DeleteCategory/{CategoryID}", Name = "DeleteCategory")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<string> DeleteCategory(int? CategoryID)
-        {
-            if (CategoryID == null || CategoryID < 1)
-            {
-                return BadRequest("Invalid Category ID.");
-            }
-
-            if (!clsCategories.IsExist(CategoryID))
-            {
-                return NotFound($"Category with ID {CategoryID} not found.");
-            }
-
-            bool result = clsCategories.Delete(CategoryID);
-
-            if (result)
-            {
-                return Ok($"Category with ID {CategoryID} deleted successfully.");
-            }
-            else
-            {
-                return StatusCode(500, $"Internal server error");
-            }
-        }
-
-        [HttpGet("GetCategory/{CategoryID}", Name = "GetCategory")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public ActionResult<CategoryDTO> GetCategory(int? CategoryID)
         {
             if (CategoryID == null || CategoryID < 1)
