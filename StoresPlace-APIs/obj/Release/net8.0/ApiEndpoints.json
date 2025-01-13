@@ -1,8 +1,139 @@
 [
   {
+    "ContainingType": "StoresPlace_APIs.AppSettings.AppSettingsController",
+    "Method": "GetVersionString",
+    "RelativePath": "api/AppSettings/GetVersionString",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 500
+      }
+    ],
+    "EndpointName": "GetVersionString"
+  },
+  {
+    "ContainingType": "StoresPlace_API.Categories.CategoryController",
+    "Method": "IsCategoryExists",
+    "RelativePath": "api/Category/Exists/{CategoryID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "CategoryID",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Boolean",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ],
+    "EndpointName": "IsCategoryExists"
+  },
+  {
+    "ContainingType": "StoresPlace_API.Categories.CategoryController",
+    "Method": "GetAllCategories",
+    "RelativePath": "api/Category/GetAllCategories",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[StoresPlace_DataAccess.CategoryDTO, StoresPlace-DataAccess, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ],
+    "EndpointName": "GetAllCategories"
+  },
+  {
+    "ContainingType": "StoresPlace_API.Categories.CategoryController",
+    "Method": "GetAllCategoryAr",
+    "RelativePath": "api/Category/GetAllCategoryAr",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ],
+    "EndpointName": "GetAllCategoryAr"
+  },
+  {
     "ContainingType": "StoresPlace_API.Categories.CategoryController",
     "Method": "GetAllCategoryAvailableByNameAr",
-    "RelativePath": "api/Category/AllCategoryAvailableByNameAr",
+    "RelativePath": "api/Category/GetAllCategoryAvailableByNameAr/{TypeID}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -10,18 +141,27 @@
       {
         "Name": "TypeID",
         "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "Type": "System.Collections.Generic.List\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
           "text/json"
         ],
         "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
       },
       {
         "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
@@ -38,7 +178,7 @@
   {
     "ContainingType": "StoresPlace_API.Categories.CategoryController",
     "Method": "GetAllCategoryAvailableByNameEn",
-    "RelativePath": "api/Category/AllCategoryAvailableByNameEn",
+    "RelativePath": "api/Category/GetAllCategoryAvailableByNameEn/{TypeID}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -46,18 +186,27 @@
       {
         "Name": "TypeID",
         "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "Type": "System.Collections.Generic.List\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
           "text/json"
         ],
         "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
       },
       {
         "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
@@ -72,9 +221,1963 @@
     "EndpointName": "GetAllCategoryAvailableByNameEn"
   },
   {
-    "ContainingType": "StoresPlace_API.StoresController",
-    "Method": "GetAllStoreByCategoryNameAr",
-    "RelativePath": "api/Stores/AllStoreByCategoryNameAr",
+    "ContainingType": "StoresPlace_API.Categories.CategoryController",
+    "Method": "GetAllCategoryEn",
+    "RelativePath": "api/Category/GetAllCategoryEn",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ],
+    "EndpointName": "GetAllCategoryEn"
+  },
+  {
+    "ContainingType": "StoresPlace_API.Categories.CategoryController",
+    "Method": "GetCategory",
+    "RelativePath": "api/Category/GetCategory",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "CategoryID",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "StoresPlace_DataAccess.CategoryDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      }
+    ],
+    "EndpointName": "GetCategory"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Cities.CityController",
+    "Method": "GetAllCities",
+    "RelativePath": "api/City/GetAllCities",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[StoresPlace_DataAccess.CityDTO, StoresPlace-DataAccess, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetAllCities"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Cities.CityController",
+    "Method": "GetCity",
+    "RelativePath": "api/City/GetCity/{CityID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "CityID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "StoresPlace_DataAccess.CityDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ],
+    "EndpointName": "GetCity"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Coupons.CouponController",
+    "Method": "AddCoupon",
+    "RelativePath": "api/Coupons/AddCoupon",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "couponDTO",
+        "Type": "StoresPlace_DataAccess.CouponDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "StoresPlace_DataAccess.CouponDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      }
+    ],
+    "EndpointName": "AddCoupon"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Coupons.CouponController",
+    "Method": "DeleteCoupon",
+    "RelativePath": "api/Coupons/DeleteCoupon/{CouponID}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "CouponID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ],
+    "EndpointName": "DeleteCoupon"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Coupons.CouponController",
+    "Method": "GetAllCoupons",
+    "RelativePath": "api/Coupons/GetAllCoupons",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[StoresPlace_DataAccess.CouponDTO, StoresPlace-DataAccess, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetAllCoupons"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Coupons.CouponController",
+    "Method": "GetCoupon",
+    "RelativePath": "api/Coupons/GetCoupon/{CouponID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "CouponID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "StoresPlace_DataAccess.CouponDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ],
+    "EndpointName": "GetCoupon"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Coupons.CouponController",
+    "Method": "GetCouponCodesByStore",
+    "RelativePath": "api/Coupons/GetCouponCodesByStore/{StoreID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "StoreID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetCouponCodesByStore"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Coupons.CouponController",
+    "Method": "GetCouponsByStore",
+    "RelativePath": "api/Coupons/GetCouponsByStore/{StoreID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "StoreID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[StoresPlace_DataAccess.CouponDTO, StoresPlace-DataAccess, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ],
+    "EndpointName": "GetCouponsByStore"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Coupons.CouponController",
+    "Method": "UpdateCoupon",
+    "RelativePath": "api/Coupons/UpdateCoupon/{CouponID}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "CouponID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "couponDTO",
+        "Type": "StoresPlace_DataAccess.CouponDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "StoresPlace_DataAccess.CouponDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ],
+    "EndpointName": "UpdateCoupon"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Districts.DistrictController",
+    "Method": "GetAllDistricts",
+    "RelativePath": "api/District/GetAllDistricts",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[StoresPlace_DataAccess.DistrictDTO, StoresPlace-DataAccess, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetAllDistricts"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Districts.DistrictController",
+    "Method": "GetDistrict",
+    "RelativePath": "api/District/GetDistrict/{DistrictID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "DistrictID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "StoresPlace_DataAccess.DistrictDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ],
+    "EndpointName": "GetDistrict"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Offers.OfferController",
+    "Method": "AddOffer",
+    "RelativePath": "api/Offer/AddOffer",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "offerDTO",
+        "Type": "StoresPlace_DataAccess.OfferDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "StoresPlace_DataAccess.OfferDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      }
+    ],
+    "EndpointName": "AddOffer"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Offers.OfferController",
+    "Method": "DeleteOffer",
+    "RelativePath": "api/Offer/DeleteOffer/{OfferID}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "OfferID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ],
+    "EndpointName": "DeleteOffer"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Offers.OfferController",
+    "Method": "IsOfferExists",
+    "RelativePath": "api/Offer/Exists/{OfferID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "OfferID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Boolean",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "IsOfferExists"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Offers.OfferController",
+    "Method": "GetAllOfferByStore",
+    "RelativePath": "api/Offer/GetAllOfferByStore/{StoreID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "StoreID",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[StoresPlace_DataAccess.OfferDTO, StoresPlace-DataAccess, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetAllOfferByStore"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Offers.OfferController",
+    "Method": "GetAllOfferByStoreID",
+    "RelativePath": "api/Offer/GetAllOfferByStoreID/{StoreID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "StoreID",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetAllOfferByStoreID"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Offers.OfferController",
+    "Method": "GetAllOffers",
+    "RelativePath": "api/Offer/GetAllOffers",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[StoresPlace_DataAccess.OfferDTO, StoresPlace-DataAccess, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetAllOffers"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Offers.OfferController",
+    "Method": "GetOffer",
+    "RelativePath": "api/Offer/GetOffer/{OfferID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "OfferID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "StoresPlace_DataAccess.OfferDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ],
+    "EndpointName": "GetOffer"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Offers.OfferController",
+    "Method": "UpdateOffer",
+    "RelativePath": "api/Offer/UpdateOffer/{OfferID}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "OfferID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "offerDTO",
+        "Type": "StoresPlace_DataAccess.OfferDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "StoresPlace_DataAccess.OfferDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 500
+      }
+    ],
+    "EndpointName": "UpdateOffer"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Persons.PersonController",
+    "Method": "AddPerson",
+    "RelativePath": "api/Persons/AddPerson",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "personDTO",
+        "Type": "StoresPlace_DataAccess.PersonDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "StoresPlace_DataAccess.PersonDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      }
+    ],
+    "EndpointName": "AddPerson"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Persons.PersonController",
+    "Method": "DeletePerson",
+    "RelativePath": "api/Persons/DeletePerson/{PersonID}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "PersonID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ],
+    "EndpointName": "DeletePerson"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Persons.PersonController",
+    "Method": "IsPersonExists",
+    "RelativePath": "api/Persons/Exists/{PersonID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "PersonID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Boolean",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "IsPersonExists"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Persons.PersonController",
+    "Method": "IsPersonExistsByEmail",
+    "RelativePath": "api/Persons/ExistsByEmail/{Email}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Email",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Boolean",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "IsPersonExistsByEmail"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Persons.PersonController",
+    "Method": "IsPersonExistsByPhone",
+    "RelativePath": "api/Persons/ExistsByPhone/{Phone}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Phone",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Boolean",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "IsPersonExistsByPhone"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Persons.PersonController",
+    "Method": "FindPersonByEmailAndPassword",
+    "RelativePath": "api/Persons/FindPersonByEmailAndPassword/{Email}/{Password}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Email",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "Password",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "StoresPlace_DataAccess.PersonDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ],
+    "EndpointName": "FindPersonByEmailAndPassword"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Persons.PersonController",
+    "Method": "GetAllPersons",
+    "RelativePath": "api/Persons/GetAllPersons",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[StoresPlace_DataAccess.PersonDTO, StoresPlace-DataAccess, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetAllPersons"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Persons.PersonController",
+    "Method": "GetPerson",
+    "RelativePath": "api/Persons/GetPerson/{PersonID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "PersonID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "StoresPlace_DataAccess.PersonDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ],
+    "EndpointName": "GetPerson"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Persons.PersonController",
+    "Method": "IsPersonExists",
+    "RelativePath": "api/Persons/UpdatePass/{Email}/{Password}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Email",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "Password",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 500
+      }
+    ],
+    "EndpointName": "UpdatePass"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Persons.PersonController",
+    "Method": "UpdatePerson",
+    "RelativePath": "api/Persons/UpdatePerson/{PersonID}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "PersonID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "personDTO",
+        "Type": "StoresPlace_DataAccess.PersonDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "StoresPlace_DataAccess.PersonDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 500
+      }
+    ],
+    "EndpointName": "UpdatePerson"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Rates.RateController",
+    "Method": "AddRate",
+    "RelativePath": "api/Rates/AddRate",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "rateDTO",
+        "Type": "StoresPlace_DataAccess.RateDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "StoresPlace_DataAccess.RateDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      }
+    ],
+    "EndpointName": "AddRate"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Rates.RateController",
+    "Method": "DeleteRate",
+    "RelativePath": "api/Rates/DeleteRate/{RateID}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "RateID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ],
+    "EndpointName": "DeleteRate"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Rates.RateController",
+    "Method": "IsRateExists",
+    "RelativePath": "api/Rates/Exists/{RateID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "RateID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Boolean",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "IsRateExists"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Rates.RateController",
+    "Method": "IsRateExistsByStoreAndPerson",
+    "RelativePath": "api/Rates/ExistsByStoreAndPerson/{StoreID}/{PersonID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "StoreID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "PersonID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Boolean",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "IsRateExistsByStoreAndPerson"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Rates.RateController",
+    "Method": "GetAllRates",
+    "RelativePath": "api/Rates/GetAllRates",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[StoresPlace_DataAccess.RateDTO, StoresPlace-DataAccess, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetAllRates"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Rates.RateController",
+    "Method": "GetRate",
+    "RelativePath": "api/Rates/GetRate/{RateID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "RateID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "StoresPlace_DataAccess.RateDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ],
+    "EndpointName": "GetRate"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Rates.RateController",
+    "Method": "GetRateByStoreAndPerson",
+    "RelativePath": "api/Rates/GetRateByStoreAndPerson/{StoreID}/{PersonID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "StoreID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "PersonID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "StoresPlace_DataAccess.RateDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ],
+    "EndpointName": "GetRateByStoreAndPerson"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Rates.RateController",
+    "Method": "UpdateRate",
+    "RelativePath": "api/Rates/UpdateRate/{RateID}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "RateID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "rateDTO",
+        "Type": "StoresPlace_DataAccess.RateDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "StoresPlace_DataAccess.RateDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ],
+    "EndpointName": "UpdateRate"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Regions.RegionController",
+    "Method": "GetAllRegions",
+    "RelativePath": "api/Region/GetAllRegions",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[StoresPlace_DataAccess.RegionDTO, StoresPlace-DataAccess, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetAllRegions"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Regions.RegionController",
+    "Method": "GetRegion",
+    "RelativePath": "api/Region/GetRegion/{RegionID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "RegionID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "StoresPlace_DataAccess.RegionDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ],
+    "EndpointName": "GetRegion"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.SavedStores.SavedStoresController",
+    "Method": "AddSavedStore",
+    "RelativePath": "api/SavedStores/AddSavedStore",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "savedStoreDTO",
+        "Type": "StoresPlace_DataAccess.SavedStoreDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "StoresPlace_DataAccess.SavedStoreDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      }
+    ],
+    "EndpointName": "AddSavedStore"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.SavedStores.SavedStoresController",
+    "Method": "DeleteSavedStore",
+    "RelativePath": "api/SavedStores/DeleteSavedStore/{StoreSavedId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "StoreSavedId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ],
+    "EndpointName": "DeleteSavedStore"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.SavedStores.SavedStoresController",
+    "Method": "DeleteSavedStoreByStoreID",
+    "RelativePath": "api/SavedStores/DeleteSavedStoreByStoreID/{StoreSavedId}/{PersonID}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "StoreSavedId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "PersonID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ],
+    "EndpointName": "DeleteSavedStoreByStoreID"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.SavedStores.SavedStoresController",
+    "Method": "IsSavedStoreExists",
+    "RelativePath": "api/SavedStores/Exists/{StoreSavedId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "StoreSavedId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Boolean",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "IsSavedStoreExists"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.SavedStores.SavedStoresController",
+    "Method": "IsSavedStoreExistsByStoreAndPerson",
+    "RelativePath": "api/SavedStores/ExistsByStoreAndPerson/{StoreID}/{PersonID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "StoreID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "PersonID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Boolean",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "IsSavedStoreExistsByStoreAndPerson"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.SavedStores.SavedStoresController",
+    "Method": "GetAllSavedStores",
+    "RelativePath": "api/SavedStores/GetAllSavedStores",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[StoresPlace_DataAccess.SavedStoreDTO, StoresPlace-DataAccess, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetAllSavedStores"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.SavedStores.SavedStoresController",
+    "Method": "GetSavedStore",
+    "RelativePath": "api/SavedStores/GetSavedStore/{StoreSavedId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "StoreSavedId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "StoresPlace_DataAccess.SavedStoreDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ],
+    "EndpointName": "GetSavedStore"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.SavedStores.SavedStoresController",
+    "Method": "GetSavedStoreByPersonIDAr",
+    "RelativePath": "api/SavedStores/GetSavedStoreByPersonIDAr/{PersonID}/{PageNumber}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "PersonID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "PageNumber",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[StoresPlace_DataAccess.StoreDetailsDTO, StoresPlace-DataAccess, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ],
+    "EndpointName": "GetSavedStoreByPersonIDAr"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.SavedStores.SavedStoresController",
+    "Method": "GetSavedStoreByPersonIDEn",
+    "RelativePath": "api/SavedStores/GetSavedStoreByPersonIDEn/{PersonID}/{PageNumber}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "PersonID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "PageNumber",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[StoresPlace_DataAccess.StoreDetailsDTO, StoresPlace-DataAccess, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ],
+    "EndpointName": "GetSavedStoreByPersonIDEn"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.SavedStores.SavedStoresController",
+    "Method": "UpdateSavedStore",
+    "RelativePath": "api/SavedStores/UpdateSavedStore/{StoreSavedId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "StoreSavedId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "savedStoreDTO",
+        "Type": "StoresPlace_DataAccess.SavedStoreDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "StoresPlace_DataAccess.SavedStoreDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ],
+    "EndpointName": "UpdateSavedStore"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Stores.StoresController",
+    "Method": "AddStore",
+    "RelativePath": "api/Stores/AddStore",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "storeDTO",
+        "Type": "StoresPlace_DataAccess.StoreDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "StoresPlace_DataAccess.StoreDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 500
+      }
+    ],
+    "EndpointName": "AddStore"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Stores.StoresController",
+    "Method": "DeleteStore",
+    "RelativePath": "api/Stores/DeleteStore/{StoreID}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "StoreID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Boolean",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ],
+    "EndpointName": "DeleteStore"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Stores.StoresController",
+    "Method": "FindStoreAr",
+    "RelativePath": "api/Stores/FindStoreAr/{StoreID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "StoreID",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "StoresPlace_DataAccess.StoreDetailsDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ],
+    "EndpointName": "GetStoreAR"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Stores.StoresController",
+    "Method": "FindStoreEn",
+    "RelativePath": "api/Stores/FindStoreEn/{StoreID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "StoreID",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "StoresPlace_DataAccess.StoreDetailsDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ],
+    "EndpointName": "GetStoreEn"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Stores.StoresController",
+    "Method": "GetAllStores",
+    "RelativePath": "api/Stores/GetAllStores",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[StoresPlace_DataAccess.StoreDTO, StoresPlace-DataAccess, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetAllStores"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Stores.StoresController",
+    "Method": "GetAllStoresInDetailsByPersonIDAr",
+    "RelativePath": "api/Stores/GetAllStoresInDetailsByPersonIDAr/{PersonID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "PersonID",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[StoresPlace_DataAccess.StoreDetailsDTO, StoresPlace-DataAccess, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ]
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Stores.StoresController",
+    "Method": "GetAllStoresInDetailsByPersonIDEn",
+    "RelativePath": "api/Stores/GetAllStoresInDetailsByPersonIDEn/{PersonID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "PersonID",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[StoresPlace_DataAccess.StoreDetailsDTO, StoresPlace-DataAccess, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ]
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Stores.StoresController",
+    "Method": "GetStore",
+    "RelativePath": "api/Stores/GetStore/{StoreID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "StoreID",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "StoresPlace_DataAccess.StoreDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ],
+    "EndpointName": "GetStore"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Stores.StoresController",
+    "Method": "GetStoresByCategoryNameAr",
+    "RelativePath": "api/Stores/GetStoresByCategoryNameAr/{CategoryNameAr}/{TypeID}/{PageNumber}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -82,17 +2185,22 @@
       {
         "Name": "CategoryNameAr",
         "Type": "System.String",
-        "IsRequired": false
+        "IsRequired": true
       },
       {
         "Name": "TypeID",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "PageNumber",
         "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "IsRequired": false
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[StoresPlace_DataAccess.StoreDetailsDTO, StoresPlace-DataAccess, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[StoresPlace_DataAccess.StoreDetailsDTO, StoresPlace-DataAccess, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -110,30 +2218,35 @@
         "StatusCode": 404
       }
     ],
-    "EndpointName": "GetAllStoreByCategoryNameAr"
+    "EndpointName": "GetStoresByCategoryNameAr"
   },
   {
-    "ContainingType": "StoresPlace_API.StoresController",
-    "Method": "GetAllStoreByCategoryNameEn",
-    "RelativePath": "api/Stores/AllStoreByCategoryNameEn",
+    "ContainingType": "StoresPlace_APIs.Stores.StoresController",
+    "Method": "GetStoresByCategoryNameEn",
+    "RelativePath": "api/Stores/GetStoresByCategoryNameEn/{CategoryNameEn}/{TypeID}/{PageNumber}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "CategoryNameAr",
+        "Name": "CategoryNameEn",
         "Type": "System.String",
-        "IsRequired": false
+        "IsRequired": true
       },
       {
         "Name": "TypeID",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "PageNumber",
         "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "IsRequired": false
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[StoresPlace_DataAccess.StoreDetailsDTO, StoresPlace-DataAccess, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[StoresPlace_DataAccess.StoreDetailsDTO, StoresPlace-DataAccess, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -151,49 +2264,314 @@
         "StatusCode": 404
       }
     ],
-    "EndpointName": "GetAllStoreByCategoryNameEn"
+    "EndpointName": "GetStoresByCategoryNameEn"
   },
   {
-    "ContainingType": "StoresPlace_API.StoresController",
-    "Method": "GetAllStoresAr",
-    "RelativePath": "api/Stores/AllStoresAr",
+    "ContainingType": "StoresPlace_APIs.Stores.StoresController",
+    "Method": "UpdateStore",
+    "RelativePath": "api/Stores/UpdateStore/{StoreID}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "StoreID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "storeDTO",
+        "Type": "StoresPlace_DataAccess.StoreDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "StoresPlace_DataAccess.StoreDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 500
+      }
+    ],
+    "EndpointName": "UpdateStore"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Stores.StoresController",
+    "Method": "UpdateStoreRating",
+    "RelativePath": "api/Stores/UpdateStoreRating/{StoreID}/{Rate}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Rate",
+        "Type": "System.Nullable\u00601[[System.Byte, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      },
+      {
+        "Name": "StoreID",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Boolean",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 500
+      }
+    ],
+    "EndpointName": "UpdateStoreRating"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Stores.StoresController",
+    "Method": "UpdateStoreRatingWithOldRate",
+    "RelativePath": "api/Stores/UpdateStoreRatingWithOldRate/{StoreID}/{OldRate}/{NewRate}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "OldRate",
+        "Type": "System.Nullable\u00601[[System.Byte, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      },
+      {
+        "Name": "NewRate",
+        "Type": "System.Nullable\u00601[[System.Byte, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      },
+      {
+        "Name": "StoreID",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 500
+      }
+    ],
+    "EndpointName": "UpdateStoreRatingWithOldRate"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.StoresForSale.StoresForSaleController",
+    "Method": "AddStoresForSale",
+    "RelativePath": "api/StoresForSale/AddStoresForSale",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "storesForSaleDTO",
+        "Type": "StoresPlace_DataAccess.StoresForSaleDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "StoresPlace_DataAccess.StoresForSaleDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      }
+    ],
+    "EndpointName": "AddStoresForSale"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.StoresForSale.StoresForSaleController",
+    "Method": "DeleteStoresForSale",
+    "RelativePath": "api/StoresForSale/DeleteStoresForSale/{StoreForSaleID}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "StoreForSaleID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ],
+    "EndpointName": "DeleteStoresForSale"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.StoresForSale.StoresForSaleController",
+    "Method": "IsStoresForSaleExists",
+    "RelativePath": "api/StoresForSale/Exists/{StoreID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "StoreID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Boolean",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "IsStoresForSaleExists"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.StoresForSale.StoresForSaleController",
+    "Method": "GetAllStoresForSaleAr",
+    "RelativePath": "api/StoresForSale/GetAllStoresForSaleAr",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[StoresPlace_DataAccess.StoreDetailsDTO, StoresPlace-DataAccess, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[StoresPlace_DataAccess.StoresForSaleDetailsDTO, StoresPlace-DataAccess, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
           "text/json"
         ],
         "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
       }
     ],
-    "EndpointName": "GetAllStoresAr"
+    "EndpointName": "GetAllStoresForSaleAr"
   },
   {
-    "ContainingType": "StoresPlace_API.StoresController",
-    "Method": "GetAllStoresEn",
-    "RelativePath": "api/Stores/AllStoresEn",
+    "ContainingType": "StoresPlace_APIs.StoresForSale.StoresForSaleController",
+    "Method": "GetAllStoresForSaleEn",
+    "RelativePath": "api/StoresForSale/GetAllStoresForSaleEn",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[StoresPlace_DataAccess.StoreDetailsDTO, StoresPlace-DataAccess, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[StoresPlace_DataAccess.StoresForSaleDetailsDTO, StoresPlace-DataAccess, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetAllStoresForSaleEn"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.StoresForSale.StoresForSaleController",
+    "Method": "GetStoresForSale",
+    "RelativePath": "api/StoresForSale/GetStoresForSale/{StoreID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "StoreID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "StoresPlace_DataAccess.StoresForSaleDTO",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -211,6 +2589,218 @@
         "StatusCode": 404
       }
     ],
-    "EndpointName": "GetAllStoresEn"
+    "EndpointName": "GetStoresForSale"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.StoresForSale.StoresForSaleController",
+    "Method": "UpdateStoresForSale",
+    "RelativePath": "api/StoresForSale/UpdateStoresForSale/{StoreForSaleID}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "StoreForSaleID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "storesForSaleDTO",
+        "Type": "StoresPlace_DataAccess.StoresForSaleDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "StoresPlace_DataAccess.StoresForSaleDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ],
+    "EndpointName": "UpdateStoresForSale"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Types.TypeController",
+    "Method": "FindTypeAr",
+    "RelativePath": "api/Types/FindTypeAr/{TypeNameAr}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "TypeNameAr",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "StoresPlace_DataAccess.clsTypeData\u002BTypeDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ],
+    "EndpointName": "FindTypeAr"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Types.TypeController",
+    "Method": "FindTypeEn",
+    "RelativePath": "api/Types/FindTypeEn/{TypeNameEn}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "TypeNameEn",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "StoresPlace_DataAccess.clsTypeData\u002BTypeDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ],
+    "EndpointName": "FindTypeEn"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Types.TypeController",
+    "Method": "GetAllTypes",
+    "RelativePath": "api/Types/GetAllTypes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[StoresPlace_DataAccess.clsTypeData\u002BTypeDTO, StoresPlace-DataAccess, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetAllTypes"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Types.TypeController",
+    "Method": "GetAllTypesAr",
+    "RelativePath": "api/Types/GetAllTypesAr",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetAllTypesAr"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Types.TypeController",
+    "Method": "GetAllTypesEn",
+    "RelativePath": "api/Types/GetAllTypesEn",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetAllTypesEn"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Types.TypeController",
+    "Method": "GetType",
+    "RelativePath": "api/Types/GetType/{TypeID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "TypeID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "StoresPlace_DataAccess.clsTypeData\u002BTypeDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ],
+    "EndpointName": "GetType"
   }
 ]

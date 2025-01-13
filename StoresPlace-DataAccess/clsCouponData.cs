@@ -264,7 +264,6 @@ namespace StoresPlace_DataAccess
             return coupons;
         }
 
-
         public static List<CouponDTO> GetAllCoupon(int? StoreID)
         {
             List<CouponDTO> coupon = new List<CouponDTO>();

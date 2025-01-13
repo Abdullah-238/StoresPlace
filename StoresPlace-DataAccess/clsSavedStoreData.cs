@@ -214,40 +214,7 @@ namespace StoresPlace_DataAccess
             return Deleted;
         }
 
-        public static List<SavedStoreDTO> GetAllSavedStore()
-        {
-            List<SavedStoreDTO> savedstore = new List<SavedStoreDTO>();
-            try
-            {
-                using (SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                using (SqlCommand Command = new SqlCommand("SP_GetAllSavedStore", Connection))
-                {
-                    Command.CommandType = CommandType.StoredProcedure;
-
-                    Connection.Open();
-                    using (SqlDataReader reader = Command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            savedstore.Add(new SavedStoreDTO
-                              (
-                                 reader.GetInt32(reader.GetOrdinal("StoreSavedId")),
-                                 reader.GetInt32(reader.GetOrdinal("StoreID")),
-                                 reader.GetInt32(reader.GetOrdinal("PersonID"))
-                              ));
-                        };
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                clsUtil.WriteExceptionInLogFile(ex);
-            }
-
-            return savedstore;
-        }
-
-        public static List<StoreDetailsDTO> GetAllSavedStoreByPersonIDAr(int? PersonID)
+        public static List<StoreDetailsDTO> GetAllSavedStoreByPersonIDAr(int? PersonID, int? PageNumber)
         {
             List<StoreDetailsDTO> savedstore = new List<StoreDetailsDTO>();
             try
@@ -258,6 +225,7 @@ namespace StoresPlace_DataAccess
                     Command.CommandType = CommandType.StoredProcedure;
 
                     Command.Parameters.AddWithValue("@PersonID", PersonID);
+                    Command.Parameters.AddWithValue("@PageNumber", PageNumber);
 
                     Connection.Open();
                     using (SqlDataReader reader = Command.ExecuteReader())
@@ -279,8 +247,10 @@ namespace StoresPlace_DataAccess
                                        (!reader.IsDBNull(reader.GetOrdinal("NumberOfRates")) ? reader.GetDecimal("NumberOfRates") : null),
                                        (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : ""),
                                      (!reader.IsDBNull(reader.GetOrdinal("NumbersOfClick")) ? reader.GetDecimal("NumbersOfClick") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : null),
                                       (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : ""),
-                                   (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : ""),
+                                       (!reader.IsDBNull(reader.GetOrdinal("Email")) ? reader.GetString("Email") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("Phone")) ? reader.GetString("Phone") : null),
                                 reader.GetInt32(reader.GetOrdinal("StoreID"))
                              ));
                         };
@@ -295,7 +265,7 @@ namespace StoresPlace_DataAccess
             return savedstore;
         }
 
-        public static List<StoreDetailsDTO> GetAllSavedStoreByPersonIDEn(int? PersonID)
+        public static List<StoreDetailsDTO> GetAllSavedStoreByPersonIDEn(int? PersonID, int? PageNumber)
         {
             List<StoreDetailsDTO> savedstore = new List<StoreDetailsDTO>();
             try
@@ -306,6 +276,7 @@ namespace StoresPlace_DataAccess
                     Command.CommandType = CommandType.StoredProcedure;
 
                     Command.Parameters.AddWithValue("@PersonID", PersonID);
+                    Command.Parameters.AddWithValue("@PageNumber", PageNumber);
 
                     Connection.Open();
                     using (SqlDataReader reader = Command.ExecuteReader())
@@ -327,8 +298,10 @@ namespace StoresPlace_DataAccess
                                        (!reader.IsDBNull(reader.GetOrdinal("NumberOfRates")) ? reader.GetDecimal("NumberOfRates") : null),
                                        (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : ""),
                                      (!reader.IsDBNull(reader.GetOrdinal("NumbersOfClick")) ? reader.GetDecimal("NumbersOfClick") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : null),
                                       (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : ""),
-                                   (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : ""),
+                                       (!reader.IsDBNull(reader.GetOrdinal("Email")) ? reader.GetString("Email") : null),
+                                       (!reader.IsDBNull(reader.GetOrdinal("Phone")) ? reader.GetString("Phone") : null),
                                 reader.GetInt32(reader.GetOrdinal("StoreID"))
                              ));
                         };

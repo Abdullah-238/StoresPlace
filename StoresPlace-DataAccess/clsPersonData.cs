@@ -172,6 +172,38 @@ namespace StoresPlace_DataAccess
             return isFound;
         }
 
+
+        public static bool IsPersonActive(int? PersonID)
+        {
+
+            bool isFound = false;
+            try
+            {
+                using (SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlCommand Command = new SqlCommand("SP_IsPersonActive", Connection))
+                {
+                    Connection.Open();
+                    Command.CommandType = CommandType.StoredProcedure;
+
+                    Command.Parameters.AddWithValue("@PersonID", PersonID);
+
+                    SqlParameter returnParameter = new SqlParameter("@ReturnVal", SqlDbType.Int)
+                    {
+                        Direction = ParameterDirection.ReturnValue
+                    };
+                    Command.Parameters.Add(returnParameter);
+                    Command.ExecuteNonQuery();
+                    isFound = (int)returnParameter.Value == 1;
+
+                };
+            }
+            catch (Exception ex)
+            {
+                clsUtil.WriteExceptionInLogFile(ex);
+            }
+            return isFound;
+        }
+
         public static bool IsPersonExistsByPhone(string Phone)
         {
 
@@ -237,6 +269,36 @@ namespace StoresPlace_DataAccess
             }
             return isFound;
         }
+
+        public static bool IsPersonActiveByEmail(string Email)
+        {
+            bool IsActive = false;
+            try
+            {
+                using (SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlCommand Command = new SqlCommand("SP_IsPersonActiveByEmail", Connection))
+                {
+                    Connection.Open();
+                    Command.CommandType = CommandType.StoredProcedure;
+
+                    Command.Parameters.AddWithValue("@Email", Email);
+
+                    var result = Command.ExecuteScalar();
+
+                    if (result != null)
+                    {
+                        IsActive = Convert.ToByte(result) == 1;  
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clsUtil.WriteExceptionInLogFile(ex);
+            }
+
+            return IsActive;
+        }
+
 
         public static bool DeletePerson(int? PersonID)
         {

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("StoresPlace-APIs")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+17857afba30300dbca93b17ac7e3991f4c0a70b5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2ae6aeb9ec92cf73f17f413b5055febbc05cff9b")]
 [assembly: System.Reflection.AssemblyProductAttribute("StoresPlace-APIs")]
 [assembly: System.Reflection.AssemblyTitleAttribute("StoresPlace-APIs")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -44,23 +44,26 @@ namespace StoresPlace_DataAccess
         public string PersonName { get; set; }
         public int? StoreID { get; set; }
 
+        public string? Email { get; set; }
+
+        public string? Phone { get; set; }
         public decimal? Price { get; set; }
 
         public string StoresForSaleStatus { get; set; }
 
-        public StoresForSaleDetailsDTO(string name, string regionNameAr, string cityNameAr, string districtsNameAr, string commercialNumber, string website, string address,
-            string categoryNameAr, string typeNameAr, byte? rating, decimal? numberOfRates, string storeStatus, decimal? numbersOfClick, string photo, string personName,
-            int? storeid,decimal? price ,string storesForsalestatus)
+        public StoresForSaleDetailsDTO(string name, string regionName, string cityName, string districtsName, string commercialNumber, string website, string address,
+            string categoryName, string typeName, byte? rating, decimal? numberOfRates, string storeStatus, decimal? numbersOfClick, string photo, string personName,
+            int? storeid,string ? email , string? phone ,decimal? price ,string storesForsalestatus )
         {
             Name = name;
-            RegionName = regionNameAr;
-            CityName = cityNameAr;
-            DistrictsName = districtsNameAr;
+            RegionName = regionName;
+            CityName = cityName;
+            DistrictsName = districtsName;
             CommercialNumber = commercialNumber;
             Website = website;
             Address = address;
-            CategoryName = categoryNameAr;
-            TypeName = typeNameAr;
+            CategoryName = categoryName;
+            TypeName = typeName;
             Rating = rating;
             NumberOfRates = numberOfRates;
             StoreStatus = storeStatus;
@@ -68,6 +71,8 @@ namespace StoresPlace_DataAccess
             Photo = photo;
             PersonName = personName;
             StoreID = storeid;
+            Email = email;
+            Phone = phone;
             Price = price;
             StoresForSaleStatus = storesForsalestatus;
         }
@@ -278,6 +283,8 @@ namespace StoresPlace_DataAccess
                                     (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : ""),
                                      (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : ""),
                                  reader.GetInt32(reader.GetOrdinal("StoreID")),
+                                   (!reader.IsDBNull(reader.GetOrdinal("Email")) ? reader.GetString("Email") : null),
+                                    (!reader.IsDBNull(reader.GetOrdinal("Phone")) ? reader.GetString("Phone") : null),
                                  (!reader.IsDBNull(reader.GetOrdinal("Price")) ? reader.GetDecimal("Price") : null),
                                    reader.GetString(reader.GetOrdinal("StoresForSaleStatus"))
 
@@ -295,7 +302,6 @@ namespace StoresPlace_DataAccess
 
             return storesforsal;
         }
-
 
         public static List<StoresForSaleDetailsDTO> GetAllStoresForSaleEn()
         {
@@ -330,6 +336,8 @@ namespace StoresPlace_DataAccess
                                     (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : ""),
                                    (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : ""),
                                  reader.GetInt32(reader.GetOrdinal("StoreID")),
+                                   (!reader.IsDBNull(reader.GetOrdinal("Email")) ? reader.GetString("Email") : null),
+                                    (!reader.IsDBNull(reader.GetOrdinal("Phone")) ? reader.GetString("Phone") : null),
                                  (!reader.IsDBNull(reader.GetOrdinal("Price")) ? reader.GetDecimal("Price") : null),
                                    reader.GetString(reader.GetOrdinal("StoresForSaleStatus"))
 

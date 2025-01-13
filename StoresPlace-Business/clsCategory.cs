@@ -115,27 +115,5 @@ namespace StoresPlace_Business
         }
 
 
-        public static string GetCategoryNameArByCategoryID(int? CategoryID)
-        {
-            return clsCategoriesData.GetCategoryNameArByCategoryID(CategoryID);
-        }
-
-        public static string GetCategoryNameEnByCategoryID(int? CategoryID)
-        {
-            return clsCategoriesData.GetCategoryNameEnByCategoryID(CategoryID);
-        }
-
-
-
-        public static int? GetCategoryIdByCategoryNameAr(string CategoryNameAr)
-        {
-            return clsCategoriesData.GetCategoryIdByCategoryNameAr(CategoryNameAr);
-        }
-
-        public static int? GetCategoryIdByCategoryNameEn(string CategoryNameEn)
-        {
-            return clsCategoriesData.GetCategoryIdByCategoryNameEn(CategoryNameEn);
-        }
-
     }
 }

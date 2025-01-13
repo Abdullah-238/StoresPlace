@@ -86,11 +86,20 @@ namespace StoresPlace_Business
             return clsPersonData.IsPersonExistsByEmail(Email);
         }
 
+        public static bool IsPersonActiveByEmail(string Email)
+        {
+            return clsPersonData.IsPersonActiveByEmail(Email);
+        }
+
         public static bool IsPersonExistsByPhone(string Phone)
         {
             return clsPersonData.IsPersonExistsByPhone(Phone);
         }
 
+        public static bool IsPersonActive(int? PersonID)
+        {
+            return clsPersonData.IsPersonActive(PersonID);
+        }
         public static bool Delete(int? PersonID)
         {
 

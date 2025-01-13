@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using StoresPlace_Business;
 using StoresPlace_DataAccess;
+using System;
 
 namespace StoresPlace_APIs.SavedStores
 {
@@ -103,52 +104,34 @@ namespace StoresPlace_APIs.SavedStores
             }
         }
 
-        [HttpGet("GetAllSavedStores", Name = "GetAllSavedStores")]
+      
+        [HttpGet("GetSavedStoreByPersonIDAr/{PersonID}/{PageNumber}", Name = "GetSavedStoreByPersonIDAr")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public ActionResult<List<SavedStoreDTO>> GetAllSavedStores()
-        {
-            var savedStores = clsSavedStore.GetAll();
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
 
-            if (savedStores != null && savedStores.Count > 0)
+        public ActionResult<List<StoreDetailsDTO>> GetSavedStoreByPersonIDAr(int PersonID, int? PageNumber)
+        {
+            var savedStores = clsSavedStore.GetAllSavedStoreByPersonIDAr(PersonID, PageNumber);
+
+            if (savedStores.Count == 0)
             {
-                return Ok(savedStores);
+                return NotFound("No stores found for this category.");
             }
-            else
-            {
-                return NoContent();
-            }
+            return Ok(savedStores);
         }
 
-        [HttpGet("GetSavedStoreByPersonIDAr/{PersonID}", Name = "GetSavedStoreByPersonIDAr")]
+        [HttpGet("GetSavedStoreByPersonIDEn/{PersonID}/{PageNumber}", Name = "GetSavedStoreByPersonIDEn")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public ActionResult<List<StoreDetailsDTO>> GetSavedStoreByPersonIDAr(int PersonID)
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<List<StoreDetailsDTO>> GetSavedStoreByPersonIDEn(int PersonID, int? PageNumber)
         {
-            var savedStores = clsSavedStore.GetAllSavedStoreByPersonIDAr(PersonID);
+            var savedStores = clsSavedStore.GetAllSavedStoreByPersonIDEn(PersonID, PageNumber);
 
-            if (savedStores != null && savedStores.Count > 0)
+            if (savedStores.Count == 0)
             {
-                return Ok(savedStores);
+                return NotFound("No stores found for this category.");
             }
-            else
-            {
-                return NoContent();
-            }
-        }
-
-        [HttpGet("GetSavedStoreByPersonIDEn/{PersonID}", Name = "GetSavedStoreByPersonIDEn")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        public ActionResult<List<StoreDetailsDTO>> GetSavedStoreByPersonIDEn(int PersonID)
-        {
-            var savedStores = clsSavedStore.GetAllSavedStoreByPersonIDEn(PersonID);
-
-            if (savedStores != null && savedStores.Count > 0)
-            {
-                return Ok(savedStores);
-            }
-            else
-            {
-                return NoContent();
-            }
+            return Ok(savedStores);
         }
 
         [HttpGet("Exists/{StoreSavedId}", Name = "IsSavedStoreExists")]

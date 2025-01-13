@@ -21,7 +21,8 @@ namespace StoresPlace_DataAccess
         public byte? Status { get; set; }
         public decimal? NumbersOfClick { get; set; }
         public string? Photo { get; set; }
-        public int? PeronID { get; set; }
+
+        public int ? PeronID { get; set; }
         public string? Phone { get; set; }
         public int? CityID { get; set; }
         public string? Email { get; set; }
@@ -51,7 +52,7 @@ namespace StoresPlace_DataAccess
 
 
     }
-     public class StoreDetailsDTO
+    public class StoreDetailsDTO
     {
         public string Name { get; set; }
         public string? RegionName { get; set; }
@@ -68,26 +69,34 @@ namespace StoresPlace_DataAccess
         public decimal? NumbersOfClick { get; set; }
         public string? Photo { get; set; }
         public string? PersonName { get; set; }
+
+        public string? Email { get; set; }
+
+        public string? Phone { get; set; }
+
         public int? StoreID { get; set; }
 
-        public StoreDetailsDTO(string name, string? regionNameAr, string? cityNameAr, string? districtsNameAr, string? commercialNumber, string? website, string? address,
-            string? categoryNameAr, string? typeNameAr, byte? rating, decimal? numberOfRates, string? storeStatus, decimal? numbersOfClick, string? photo, string? personName, int? storeid)
+        public StoreDetailsDTO(string name, string? regionName, string? cityName, string? districtsName, string? commercialNumber, string? website, string? address,
+            string? categoryName, string? typeName, byte? rating, decimal? numberOfRates, string? storeStatus, decimal? numbersOfClick,
+            string? photo, string? personName, string? email, string? phone, int? storeid)
         {
             Name = name;
-            RegionName = regionNameAr;
-            CityName = cityNameAr;
-            DistrictsName = districtsNameAr;
+            RegionName = regionName;
+            CityName = cityName;
+            DistrictsName = districtsName;
             CommercialNumber = commercialNumber;
             Website = website;
             Address = address;
-            CategoryName = categoryNameAr;
-            TypeName = typeNameAr;
+            CategoryName = categoryName;
+            TypeName = typeName;
             Rating = rating;
             NumberOfRates = numberOfRates;
             StoreStatus = storeStatus;
             NumbersOfClick = numbersOfClick;
             Photo = photo;
             PersonName = personName;
+            Email = email;
+            Phone = phone;
             StoreID = storeid;
         }
     }
@@ -230,6 +239,8 @@ namespace StoresPlace_DataAccess
                                       (!reader.IsDBNull(reader.GetOrdinal("NumbersOfClick")) ? reader.GetDecimal("NumbersOfClick") : null),
                                     (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : null),
                                                                            (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : null),
+                                                                                                               (!reader.IsDBNull(reader.GetOrdinal("Email")) ? reader.GetString("Email") : null),
+                                    (!reader.IsDBNull(reader.GetOrdinal("Phone")) ? reader.GetString("Phone") : null),
 
                                  reader.GetInt32(reader.GetOrdinal("StoreID"))
                               );
@@ -280,8 +291,9 @@ namespace StoresPlace_DataAccess
                                         (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : null),
                                       (!reader.IsDBNull(reader.GetOrdinal("NumbersOfClick")) ? reader.GetDecimal("NumbersOfClick") : null),
                                     (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : null),
-                                                                           (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : null),
-
+                                    (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : null),
+                                    (!reader.IsDBNull(reader.GetOrdinal("Email")) ? reader.GetString("Email") : null),
+                                    (!reader.IsDBNull(reader.GetOrdinal("Phone")) ? reader.GetString("Phone") : null),
                                  reader.GetInt32(reader.GetOrdinal("StoreID"))
                               );
                         }
@@ -450,106 +462,7 @@ namespace StoresPlace_DataAccess
             return store;
         }
 
-        public static List<StoreDTO> GetAllStoresByPersonID(int? PersonID)
-        {
-            List<StoreDTO> store = new List<StoreDTO>();
-            try
-            {
-                using (SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                using (SqlCommand Command = new SqlCommand("SP_GetAllStoresByPersonID", Connection))
-                {
-                    Command.CommandType = CommandType.StoredProcedure;
-
-                    Command.Parameters.AddWithValue("@PersonID", PersonID);
-
-                    Connection.Open();
-                    using (SqlDataReader reader = Command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            store.Add(new StoreDTO
-                              (
-                                  reader.GetInt32(reader.GetOrdinal("StoreID")),
-                                     reader.GetString(reader.GetOrdinal("Name")),
-                                     (!reader.IsDBNull(reader.GetOrdinal("CommercialNumber")) ? reader.GetString("CommercialNumber") : null),
-                                      (!reader.IsDBNull(reader.GetOrdinal("DistrictsID")) ? reader.GetInt32("DistrictsID") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Website")) ? reader.GetString("Website") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Address")) ? reader.GetString("Address") : null),
-                                 reader.GetInt32(reader.GetOrdinal("CategoryID")),
-                                 reader.GetInt32(reader.GetOrdinal("TypeID")),
-                                        (!reader.IsDBNull(reader.GetOrdinal("Rating")) ? reader.GetByte("Rating") : null),
-                                        (!reader.IsDBNull(reader.GetOrdinal("NumberOfRates")) ? reader.GetDecimal("NumberOfRates") : null),
-                                     reader.GetByte(reader.GetOrdinal("Status")),
-                                      (!reader.IsDBNull(reader.GetOrdinal("NumbersOfClick")) ? reader.GetDecimal("NumbersOfClick") : null),
-                                    (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : null),
-                                    reader.GetInt32(reader.GetOrdinal("PeronID")),
-                                    (!reader.IsDBNull(reader.GetOrdinal("Phone")) ? reader.GetString("Phone") : null),
-                                    (!reader.IsDBNull(reader.GetOrdinal("CityID")) ? reader.GetInt32("CityID") : null),
-                                    (!reader.IsDBNull(reader.GetOrdinal("Email")) ? reader.GetString("Email") : null)
-                              ));
-                        };
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                clsUtil.WriteExceptionInLogFile(ex);
-            }
-
-            return store;
-        }
-
-        public static List<StoreDetailsDTO> GetAllStoreByCategoryID(int? CategoryID)
-        {
-            List<StoreDetailsDTO> store = new List<StoreDetailsDTO>();
-            try
-            {
-                using (SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                using (SqlCommand Command = new SqlCommand("Sp_GetCategoryByCategoryID", Connection))
-                {
-                    Command.CommandType = CommandType.StoredProcedure;
-
-                    Command.Parameters.AddWithValue("@CategoryID", CategoryID);
-
-                    Connection.Open();
-                    using (SqlDataReader reader = Command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            store.Add(new StoreDetailsDTO
-                              (
-                                      reader.GetString(reader.GetOrdinal("Name")),
-                                     (!reader.IsDBNull(reader.GetOrdinal("RegionName")) ? reader.GetString("RegionName") : null),
-                                      (!reader.IsDBNull(reader.GetOrdinal("CityName")) ? reader.GetString("CityName") : null),
-                                     (!reader.IsDBNull(reader.GetOrdinal("DistrictsName")) ? reader.GetString("DistrictsName") : null),
-                                     (!reader.IsDBNull(reader.GetOrdinal("CommercialNumber")) ? reader.GetString("CommercialNumber") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Website")) ? reader.GetString("Website") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Address")) ? reader.GetString("Address") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("CategoryName")) ? reader.GetString("CategoryName") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("TypeName")) ? reader.GetString("TypeName") : null),
-                                        (!reader.IsDBNull(reader.GetOrdinal("Rating")) ? reader.GetByte("Rating") : null),
-                                        (!reader.IsDBNull(reader.GetOrdinal("NumberOfRates")) ? reader.GetDecimal("NumberOfRates") : null),
-                                        (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : null),
-                                      (!reader.IsDBNull(reader.GetOrdinal("NumbersOfClick")) ? reader.GetDecimal("NumbersOfClick") : null),
-                                                                          (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : null),
-                                 reader.GetInt32(reader.GetOrdinal("StoreID"))
-                              ));
-                        };
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                clsUtil.WriteExceptionInLogFile(ex);
-            }
-
-            return store;
-        }
-
-
-
-        public static List<StoreDetailsDTO> GetAllStoreByCategoryNameAr(string CategoryNameAr,int ? TypeID)
+        public static List<StoreDetailsDTO> GetAllStoreByCategoryNameAr(string CategoryNameAr,int ? TypeID,int ? PageNumber)
         {
             List<StoreDetailsDTO> store = new List<StoreDetailsDTO>();
             try
@@ -561,6 +474,7 @@ namespace StoresPlace_DataAccess
 
                     Command.Parameters.AddWithValue("@CategoryNameAr", CategoryNameAr);
                     Command.Parameters.AddWithValue("@TypeID", TypeID);
+                    Command.Parameters.AddWithValue("@PageNumber", PageNumber);
 
                     Connection.Open();
                     using (SqlDataReader reader = Command.ExecuteReader())
@@ -584,6 +498,8 @@ namespace StoresPlace_DataAccess
                                       (!reader.IsDBNull(reader.GetOrdinal("NumbersOfClick")) ? reader.GetDecimal("NumbersOfClick") : null),
                                     (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : null),
                                                                            (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : null),
+                                                                                                               (!reader.IsDBNull(reader.GetOrdinal("Email")) ? reader.GetString("Email") : null),
+                                    (!reader.IsDBNull(reader.GetOrdinal("Phone")) ? reader.GetString("Phone") : null),
 
                                  reader.GetInt32(reader.GetOrdinal("StoreID"))
                               ));
@@ -599,7 +515,7 @@ namespace StoresPlace_DataAccess
             return store;
         }
 
-        public static List<StoreDetailsDTO> GetAllStoreByCategoryNameEn(string CategoryNameEn, int? TypeID)
+        public static List<StoreDetailsDTO> GetAllStoreByCategoryNameEn(string CategoryNameEn, int? TypeID, int? PageNumber)
         {
             List<StoreDetailsDTO> store = new List<StoreDetailsDTO>();
             try
@@ -611,6 +527,7 @@ namespace StoresPlace_DataAccess
 
                     Command.Parameters.AddWithValue("@CategoryNameEn", CategoryNameEn);
                     Command.Parameters.AddWithValue("@TypeID", TypeID);
+                    Command.Parameters.AddWithValue("@PageNumber", PageNumber);
 
                     Connection.Open();
                     using (SqlDataReader reader = Command.ExecuteReader())
@@ -634,359 +551,8 @@ namespace StoresPlace_DataAccess
                                       (!reader.IsDBNull(reader.GetOrdinal("NumbersOfClick")) ? reader.GetDecimal("NumbersOfClick") : null),
                                     (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : null),
                                                                            (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : null),
-                                 reader.GetInt32(reader.GetOrdinal("StoreID"))
-                              ));
-                        };
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                clsUtil.WriteExceptionInLogFile(ex);
-            }
-
-            return store;
-        }
-
-        public static List<StoreDetailsDTO> GetAllStoreByCategoryNameEnAndRegionName(string CategoryNameEn,string RegionNameEn, int? TypeID)
-        {
-            List<StoreDetailsDTO> store = new List<StoreDetailsDTO>();
-            try
-            {
-                using (SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                using (SqlCommand Command = new SqlCommand("Sp_GetAllStoreByCategoryNameEnAndRegionNameEn", Connection))
-                {
-                    Command.CommandType = CommandType.StoredProcedure;
-
-                    Command.Parameters.AddWithValue("@CategoryNameEn", CategoryNameEn);
-                    Command.Parameters.AddWithValue("@RegionNameEn", RegionNameEn);
-                    Command.Parameters.AddWithValue("@TypeID", TypeID);
-
-                    Connection.Open();
-                    using (SqlDataReader reader = Command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            store.Add(new StoreDetailsDTO
-                               (
-                                      reader.GetString(reader.GetOrdinal("Name")),
-                                     (!reader.IsDBNull(reader.GetOrdinal("RegionName")) ? reader.GetString("RegionName") : null),
-                                      (!reader.IsDBNull(reader.GetOrdinal("CityName")) ? reader.GetString("CityName") : null),
-                                     (!reader.IsDBNull(reader.GetOrdinal("DistrictsName")) ? reader.GetString("DistrictsName") : null),
-                                     (!reader.IsDBNull(reader.GetOrdinal("CommercialNumber")) ? reader.GetString("CommercialNumber") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Website")) ? reader.GetString("Website") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Address")) ? reader.GetString("Address") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("CategoryName")) ? reader.GetString("CategoryName") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("TypeName")) ? reader.GetString("TypeName") : null),
-                                        (!reader.IsDBNull(reader.GetOrdinal("Rating")) ? reader.GetByte("Rating") : null),
-                                        (!reader.IsDBNull(reader.GetOrdinal("NumberOfRates")) ? reader.GetDecimal("NumberOfRates") : null),
-                                        (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : null),
-                                      (!reader.IsDBNull(reader.GetOrdinal("NumbersOfClick")) ? reader.GetDecimal("NumbersOfClick") : null),
-                                    (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : null),
-                                                                           (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : null),
-                                 reader.GetInt32(reader.GetOrdinal("StoreID"))
-                               ));
-                        };
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                clsUtil.WriteExceptionInLogFile(ex);
-            }
-
-            return store;
-        }
-
-        public static List<StoreDetailsDTO> GetAllStoreByCategoryNameArAndRegionName(string CategoryNameAr, string RegionNameAr, int? TypeID)
-        {
-            List<StoreDetailsDTO> store = new List<StoreDetailsDTO>();
-            try
-            {
-                using (SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                using (SqlCommand Command = new SqlCommand("Sp_GetAllStoreByCategoryNameArAndRegionNameAr", Connection))
-                {
-                    Command.CommandType = CommandType.StoredProcedure;
-
-                    Command.Parameters.AddWithValue("@CategoryNameAr", CategoryNameAr);
-                    Command.Parameters.AddWithValue("@RegionNameAr", RegionNameAr);
-                    Command.Parameters.AddWithValue("@TypeID", TypeID);
-
-                    Connection.Open();
-                    using (SqlDataReader reader = Command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            store.Add(new StoreDetailsDTO
-                               (
-                                     reader.GetString(reader.GetOrdinal("Name")),
-                                     (!reader.IsDBNull(reader.GetOrdinal("RegionName")) ? reader.GetString("RegionName") : null),
-                                      (!reader.IsDBNull(reader.GetOrdinal("CityName")) ? reader.GetString("CityName") : null),
-                                     (!reader.IsDBNull(reader.GetOrdinal("DistrictsName")) ? reader.GetString("DistrictsName") : null),
-                                     (!reader.IsDBNull(reader.GetOrdinal("CommercialNumber")) ? reader.GetString("CommercialNumber") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Website")) ? reader.GetString("Website") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Address")) ? reader.GetString("Address") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("CategoryName")) ? reader.GetString("CategoryName") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("TypeName")) ? reader.GetString("TypeName") : null),
-                                        (!reader.IsDBNull(reader.GetOrdinal("Rating")) ? reader.GetByte("Rating") : null),
-                                        (!reader.IsDBNull(reader.GetOrdinal("NumberOfRates")) ? reader.GetDecimal("NumberOfRates") : null),
-                                        (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : null),
-                                      (!reader.IsDBNull(reader.GetOrdinal("NumbersOfClick")) ? reader.GetDecimal("NumbersOfClick") : null),
-                                    (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : null),
-                                                                           (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : null),
-                                 reader.GetInt32(reader.GetOrdinal("StoreID"))
-                               ));
-                        };
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                clsUtil.WriteExceptionInLogFile(ex);
-            }
-
-            return store;
-        }
-
-        public static List<StoreDetailsDTO> GetAllStoreByCategoryNameEnAndCityNameEn(string CategoryNameEn, string CityNameEn, int? TypeID)
-        {
-            List<StoreDetailsDTO> store = new List<StoreDetailsDTO>();
-            try
-            {
-                using (SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                using (SqlCommand Command = new SqlCommand("Sp_GetAllStoreByCategoryNameEnAndCityNameEn", Connection))
-                {
-                    Command.CommandType = CommandType.StoredProcedure;
-
-                    Command.Parameters.AddWithValue("@CategoryNameEn", CategoryNameEn);
-                    Command.Parameters.AddWithValue("@CityNameEn", CityNameEn);
-                    Command.Parameters.AddWithValue("@TypeID", TypeID);
-
-                    Connection.Open();
-                    using (SqlDataReader reader = Command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            store.Add(new StoreDetailsDTO
-                              (
-                                    reader.GetString(reader.GetOrdinal("Name")),
-                                     (!reader.IsDBNull(reader.GetOrdinal("RegionName")) ? reader.GetString("RegionName") : null),
-                                      (!reader.IsDBNull(reader.GetOrdinal("CityName")) ? reader.GetString("CityName") : null),
-                                     (!reader.IsDBNull(reader.GetOrdinal("DistrictsName")) ? reader.GetString("DistrictsName") : null),
-                                     (!reader.IsDBNull(reader.GetOrdinal("CommercialNumber")) ? reader.GetString("CommercialNumber") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Website")) ? reader.GetString("Website") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Address")) ? reader.GetString("Address") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("CategoryName")) ? reader.GetString("CategoryName") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("TypeName")) ? reader.GetString("TypeName") : null),
-                                        (!reader.IsDBNull(reader.GetOrdinal("Rating")) ? reader.GetByte("Rating") : null),
-                                        (!reader.IsDBNull(reader.GetOrdinal("NumberOfRates")) ? reader.GetDecimal("NumberOfRates") : null),
-                                        (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : null),
-                                      (!reader.IsDBNull(reader.GetOrdinal("NumbersOfClick")) ? reader.GetDecimal("NumbersOfClick") : null),
-                                    (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : null),
-                                                                           (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : null),
-
-                                 reader.GetInt32(reader.GetOrdinal("StoreID"))
-                              ));
-                        };
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                clsUtil.WriteExceptionInLogFile(ex);
-            }
-
-            return store;
-        }
-
-        public static List<StoreDetailsDTO> GetAllStoreByCategoryNameArAndCityNameAr(string CategoryNameAr, string CityNameAr, int? TypeID)
-        {
-            List<StoreDetailsDTO> store = new List<StoreDetailsDTO>();
-            try
-            {
-                using (SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                using (SqlCommand Command = new SqlCommand("Sp_GetAllStoreByCategoryNameArAndCityNameAr", Connection))
-                {
-                    Command.CommandType = CommandType.StoredProcedure;
-
-                    Command.Parameters.AddWithValue("@CategoryNameAr", CategoryNameAr);
-                    Command.Parameters.AddWithValue("@CityNameAr", CityNameAr);
-                    Command.Parameters.AddWithValue("@TypeID", TypeID);
-
-                    Connection.Open();
-                    using (SqlDataReader reader = Command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            store.Add(new StoreDetailsDTO
-                              (
-                                    reader.GetString(reader.GetOrdinal("Name")),
-                                     (!reader.IsDBNull(reader.GetOrdinal("RegionName")) ? reader.GetString("RegionName") : null),
-                                      (!reader.IsDBNull(reader.GetOrdinal("CityName")) ? reader.GetString("CityName") : null),
-                                     (!reader.IsDBNull(reader.GetOrdinal("DistrictsName")) ? reader.GetString("DistrictsName") : null),
-                                     (!reader.IsDBNull(reader.GetOrdinal("CommercialNumber")) ? reader.GetString("CommercialNumber") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Website")) ? reader.GetString("Website") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Address")) ? reader.GetString("Address") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("CategoryName")) ? reader.GetString("CategoryName") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("TypeName")) ? reader.GetString("TypeName") : null),
-                                        (!reader.IsDBNull(reader.GetOrdinal("Rating")) ? reader.GetByte("Rating") : null),
-                                        (!reader.IsDBNull(reader.GetOrdinal("NumberOfRates")) ? reader.GetDecimal("NumberOfRates") : null),
-                                        (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : null),
-                                      (!reader.IsDBNull(reader.GetOrdinal("NumbersOfClick")) ? reader.GetDecimal("NumbersOfClick") : null),
-                                    (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : null),
-                                                                           (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : null),
-
-                                 reader.GetInt32(reader.GetOrdinal("StoreID"))
-                              ));
-                        };
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                clsUtil.WriteExceptionInLogFile(ex);
-            }
-
-            return store;
-        }
-
-        public static List<StoreDetailsDTO> GetAllStoreByCategoryNameEnAndDistrictsNameEn(string CategoryNameEn, string DistrictsNameEn, int? TypeID)
-        {
-            List<StoreDetailsDTO> store = new List<StoreDetailsDTO>();
-            try
-            {
-                using (SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                using (SqlCommand Command = new SqlCommand("Sp_GetAllStoreByCategoryNameEnAndDistrictsNameEn", Connection))
-                {
-                    Command.CommandType = CommandType.StoredProcedure;
-
-                    Command.Parameters.AddWithValue("@CategoryNameEn", CategoryNameEn);
-                    Command.Parameters.AddWithValue("@DistrictsNameEn", DistrictsNameEn);
-                    Command.Parameters.AddWithValue("@TypeID", TypeID);
-
-                    Connection.Open();
-                    using (SqlDataReader reader = Command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            store.Add(new StoreDetailsDTO
-                              (
-                                    reader.GetString(reader.GetOrdinal("Name")),
-                                     (!reader.IsDBNull(reader.GetOrdinal("RegionName")) ? reader.GetString("RegionName") : null),
-                                      (!reader.IsDBNull(reader.GetOrdinal("CityName")) ? reader.GetString("CityName") : null),
-                                     (!reader.IsDBNull(reader.GetOrdinal("DistrictsName")) ? reader.GetString("DistrictsName") : null),
-                                     (!reader.IsDBNull(reader.GetOrdinal("CommercialNumber")) ? reader.GetString("CommercialNumber") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Website")) ? reader.GetString("Website") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Address")) ? reader.GetString("Address") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("CategoryName")) ? reader.GetString("CategoryName") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("TypeName")) ? reader.GetString("TypeName") : null),
-                                        (!reader.IsDBNull(reader.GetOrdinal("Rating")) ? reader.GetByte("Rating") : null),
-                                        (!reader.IsDBNull(reader.GetOrdinal("NumberOfRates")) ? reader.GetDecimal("NumberOfRates") : null),
-                                        (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : null),
-                                      (!reader.IsDBNull(reader.GetOrdinal("NumbersOfClick")) ? reader.GetDecimal("NumbersOfClick") : null),
-                                    (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : null),
-                                                                           (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : null),
-
-                                 reader.GetInt32(reader.GetOrdinal("StoreID"))
-                              ));
-                        };
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                clsUtil.WriteExceptionInLogFile(ex);
-            }
-
-            return store;
-        }
-
-        public static List<StoreDetailsDTO> GetAllStoreByCategoryNameArAndDistrictsNameAr(string CategoryNameAr, string DistrictsNameAr, int? TypeID)
-        {
-            List<StoreDetailsDTO> store = new List<StoreDetailsDTO>();
-            try
-            {
-                using (SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                using (SqlCommand Command = new SqlCommand("Sp_GetAllStoreByCategoryNameArAndDistrictsNameAr", Connection))
-                {
-                    Command.CommandType = CommandType.StoredProcedure;
-
-                    Command.Parameters.AddWithValue("@CategoryNameAr", CategoryNameAr);
-                    Command.Parameters.AddWithValue("@DistrictsNameAr", DistrictsNameAr);
-                    Command.Parameters.AddWithValue("@TypeID", TypeID);
-
-                    Connection.Open();
-                    using (SqlDataReader reader = Command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            store.Add(new StoreDetailsDTO
-                               (
-                                      reader.GetString(reader.GetOrdinal("Name")),
-                                     (!reader.IsDBNull(reader.GetOrdinal("RegionName")) ? reader.GetString("RegionName") : null),
-                                      (!reader.IsDBNull(reader.GetOrdinal("CityName")) ? reader.GetString("CityName") : null),
-                                     (!reader.IsDBNull(reader.GetOrdinal("DistrictsName")) ? reader.GetString("DistrictsName") : null),
-                                     (!reader.IsDBNull(reader.GetOrdinal("CommercialNumber")) ? reader.GetString("CommercialNumber") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Website")) ? reader.GetString("Website") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Address")) ? reader.GetString("Address") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("CategoryName")) ? reader.GetString("CategoryName") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("TypeName")) ? reader.GetString("TypeName") : null),
-                                        (!reader.IsDBNull(reader.GetOrdinal("Rating")) ? reader.GetByte("Rating") : null),
-                                        (!reader.IsDBNull(reader.GetOrdinal("NumberOfRates")) ? reader.GetDecimal("NumberOfRates") : null),
-                                        (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : null),
-                                      (!reader.IsDBNull(reader.GetOrdinal("NumbersOfClick")) ? reader.GetDecimal("NumbersOfClick") : null),
-                                    (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : null),
-                                                                           (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : null),
-                                 reader.GetInt32(reader.GetOrdinal("StoreID"))
-                               ));
-                        };
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                clsUtil.WriteExceptionInLogFile(ex);
-            }
-
-            return store;
-        }
-
-
-
-
-        public static List<StoreDetailsDTO> GetAllStoresInDetailsAr()
-        {
-            List<StoreDetailsDTO> store = new List<StoreDetailsDTO>();
-            try
-            {
-                using (SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                using (SqlCommand Command = new SqlCommand("Sp_GetAllStoresInDetailsAR", Connection))
-                {
-                    Command.CommandType = CommandType.StoredProcedure;
-
-                    Connection.Open();
-                    using (SqlDataReader reader = Command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            store.Add(new StoreDetailsDTO
-                              (
-                                     reader.GetString(reader.GetOrdinal("Name")),
-                                     (!reader.IsDBNull(reader.GetOrdinal("RegionName")) ? reader.GetString("RegionName") : null),
-                                      (!reader.IsDBNull(reader.GetOrdinal("CityName")) ? reader.GetString("CityName") : null),
-                                     (!reader.IsDBNull(reader.GetOrdinal("DistrictsName")) ? reader.GetString("DistrictsName") : null),
-                                     (!reader.IsDBNull(reader.GetOrdinal("CommercialNumber")) ? reader.GetString("CommercialNumber") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Website")) ? reader.GetString("Website") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Address")) ? reader.GetString("Address") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("CategoryName")) ? reader.GetString("CategoryName") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("TypeName")) ? reader.GetString("TypeName") : null),
-                                        (!reader.IsDBNull(reader.GetOrdinal("Rating")) ? reader.GetByte("Rating") : null),
-                                        (!reader.IsDBNull(reader.GetOrdinal("NumberOfRates")) ? reader.GetDecimal("NumberOfRates") : null),
-                                        (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : null),
-                                      (!reader.IsDBNull(reader.GetOrdinal("NumbersOfClick")) ? reader.GetDecimal("NumbersOfClick") : null),
-                                    (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : null),
-                                                                           (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : null),
-
+                                                                                                               (!reader.IsDBNull(reader.GetOrdinal("Email")) ? reader.GetString("Email") : null),
+                                    (!reader.IsDBNull(reader.GetOrdinal("Phone")) ? reader.GetString("Phone") : null),
                                  reader.GetInt32(reader.GetOrdinal("StoreID"))
                               ));
                         };
@@ -1035,53 +601,8 @@ namespace StoresPlace_DataAccess
                                       (!reader.IsDBNull(reader.GetOrdinal("NumbersOfClick")) ? reader.GetDecimal("NumbersOfClick") : null),
                                     (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : null),
                                       (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : null),
-                                 reader.GetInt32(reader.GetOrdinal("StoreID"))
-                              ));
-                        };
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                clsUtil.WriteExceptionInLogFile(ex);
-            }
-
-            return store;
-        }
-
-        public static List<StoreDetailsDTO> GetAllStoresInDetailsEn()
-        {
-            List<StoreDetailsDTO> store = new List<StoreDetailsDTO>();
-            try
-            {
-                using (SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                using (SqlCommand Command = new SqlCommand("Sp_GetAllStoresInDetailsEn", Connection))
-                {
-                    Command.CommandType = CommandType.StoredProcedure;
-
-                    Connection.Open();
-                    using (SqlDataReader reader = Command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            store.Add(new StoreDetailsDTO
-                              (
-                                   reader.GetString(reader.GetOrdinal("Name")),
-                                     (!reader.IsDBNull(reader.GetOrdinal("RegionName")) ? reader.GetString("RegionName") : null),
-                                      (!reader.IsDBNull(reader.GetOrdinal("CityName")) ? reader.GetString("CityName") : null),
-                                     (!reader.IsDBNull(reader.GetOrdinal("DistrictsName")) ? reader.GetString("DistrictsName") : null),
-                                     (!reader.IsDBNull(reader.GetOrdinal("CommercialNumber")) ? reader.GetString("CommercialNumber") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Website")) ? reader.GetString("Website") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("Address")) ? reader.GetString("Address") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("CategoryName")) ? reader.GetString("CategoryName") : null),
-                                       (!reader.IsDBNull(reader.GetOrdinal("TypeName")) ? reader.GetString("TypeName") : null),
-                                        (!reader.IsDBNull(reader.GetOrdinal("Rating")) ? reader.GetByte("Rating") : null),
-                                        (!reader.IsDBNull(reader.GetOrdinal("NumberOfRates")) ? reader.GetDecimal("NumberOfRates") : null),
-                                        (!reader.IsDBNull(reader.GetOrdinal("StoreStatus")) ? reader.GetString("StoreStatus") : null),
-                                      (!reader.IsDBNull(reader.GetOrdinal("NumbersOfClick")) ? reader.GetDecimal("NumbersOfClick") : null),
-                                    (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : null),
-                                                                           (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : null),
-
+                                                                          (!reader.IsDBNull(reader.GetOrdinal("Email")) ? reader.GetString("Email") : null),
+                                    (!reader.IsDBNull(reader.GetOrdinal("Phone")) ? reader.GetString("Phone") : null),
                                  reader.GetInt32(reader.GetOrdinal("StoreID"))
                               ));
                         };
@@ -1130,6 +651,8 @@ namespace StoresPlace_DataAccess
                                       (!reader.IsDBNull(reader.GetOrdinal("NumbersOfClick")) ? reader.GetDecimal("NumbersOfClick") : null),
                                     (!reader.IsDBNull(reader.GetOrdinal("Photo")) ? reader.GetString("Photo") : null),
                                     (!reader.IsDBNull(reader.GetOrdinal("PersonName")) ? reader.GetString("PersonName") : null),
+                                                                        (!reader.IsDBNull(reader.GetOrdinal("Email")) ? reader.GetString("Email") : null),
+                                    (!reader.IsDBNull(reader.GetOrdinal("Phone")) ? reader.GetString("Phone") : null),
                                  reader.GetInt32(reader.GetOrdinal("StoreID"))
                               ));
                         };

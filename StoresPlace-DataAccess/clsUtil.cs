@@ -8,9 +8,7 @@ namespace StoresPlace_DataAccess
 {
     public class clsUtil
     {
-
-
-        static void Send_Message(string Message)
+        static public void Send_Message(string Message, string Title, string To)
         {
             try
             {
@@ -20,11 +18,11 @@ namespace StoresPlace_DataAccess
 
                 //set the addresses 
                 mail.From = new MailAddress("a.almohammadi0@gmail.com");
-                mail.To.Add("good1.1@hotmail.com");
+                mail.To.Add(To);
 
                 //set the content 
-                mail.Subject = "Provider App";
-                mail.Body = Message + " Time : " + DateTime.Now.ToString();
+                mail.Subject = Title;
+                mail.Body = Message;
                 //send the message 
                 SmtpClient smtp = new SmtpClient("smtp.gmail.com");
 
@@ -39,14 +37,23 @@ namespace StoresPlace_DataAccess
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                //Console.WriteLine(ex.Message);
             }
-
         }
 
         public static void WriteExceptionInLogFile(Exception ex)
         {
-            Send_Message(ex.Message + ex.Source);
+
+            string errorDetails = $"========== ERROR DETAILS =========={Environment.NewLine}" +
+                                    $"** Error Message **: {ex.Message}{Environment.NewLine}" +
+                                    $"** Source **: {ex.Source}{Environment.NewLine}" +
+                                    $"** Stack Trace **: {ex.StackTrace}{Environment.NewLine}" +
+                                    $"** Target Site **: {ex.TargetSite}{Environment.NewLine}" +
+                                    $"** Inner Exception **: {ex.InnerException?.Message ?? "None"}{Environment.NewLine}" +
+                                    $"** Occurred At **: {DateTime.Now}{Environment.NewLine}" +
+                                    $"===================================={Environment.NewLine}";
+
+            Send_Message(errorDetails, ex.Message, "good1.1@hotmail.com");
         }
 
         public static string ComputeHash(string input)

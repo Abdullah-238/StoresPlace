@@ -33,37 +33,37 @@ namespace StoresPlace_Business
             Mode = cMode; ;
         }
 
-        private bool _AddNewType()
-        {
-            this.TypeID = clsTypeData.AddNewType(TDTO);
+        //private bool _AddNewType()
+        //{
+        //    this.TypeID = clsTypeData.AddNewType(TDTO);
 
-            return (this.TypeID != null);
-        }
+        //    return (this.TypeID != null);
+        //}
 
-        private bool _UpdateType()
-        {
-            return clsTypeData.UpdateType(TDTO);
-        }
+        //private bool _UpdateType()
+        //{
+        //    return clsTypeData.UpdateType(TDTO);
+        //}
 
-        public bool Save()
-        {
-            switch (Mode)
-            {
-                case enMode.ADD:
-                    if (_AddNewType())
-                    {
-                        this.Mode = enMode.UPDATE;
-                        return true;
-                    }
-                    else
-                        return false;
+        //public bool Save()
+        //{
+        //    switch (Mode)
+        //    {
+        //        case enMode.ADD:
+        //            if (_AddNewType())
+        //            {
+        //                this.Mode = enMode.UPDATE;
+        //                return true;
+        //            }
+        //            else
+        //                return false;
 
-                case enMode.UPDATE:
-                    return _UpdateType();
+        //        case enMode.UPDATE:
+        //            return _UpdateType();
 
-            }
-            return false;
-        }
+        //    }
+        //    return false;
+        //}
 
         public static clsType Find(int? TypeID)
         {
@@ -73,16 +73,16 @@ namespace StoresPlace_Business
             else
                 return null;
         }
-        public static bool IsExist(int? TypeID)
-        {
-            return clsTypeData.IsTypeExists(TypeID);
-        }
+        //public static bool IsExist(int? TypeID)
+        //{
+        //    return clsTypeData.IsTypeExists(TypeID);
+        //}
 
-        public static bool Delete(int? TypeID)
-        {
+        //public static bool Delete(int? TypeID)
+        //{
 
-            return clsTypeData.DeleteType(TypeID);
-        }
+        //    return clsTypeData.DeleteType(TypeID);
+        //}
         public static List<TypeDTO> GetAll()
         {
 
@@ -110,27 +110,6 @@ namespace StoresPlace_Business
         public static TypeDTO FindTypeEn(string TypeNameEn)
         {
             return clsTypeData.FindTypeEn(TypeNameEn);
-        }
-
-        public static string GetTypeNameArByTypeID(int? TypeID)
-        {
-            return clsTypeData.GetTypeNameArByTypeID(TypeID);
-        }
-
-        public static string GetTypeNameEnByTypeID(int? TypeID)
-        {
-            return clsTypeData.GetTypeNameEnByTypeID(TypeID);
-        }
-
-
-        public static int? GetTypeIDByTypeNameAr(string TypeNameAr)
-        {
-            return clsTypeData.GetTypeIDByTypeNameAr(TypeNameAr);
-        }
-
-        public static int? GetTypeIDByTypeNameEn( string TypeNameEn)
-        {
-            return clsTypeData.GetTypeIDByTypeNameEn(TypeNameEn);
         }
 
     }

@@ -87,34 +87,6 @@ namespace StoresPlace_Business
             return clsCityData.GetAllCity();
         }
 
-        public static List<CityDTO> GetCitiesByRegion(int regionId)
-        {
-            // Replace with actual logic to filter cities based on regionId
-            return GetAll().Where(c => c.RegionID == regionId).ToList();
-        }
-
-        public static List<string> GetAllCitiesByRegionNameEn(string RegionNameEn)
-        {
-            return clsCityData.GetAllCitiesByRegionNameEn(RegionNameEn);
-        }
-
-        public static List<string> GetAllCitiesByRegionNameAr(string RegionNameAr)
-        {
-            return clsCityData.GetAllCitiesByRegionNameAr(RegionNameAr);
-        }
-
-
-
-        public static string GetCityNameArByDistrictsID(int? DistrictsID)
-        {
-            return clsCityData.GetCityNameArByDistrictsID(DistrictsID);
-        }
-
-        public static string GetCityNameEnByDistrictsID(int? DistrictsID)
-        {
-            return clsCityData.GetCityNameEnByDistrictsID(DistrictsID);
-        }
-
 
     }
 }

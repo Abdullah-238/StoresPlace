@@ -157,72 +157,20 @@ namespace StoresPlace_Business
             return clsStoreData.GetAllStore();
         }
 
-        public static List<StoreDetailsDTO> GetAllStoreByCategoryID(int? CategoryID)
+        public static List<StoreDetailsDTO> GetAllStoreByCategoryNameAr(string CategoryNameAr, int? TypeID, int? PageNumber)
         {
-            return clsStoreData.GetAllStoreByCategoryID(CategoryID);
+            return clsStoreData.GetAllStoreByCategoryNameAr(CategoryNameAr, TypeID, PageNumber);
         }
 
-        public static List<StoreDetailsDTO> GetAllStoreByCategoryNameAr(string CategoryNameAr, int? TypeID)
+        public static List<StoreDetailsDTO> GetAllStoreByCategoryNameEn(string CategoryNameEn, int? TypeID, int? PageNumber)
         {
-            return clsStoreData.GetAllStoreByCategoryNameAr(CategoryNameAr, TypeID);
+            return clsStoreData.GetAllStoreByCategoryNameEn(CategoryNameEn, TypeID, PageNumber);
         }
-
-        public static List<StoreDetailsDTO> GetAllStoreByCategoryNameEn(string CategoryNameEn, int? TypeID)
-        {
-            return clsStoreData.GetAllStoreByCategoryNameEn(CategoryNameEn, TypeID);
-        }
-
-        public static List<StoreDetailsDTO> GetAllStoreByCategoryNameArAndRegionName(string CategoryNameAr, string RegionNameAr, int? TypeID)
-        {
-            return clsStoreData.GetAllStoreByCategoryNameArAndRegionName(CategoryNameAr, RegionNameAr, TypeID);
-        }
-
-        public static List<StoreDetailsDTO> GetAllStoreByCategoryNameEnAndRegionName(string CategoryNameEn, string RegionNameEn, int? TypeID)
-        {
-            return clsStoreData.GetAllStoreByCategoryNameEnAndRegionName(CategoryNameEn, RegionNameEn, TypeID);
-        }
-
-        public static List<StoreDetailsDTO> GetAllStoreByCategoryNameEnAndCityNameEn(string CategoryNameEn, string CityNameEn, int? TypeID)
-        {
-            return clsStoreData.GetAllStoreByCategoryNameEnAndCityNameEn(CategoryNameEn , CityNameEn, TypeID);
-        }
-
-        public static List<StoreDetailsDTO> GetAllStoreByCategoryNameArAndCityNameAr(string CategoryNameAr, string CityNameAr, int? TypeID)
-        {
-            return clsStoreData.GetAllStoreByCategoryNameArAndCityNameAr(CategoryNameAr, CityNameAr, TypeID);
-        }
-
-        public static List<StoreDetailsDTO> GetAllStoreByCategoryNameArAndDistrictsNameAr(string CategoryNameAr, string DistrictsNameAr, int? TypeID)
-        {
-            return clsStoreData.GetAllStoreByCategoryNameArAndDistrictsNameAr(CategoryNameAr , DistrictsNameAr, TypeID);
-        }
-
-        public static List<StoreDetailsDTO> GetAllStoreByCategoryNameEnAndDistrictsNameEn(string CategoryNameEn, string DistrictsNameEn, int? TypeID)
-        {
-            return clsStoreData.GetAllStoreByCategoryNameEnAndDistrictsNameEn(CategoryNameEn, DistrictsNameEn, TypeID);
-        }
-
-        public static List<StoreDTO> GetAllStoresByPersonID(int? PersonID)
-        {
-            return clsStoreData.GetAllStoresByPersonID(PersonID);
-        }
-
-        public static List<StoreDetailsDTO> GetAllStoresInDetailsAr()
-        {
-            return clsStoreData.GetAllStoresInDetailsAr();
-        }
-
 
         public static List<StoreDetailsDTO> GetAllStoresInDetailsByPersonIDAr(int? PersonID)
         {
             return clsStoreData.GetAllStoresInDetailsByPersonIDAr(PersonID);
         }
-
-        public static List<StoreDetailsDTO> GetAllStoresInDetailsEn()
-        {
-            return clsStoreData.GetAllStoresInDetailsEn();
-        }
-
 
         public static List<StoreDetailsDTO> GetAllStoresInDetailsByPersonIDEn(int? PersonID)
         {

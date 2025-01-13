@@ -128,8 +128,6 @@ namespace StoresPlace_APIs.Stores
         }
 
 
-
-
         [HttpDelete("DeleteStore/{StoreID}", Name = "DeleteStore")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -157,12 +155,13 @@ namespace StoresPlace_APIs.Stores
             return Ok(stores);
         }
 
-        [HttpGet("GetStoresByCategoryID/{CategoryID}", Name = "GetStoresByCategoryID")]
+
+        [HttpGet("GetStoresByCategoryNameAr/{CategoryNameAr}/{TypeID?}/{PageNumber?}", Name = "GetStoresByCategoryNameAr")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<List<StoreDetailsDTO>> GetStoresByCategoryID(int CategoryID)
+        public ActionResult<List<StoreDetailsDTO>> GetStoresByCategoryNameAr(string CategoryNameAr, int? TypeID, int? PageNumber)
         {
-            var stores = clsStore.GetAllStoreByCategoryID(CategoryID);
+            var stores = clsStore.GetAllStoreByCategoryNameAr(CategoryNameAr, TypeID, PageNumber);
             if (stores.Count == 0)
             {
                 return NotFound("No stores found for this category.");
@@ -170,145 +169,17 @@ namespace StoresPlace_APIs.Stores
             return Ok(stores);
         }
 
-        [HttpGet("GetStoresByCategoryNameAr/{CategoryNameAr}/{TypeID?}", Name = "GetStoresByCategoryNameAr")]
+        [HttpGet("GetStoresByCategoryNameEn/{CategoryNameEn}/{TypeID?}/{PageNumber?}", Name = "GetStoresByCategoryNameEn")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<List<StoreDetailsDTO>> GetStoresByCategoryNameAr(string CategoryNameAr, int? TypeID)
+        public ActionResult<List<StoreDetailsDTO>> GetStoresByCategoryNameEn(string CategoryNameEn, int? TypeID, int? PageNumber)
         {
-            var stores = clsStore.GetAllStoreByCategoryNameAr(CategoryNameAr, TypeID);
+            var stores = clsStore.GetAllStoreByCategoryNameEn(CategoryNameEn, TypeID, PageNumber);
             if (stores.Count == 0)
             {
                 return NotFound("No stores found for this category.");
             }
             return Ok(stores);
-        }
-
-        [HttpGet("GetStoresByCategoryNameEn/{CategoryNameEn}/{TypeID?}", Name = "GetStoresByCategoryNameEn")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<List<StoreDetailsDTO>> GetStoresByCategoryNameEn(string CategoryNameEn, int? TypeID)
-        {
-            var stores = clsStore.GetAllStoreByCategoryNameEn(CategoryNameEn, TypeID);
-            if (stores.Count == 0)
-            {
-                return NotFound("No stores found for this category.");
-            }
-            return Ok(stores);
-        }
-
-        [HttpGet("GetStoresByCategoryNameArAndRegionNameAr/{CategoryNameAr}/{RegionNameAr}/{TypeID?}", Name = "GetStoresByCategoryNameArAndRegionNameAr")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<List<StoreDetailsDTO>> GetStoresByCategoryNameArAndRegionNameAr(string CategoryNameAr, string RegionNameAr, int? TypeID)
-        {
-            var stores = clsStore.GetAllStoreByCategoryNameArAndRegionName(CategoryNameAr, RegionNameAr, TypeID);
-            if (stores.Count == 0)
-            {
-                return NotFound("No stores found for this category and region.");
-            }
-            return Ok(stores);
-        }
-
-        [HttpGet("GetStoresByCategoryNameEnAndRegionNameEn/{CategoryNameEn}/{RegionNameEn}/{TypeID?}", Name = "GetStoresByCategoryNameEnAndRegionNameEn")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<List<StoreDetailsDTO>> GetStoresByCategoryNameEnAndRegionNameEn(string CategoryNameEn, string RegionNameEn, int? TypeID)
-        {
-            var stores = clsStore.GetAllStoreByCategoryNameEnAndRegionName(CategoryNameEn, RegionNameEn, TypeID);
-            if (stores.Count == 0)
-            {
-                return NotFound("No stores found for this category and region.");
-            }
-            return Ok(stores);
-        }
-
-        [HttpGet("GetStoresByCategoryNameEnAndCityNameEn/{CategoryNameEn}/{CityNameEn}/{TypeID?}", Name = "GetStoresByCategoryNameEnAndCityNameEn")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<List<StoreDetailsDTO>> GetStoresByCategoryNameEnAndCityNameEn(string CategoryNameEn, string CityNameEn, int? TypeID)
-        {
-            var stores = clsStore.GetAllStoreByCategoryNameEnAndCityNameEn(CategoryNameEn, CityNameEn, TypeID);
-            if (stores.Count == 0)
-            {
-                return NotFound("No stores found for this category and city.");
-            }
-            return Ok(stores);
-        }
-
-        [HttpGet("GetStoresByCategoryNameArAndCityNameAr/{CategoryNameAr}/{CityNameAr}/{TypeID?}", Name = "GetStoresByCategoryNameArAndCityNameAr")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<List<StoreDetailsDTO>> GetStoresByCategoryNameArAndCityNameAr(string CategoryNameAr, string CityNameAr, int? TypeID)
-        {
-            var stores = clsStore.GetAllStoreByCategoryNameArAndCityNameAr(CategoryNameAr, CityNameAr, TypeID);
-            if (stores.Count == 0)
-            {
-                return NotFound("No stores found for this category and city.");
-            }
-            return Ok(stores);
-        }
-
-        [HttpGet("GetStoresByCategoryNameArAndDistrictsNameAr/{CategoryNameAr}/{DistrictsNameAr}/{TypeID?}", Name = "GetStoresByCategoryNameArAndDistrictsNameAr")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<List<StoreDetailsDTO>> GetStoresByCategoryNameArAndDistrictsNameAr(string CategoryNameAr, string DistrictsNameAr, int? TypeID)
-        {
-            var stores = clsStore.GetAllStoreByCategoryNameArAndDistrictsNameAr(CategoryNameAr, DistrictsNameAr, TypeID);
-            if (stores.Count == 0)
-            {
-                return NotFound("No stores found for this category and district.");
-            }
-            return Ok(stores);
-        }
-
-        [HttpGet("GetStoresByCategoryNameEnAndDistrictsNameEn/{CategoryNameEn}/{DistrictsNameEn}/{TypeID?}", Name = "GetStoresByCategoryNameEnAndDistrictsNameEn")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<List<StoreDetailsDTO>> GetStoresByCategoryNameEnAndDistrictsNameEn(string CategoryNameEn, string DistrictsNameEn, int? TypeID)
-        {
-            var stores = clsStore.GetAllStoreByCategoryNameEnAndDistrictsNameEn(CategoryNameEn, DistrictsNameEn, TypeID);
-            if (stores.Count == 0)
-            {
-                return NotFound("No stores found for this category and district.");
-            }
-            return Ok(stores);
-        }
-
-
-        [HttpGet("GetAllStoresByPersonID/{PersonID}")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<List<StoreDTO>> GetAllStoresByPersonID(int? PersonID)
-        {
-
-            var stores = clsStoreData.GetAllStoresByPersonID(PersonID);
-            if (stores != null && stores.Count > 0)
-            {
-                return Ok(stores);  // Return the list of stores
-            }
-            else
-            {
-                return NotFound("No stores found for the given PersonID.");
-            }
-
-        }
-
-        [HttpGet("GetAllStoresInDetailsAr")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<List<StoreDetailsDTO>> GetAllStoresInDetailsAr()
-        {
-
-            var storeDetails = clsStoreData.GetAllStoresInDetailsAr();
-            if (storeDetails != null && storeDetails.Count > 0)
-            {
-                return Ok(storeDetails);  // Return store details in Arabic
-            }
-            else
-            {
-                return NotFound("No store details found.");
-            }
-
         }
 
         [HttpGet("GetAllStoresInDetailsByPersonIDAr/{PersonID}")]
@@ -317,7 +188,7 @@ namespace StoresPlace_APIs.Stores
         public ActionResult<List<StoreDetailsDTO>> GetAllStoresInDetailsByPersonIDAr(int? PersonID)
         {
 
-            var storeDetails = clsStoreData.GetAllStoresInDetailsByPersonIDAr(PersonID);
+            var storeDetails = clsStore.GetAllStoresInDetailsByPersonIDAr(PersonID);
             if (storeDetails != null && storeDetails.Count > 0)
             {
                 return Ok(storeDetails);  // Return store details by PersonID in Arabic
@@ -328,33 +199,13 @@ namespace StoresPlace_APIs.Stores
             }
         }
 
-
-
-        [HttpGet("GetAllStoresInDetailsEn")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<List<StoreDetailsDTO>> GetAllStoresInDetailsEn()
-        {
-
-            var storeDetails = clsStoreData.GetAllStoresInDetailsEn();
-            if (storeDetails != null && storeDetails.Count > 0)
-            {
-                return Ok(storeDetails);  // Return store details in English
-            }
-            else
-            {
-                return NotFound("No store details found.");
-            }
-
-        }
-
         [HttpGet("GetAllStoresInDetailsByPersonIDEn/{PersonID}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public ActionResult<List<StoreDetailsDTO>> GetAllStoresInDetailsByPersonIDEn(int? PersonID)
         {
 
-            var storeDetails = clsStoreData.GetAllStoresInDetailsByPersonIDEn(PersonID);
+            var storeDetails = clsStore.GetAllStoresInDetailsByPersonIDEn(PersonID);
 
             if (storeDetails != null && storeDetails.Count > 0)
             {
@@ -366,8 +217,6 @@ namespace StoresPlace_APIs.Stores
             }
 
         }
-
-
 
         [HttpPut("UpdateStoreRating/{StoreID}/{Rate}", Name = "UpdateStoreRating")]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -382,7 +231,7 @@ namespace StoresPlace_APIs.Stores
                 return BadRequest("StoreID and Rate are required.");
             }
 
-            bool result = clsStoreData.UpdateStoreRating(Rate, StoreID);
+            bool result = clsStore.UpdateStoreRating(Rate, StoreID);
 
             if (result)
             {
@@ -421,6 +270,8 @@ namespace StoresPlace_APIs.Stores
                 return StatusCode(500, $"Internal server error");
             }
         }
+
+
     }
 
 

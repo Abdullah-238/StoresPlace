@@ -108,9 +108,32 @@ namespace StoresPlace_APIs.Persons
 
         [HttpGet("Exists/{PersonID}", Name = "IsPersonExists")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public ActionResult<bool> IsPersonExists(int PersonID)
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+
+        public ActionResult<bool> IsPersonExists(int? PersonID)
         {
+            if (PersonID == null)
+            {
+                return BadRequest("Please enter a valid Person id");
+            }
+
             bool exists = clsPerson.IsExist(PersonID);
+
+            return Ok(exists);
+        }
+
+        [HttpGet("IsPersonActive/{PersonID}", Name = "IsPersonActive")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+
+        public ActionResult<bool> IsPersonActive(int? PersonID)
+        {
+            if (PersonID == null)
+            {
+                return BadRequest("Please enter a valid Person id");
+            }
+
+            bool exists = clsPerson.IsPersonActive(PersonID);
 
             return Ok(exists);
         }
@@ -120,6 +143,21 @@ namespace StoresPlace_APIs.Persons
         public ActionResult<bool> IsPersonExistsByEmail(string Email)
         {
             bool exists = clsPerson.IsPersonExistsByEmail(Email);
+
+            return Ok(exists);
+        }
+
+        [HttpGet("IsPersonActiveByEmail/{Email}", Name = "IsPersonActiveByEmail")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+
+        public ActionResult<bool> IsPersonActiveByEmail(string Email)
+        {
+            if (Email == null)
+            {
+                return BadRequest("Please enter a valid email ");
+            }
+            bool exists = clsPerson.IsPersonActiveByEmail(Email);
 
             return Ok(exists);
         }

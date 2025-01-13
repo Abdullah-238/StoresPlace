@@ -83,19 +83,16 @@ namespace StoresPlace_Business
         {
             return clsSavedStoreData.DeleteSavedStoreByStoreID(StoreSavedId, PersonID);
         }
-        public static List<SavedStoreDTO> GetAll()
+      
+
+        public static List<StoreDetailsDTO> GetAllSavedStoreByPersonIDAr(int ?PersonID, int? PageNumber)
         {
-            return clsSavedStoreData.GetAllSavedStore();
+            return clsSavedStoreData.GetAllSavedStoreByPersonIDAr(PersonID,PageNumber);
         }
 
-        public static List<StoreDetailsDTO> GetAllSavedStoreByPersonIDAr(int ?PersonID)
+        public static List<StoreDetailsDTO> GetAllSavedStoreByPersonIDEn(int? PersonID ,int? PageNumber)
         {
-            return clsSavedStoreData.GetAllSavedStoreByPersonIDAr(PersonID);
-        }
-
-        public static List<StoreDetailsDTO> GetAllSavedStoreByPersonIDEn(int? PersonID)
-        {
-            return clsSavedStoreData.GetAllSavedStoreByPersonIDEn(PersonID);
+            return clsSavedStoreData.GetAllSavedStoreByPersonIDEn(PersonID, PageNumber);
         }
         public static bool IsSavedStoreExists(int? StoreID, int? PersonID)
         {

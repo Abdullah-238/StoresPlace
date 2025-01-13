@@ -296,186 +296,6 @@
     "EndpointName": "GetCategory"
   },
   {
-    "ContainingType": "StoresPlace_API.Categories.CategoryController",
-    "Method": "GetCategoryIDByCategoryNameAr",
-    "RelativePath": "api/Category/GetCategoryIDByCategoryNameAr/{CategoryNameAr}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "CategoryNameAr",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Int32",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 400
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
-      }
-    ],
-    "EndpointName": "GetCategoryIDByCategoryNameAr"
-  },
-  {
-    "ContainingType": "StoresPlace_API.Categories.CategoryController",
-    "Method": "GetCategoryIDByCategoryNameEn",
-    "RelativePath": "api/Category/GetCategoryIDByCategoryNameEn/{CategoryNameEn}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "CategoryNameEn",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Int32",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 400
-      }
-    ],
-    "EndpointName": "GetCategoryIDByCategoryNameEn"
-  },
-  {
-    "ContainingType": "StoresPlace_API.Categories.CategoryController",
-    "Method": "GetCategoryNameArByCategoryID",
-    "RelativePath": "api/Category/GetCategoryNameArByCategoryID/{CategoryID}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "CategoryID",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.String",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 400
-      }
-    ],
-    "EndpointName": "GetCategoryNameArByCategoryID"
-  },
-  {
-    "ContainingType": "StoresPlace_API.Categories.CategoryController",
-    "Method": "GetCategoryNameEnByCategoryID",
-    "RelativePath": "api/Category/GetCategoryNameEnByCategoryID/{CategoryID}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "CategoryID",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.String",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 400
-      }
-    ],
-    "EndpointName": "GetCategoryNameEnByCategoryID"
-  },
-  {
     "ContainingType": "StoresPlace_APIs.Cities.CityController",
     "Method": "GetAllCities",
     "RelativePath": "api/City/GetAllCities",
@@ -495,114 +315,6 @@
       }
     ],
     "EndpointName": "GetAllCities"
-  },
-  {
-    "ContainingType": "StoresPlace_APIs.Cities.CityController",
-    "Method": "GetCitiesByRegion",
-    "RelativePath": "api/City/GetCitiesByRegion/{RegionID}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "RegionID",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.List\u00601[[StoresPlace_DataAccess.CityDTO, StoresPlace-DataAccess, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
-      }
-    ],
-    "EndpointName": "GetCitiesByRegion"
-  },
-  {
-    "ContainingType": "StoresPlace_APIs.Cities.CityController",
-    "Method": "GetCitiesByRegionNameAr",
-    "RelativePath": "api/City/GetCitiesByRegionNameAr/{RegionNameAr}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "RegionNameAr",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.List\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
-      }
-    ],
-    "EndpointName": "GetCitiesByRegionNameAr"
-  },
-  {
-    "ContainingType": "StoresPlace_APIs.Cities.CityController",
-    "Method": "GetCitiesByRegionNameEn",
-    "RelativePath": "api/City/GetCitiesByRegionNameEn/{RegionNameEn}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "RegionNameEn",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.List\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
-      }
-    ],
-    "EndpointName": "GetCitiesByRegionNameEn"
   },
   {
     "ContainingType": "StoresPlace_APIs.Cities.CityController",
@@ -639,78 +351,6 @@
       }
     ],
     "EndpointName": "GetCity"
-  },
-  {
-    "ContainingType": "StoresPlace_APIs.Cities.CityController",
-    "Method": "GetCityNameArByDistrictsID",
-    "RelativePath": "api/City/GetCityNameArByDistrictsID/{DistrictsID}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "DistrictsID",
-        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.String",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
-      }
-    ],
-    "EndpointName": "GetCityNameArByDistrictsID"
-  },
-  {
-    "ContainingType": "StoresPlace_APIs.Cities.CityController",
-    "Method": "GetCityNameEnByDistrictsID",
-    "RelativePath": "api/City/GetCityNameEnByDistrictsID/{DistrictsID}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "DistrictsID",
-        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.String",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
-      }
-    ],
-    "EndpointName": "GetCityNameEnByDistrictsID"
   },
   {
     "ContainingType": "StoresPlace_APIs.Coupons.CouponController",
@@ -947,78 +587,6 @@
   },
   {
     "ContainingType": "StoresPlace_APIs.Districts.DistrictController",
-    "Method": "GetAllDistrictByCityNameAr",
-    "RelativePath": "api/District/GetAllDistrictByCityNameAr/{CityNameAr}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "CityNameAr",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.List\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
-      }
-    ],
-    "EndpointName": "GetAllDistrictByCityNameAr"
-  },
-  {
-    "ContainingType": "StoresPlace_APIs.Districts.DistrictController",
-    "Method": "GetAllDistrictByCityNameEn",
-    "RelativePath": "api/District/GetAllDistrictByCityNameEn/{CityNameEn}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "CityNameEn",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.List\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
-      }
-    ],
-    "EndpointName": "GetAllDistrictByCityNameEn"
-  },
-  {
-    "ContainingType": "StoresPlace_APIs.Districts.DistrictController",
     "Method": "GetAllDistricts",
     "RelativePath": "api/District/GetAllDistricts",
     "HttpMethod": "GET",
@@ -1073,150 +641,6 @@
       }
     ],
     "EndpointName": "GetDistrict"
-  },
-  {
-    "ContainingType": "StoresPlace_APIs.Districts.DistrictController",
-    "Method": "GetDistrictsIDByDistrictNameAr",
-    "RelativePath": "api/District/GetDistrictsIDByDistrictNameAr/{DistrictNameAr}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "DistrictNameAr",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Int32",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
-      }
-    ],
-    "EndpointName": "GetDistrictsIDByDistrictNameAr"
-  },
-  {
-    "ContainingType": "StoresPlace_APIs.Districts.DistrictController",
-    "Method": "GetTypeIDByTypeNameEn",
-    "RelativePath": "api/District/GetDistrictsIDByDistrictNameEn/{DistrictNameEn}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "DistrictNameEn",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Int32",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
-      }
-    ],
-    "EndpointName": "GetDistrictsIDByDistrictNameEn"
-  },
-  {
-    "ContainingType": "StoresPlace_APIs.Districts.DistrictController",
-    "Method": "GetDistrictsNameArByDistrictsID",
-    "RelativePath": "api/District/GetDistrictsNameArByDistrictsID/{DistrictsID}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "DistrictsID",
-        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.String",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
-      }
-    ],
-    "EndpointName": "GetDistrictsNameArByDistrictsID"
-  },
-  {
-    "ContainingType": "StoresPlace_APIs.Districts.DistrictController",
-    "Method": "GetDistrictsNameEnByDistrictsID",
-    "RelativePath": "api/District/GetDistrictsNameEnByDistrictsID/{DistrictsID}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "DistrictsID",
-        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.String",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
-      }
-    ],
-    "EndpointName": "GetDistrictsNameEnByDistrictsID"
   },
   {
     "ContainingType": "StoresPlace_APIs.Offers.OfferController",
@@ -1547,7 +971,7 @@
     "Parameters": [
       {
         "Name": "PersonID",
-        "Type": "System.Int32",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "IsRequired": true
       }
     ],
@@ -1560,6 +984,15 @@
           "text/json"
         ],
         "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
       }
     ],
     "EndpointName": "IsPersonExists"
@@ -1715,6 +1148,78 @@
       }
     ],
     "EndpointName": "GetPerson"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Persons.PersonController",
+    "Method": "IsPersonActive",
+    "RelativePath": "api/Persons/IsPersonActive/{PersonID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "PersonID",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Boolean",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      }
+    ],
+    "EndpointName": "IsPersonActive"
+  },
+  {
+    "ContainingType": "StoresPlace_APIs.Persons.PersonController",
+    "Method": "IsPersonActiveByEmail",
+    "RelativePath": "api/Persons/IsPersonActiveByEmail/{Email}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Email",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Boolean",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      }
+    ],
+    "EndpointName": "IsPersonActiveByEmail"
   },
   {
     "ContainingType": "StoresPlace_APIs.Persons.PersonController",
@@ -2088,48 +1593,6 @@
   },
   {
     "ContainingType": "StoresPlace_APIs.Regions.RegionController",
-    "Method": "GetAllRegionsByNameAr",
-    "RelativePath": "api/Region/GetAllRegionsByNameAr",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.List\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ],
-    "EndpointName": "GetAllRegionsByNameAr"
-  },
-  {
-    "ContainingType": "StoresPlace_APIs.Regions.RegionController",
-    "Method": "GetAllRegionsByNameEn",
-    "RelativePath": "api/Region/GetAllRegionsByNameEn",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.List\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ],
-    "EndpointName": "GetAllRegionsByNameEn"
-  },
-  {
-    "ContainingType": "StoresPlace_APIs.Regions.RegionController",
     "Method": "GetRegion",
     "RelativePath": "api/Region/GetRegion/{RegionID}",
     "HttpMethod": "GET",
@@ -2163,150 +1626,6 @@
       }
     ],
     "EndpointName": "GetRegion"
-  },
-  {
-    "ContainingType": "StoresPlace_APIs.Regions.RegionController",
-    "Method": "GetRegionNameArByDistrictsID",
-    "RelativePath": "api/Region/GetRegionNameArByDistrictsID/{DistrictsID}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "DistrictsID",
-        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.String",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
-      }
-    ],
-    "EndpointName": "GetRegionNameArByDistrictsID"
-  },
-  {
-    "ContainingType": "StoresPlace_APIs.Regions.RegionController",
-    "Method": "GetRegionNameArByRegionID",
-    "RelativePath": "api/Region/GetRegionNameArByRegionID/{RegionID}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "RegionID",
-        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.String",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
-      }
-    ],
-    "EndpointName": "GetRegionNameArByRegionID"
-  },
-  {
-    "ContainingType": "StoresPlace_APIs.Regions.RegionController",
-    "Method": "GetRegionNameEnByDistrictsID",
-    "RelativePath": "api/Region/GetRegionNameEnByDistrictsID/{DistrictsID}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "DistrictsID",
-        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.String",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
-      }
-    ],
-    "EndpointName": "GetRegionNameEnByDistrictsID"
-  },
-  {
-    "ContainingType": "StoresPlace_APIs.Regions.RegionController",
-    "Method": "GetRegionNameEnByRegionID",
-    "RelativePath": "api/Region/GetRegionNameEnByRegionID/{RegionID}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "RegionID",
-        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.String",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
-      }
-    ],
-    "EndpointName": "GetRegionNameEnByRegionID"
   },
   {
     "ContainingType": "StoresPlace_APIs.SavedStores.SavedStoresController",
@@ -2482,27 +1801,6 @@
   },
   {
     "ContainingType": "StoresPlace_APIs.SavedStores.SavedStoresController",
-    "Method": "GetAllSavedStores",
-    "RelativePath": "api/SavedStores/GetAllSavedStores",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.List\u00601[[StoresPlace_DataAccess.SavedStoreDTO, StoresPlace-DataAccess, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ],
-    "EndpointName": "GetAllSavedStores"
-  },
-  {
-    "ContainingType": "StoresPlace_APIs.SavedStores.SavedStoresController",
     "Method": "GetSavedStore",
     "RelativePath": "api/SavedStores/GetSavedStore/{StoreSavedId}",
     "HttpMethod": "GET",
@@ -2540,7 +1838,7 @@
   {
     "ContainingType": "StoresPlace_APIs.SavedStores.SavedStoresController",
     "Method": "GetSavedStoreByPersonIDAr",
-    "RelativePath": "api/SavedStores/GetSavedStoreByPersonIDAr/{PersonID}",
+    "RelativePath": "api/SavedStores/GetSavedStoreByPersonIDAr/{PersonID}/{PageNumber}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -2548,6 +1846,11 @@
       {
         "Name": "PersonID",
         "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "PageNumber",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "IsRequired": true
       }
     ],
@@ -2560,6 +1863,15 @@
           "text/json"
         ],
         "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
       }
     ],
     "EndpointName": "GetSavedStoreByPersonIDAr"
@@ -2567,7 +1879,7 @@
   {
     "ContainingType": "StoresPlace_APIs.SavedStores.SavedStoresController",
     "Method": "GetSavedStoreByPersonIDEn",
-    "RelativePath": "api/SavedStores/GetSavedStoreByPersonIDEn/{PersonID}",
+    "RelativePath": "api/SavedStores/GetSavedStoreByPersonIDEn/{PersonID}/{PageNumber}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -2575,6 +1887,11 @@
       {
         "Name": "PersonID",
         "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "PageNumber",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "IsRequired": true
       }
     ],
@@ -2587,6 +1904,15 @@
           "text/json"
         ],
         "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
       }
     ],
     "EndpointName": "GetSavedStoreByPersonIDEn"
@@ -2804,70 +2130,6 @@
   },
   {
     "ContainingType": "StoresPlace_APIs.Stores.StoresController",
-    "Method": "GetAllStoresByPersonID",
-    "RelativePath": "api/Stores/GetAllStoresByPersonID/{PersonID}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "PersonID",
-        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.List\u00601[[StoresPlace_DataAccess.StoreDTO, StoresPlace-DataAccess, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
-      }
-    ]
-  },
-  {
-    "ContainingType": "StoresPlace_APIs.Stores.StoresController",
-    "Method": "GetAllStoresInDetailsAr",
-    "RelativePath": "api/Stores/GetAllStoresInDetailsAr",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.List\u00601[[StoresPlace_DataAccess.StoreDetailsDTO, StoresPlace-DataAccess, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
-      }
-    ]
-  },
-  {
-    "ContainingType": "StoresPlace_APIs.Stores.StoresController",
     "Method": "GetAllStoresInDetailsByPersonIDAr",
     "RelativePath": "api/Stores/GetAllStoresInDetailsByPersonIDAr/{PersonID}",
     "HttpMethod": "GET",
@@ -2938,35 +2200,6 @@
   },
   {
     "ContainingType": "StoresPlace_APIs.Stores.StoresController",
-    "Method": "GetAllStoresInDetailsEn",
-    "RelativePath": "api/Stores/GetAllStoresInDetailsEn",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.List\u00601[[StoresPlace_DataAccess.StoreDetailsDTO, StoresPlace-DataAccess, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
-      }
-    ]
-  },
-  {
-    "ContainingType": "StoresPlace_APIs.Stores.StoresController",
     "Method": "GetStore",
     "RelativePath": "api/Stores/GetStore/{StoreID}",
     "HttpMethod": "GET",
@@ -3003,44 +2236,8 @@
   },
   {
     "ContainingType": "StoresPlace_APIs.Stores.StoresController",
-    "Method": "GetStoresByCategoryID",
-    "RelativePath": "api/Stores/GetStoresByCategoryID/{CategoryID}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "CategoryID",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.List\u00601[[StoresPlace_DataAccess.StoreDetailsDTO, StoresPlace-DataAccess, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
-      }
-    ],
-    "EndpointName": "GetStoresByCategoryID"
-  },
-  {
-    "ContainingType": "StoresPlace_APIs.Stores.StoresController",
     "Method": "GetStoresByCategoryNameAr",
-    "RelativePath": "api/Stores/GetStoresByCategoryNameAr/{CategoryNameAr}/{TypeID}",
+    "RelativePath": "api/Stores/GetStoresByCategoryNameAr/{CategoryNameAr}/{TypeID}/{PageNumber}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -3052,6 +2249,11 @@
       },
       {
         "Name": "TypeID",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "PageNumber",
         "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "IsRequired": false
       }
@@ -3080,146 +2282,8 @@
   },
   {
     "ContainingType": "StoresPlace_APIs.Stores.StoresController",
-    "Method": "GetStoresByCategoryNameArAndCityNameAr",
-    "RelativePath": "api/Stores/GetStoresByCategoryNameArAndCityNameAr/{CategoryNameAr}/{CityNameAr}/{TypeID}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "CategoryNameAr",
-        "Type": "System.String",
-        "IsRequired": true
-      },
-      {
-        "Name": "CityNameAr",
-        "Type": "System.String",
-        "IsRequired": true
-      },
-      {
-        "Name": "TypeID",
-        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.List\u00601[[StoresPlace_DataAccess.StoreDetailsDTO, StoresPlace-DataAccess, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
-      }
-    ],
-    "EndpointName": "GetStoresByCategoryNameArAndCityNameAr"
-  },
-  {
-    "ContainingType": "StoresPlace_APIs.Stores.StoresController",
-    "Method": "GetStoresByCategoryNameArAndDistrictsNameAr",
-    "RelativePath": "api/Stores/GetStoresByCategoryNameArAndDistrictsNameAr/{CategoryNameAr}/{DistrictsNameAr}/{TypeID}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "CategoryNameAr",
-        "Type": "System.String",
-        "IsRequired": true
-      },
-      {
-        "Name": "DistrictsNameAr",
-        "Type": "System.String",
-        "IsRequired": true
-      },
-      {
-        "Name": "TypeID",
-        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.List\u00601[[StoresPlace_DataAccess.StoreDetailsDTO, StoresPlace-DataAccess, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
-      }
-    ],
-    "EndpointName": "GetStoresByCategoryNameArAndDistrictsNameAr"
-  },
-  {
-    "ContainingType": "StoresPlace_APIs.Stores.StoresController",
-    "Method": "GetStoresByCategoryNameArAndRegionNameAr",
-    "RelativePath": "api/Stores/GetStoresByCategoryNameArAndRegionNameAr/{CategoryNameAr}/{RegionNameAr}/{TypeID}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "CategoryNameAr",
-        "Type": "System.String",
-        "IsRequired": true
-      },
-      {
-        "Name": "RegionNameAr",
-        "Type": "System.String",
-        "IsRequired": true
-      },
-      {
-        "Name": "TypeID",
-        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.List\u00601[[StoresPlace_DataAccess.StoreDetailsDTO, StoresPlace-DataAccess, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
-      }
-    ],
-    "EndpointName": "GetStoresByCategoryNameArAndRegionNameAr"
-  },
-  {
-    "ContainingType": "StoresPlace_APIs.Stores.StoresController",
     "Method": "GetStoresByCategoryNameEn",
-    "RelativePath": "api/Stores/GetStoresByCategoryNameEn/{CategoryNameEn}/{TypeID}",
+    "RelativePath": "api/Stores/GetStoresByCategoryNameEn/{CategoryNameEn}/{TypeID}/{PageNumber}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -3231,6 +2295,11 @@
       },
       {
         "Name": "TypeID",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "PageNumber",
         "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "IsRequired": false
       }
@@ -3256,144 +2325,6 @@
       }
     ],
     "EndpointName": "GetStoresByCategoryNameEn"
-  },
-  {
-    "ContainingType": "StoresPlace_APIs.Stores.StoresController",
-    "Method": "GetStoresByCategoryNameEnAndCityNameEn",
-    "RelativePath": "api/Stores/GetStoresByCategoryNameEnAndCityNameEn/{CategoryNameEn}/{CityNameEn}/{TypeID}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "CategoryNameEn",
-        "Type": "System.String",
-        "IsRequired": true
-      },
-      {
-        "Name": "CityNameEn",
-        "Type": "System.String",
-        "IsRequired": true
-      },
-      {
-        "Name": "TypeID",
-        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.List\u00601[[StoresPlace_DataAccess.StoreDetailsDTO, StoresPlace-DataAccess, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
-      }
-    ],
-    "EndpointName": "GetStoresByCategoryNameEnAndCityNameEn"
-  },
-  {
-    "ContainingType": "StoresPlace_APIs.Stores.StoresController",
-    "Method": "GetStoresByCategoryNameEnAndDistrictsNameEn",
-    "RelativePath": "api/Stores/GetStoresByCategoryNameEnAndDistrictsNameEn/{CategoryNameEn}/{DistrictsNameEn}/{TypeID}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "CategoryNameEn",
-        "Type": "System.String",
-        "IsRequired": true
-      },
-      {
-        "Name": "DistrictsNameEn",
-        "Type": "System.String",
-        "IsRequired": true
-      },
-      {
-        "Name": "TypeID",
-        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.List\u00601[[StoresPlace_DataAccess.StoreDetailsDTO, StoresPlace-DataAccess, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
-      }
-    ],
-    "EndpointName": "GetStoresByCategoryNameEnAndDistrictsNameEn"
-  },
-  {
-    "ContainingType": "StoresPlace_APIs.Stores.StoresController",
-    "Method": "GetStoresByCategoryNameEnAndRegionNameEn",
-    "RelativePath": "api/Stores/GetStoresByCategoryNameEnAndRegionNameEn/{CategoryNameEn}/{RegionNameEn}/{TypeID}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "CategoryNameEn",
-        "Type": "System.String",
-        "IsRequired": true
-      },
-      {
-        "Name": "RegionNameEn",
-        "Type": "System.String",
-        "IsRequired": true
-      },
-      {
-        "Name": "TypeID",
-        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.List\u00601[[StoresPlace_DataAccess.StoreDetailsDTO, StoresPlace-DataAccess, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
-      }
-    ],
-    "EndpointName": "GetStoresByCategoryNameEnAndRegionNameEn"
   },
   {
     "ContainingType": "StoresPlace_APIs.Stores.StoresController",
@@ -3931,149 +2862,5 @@
       }
     ],
     "EndpointName": "GetType"
-  },
-  {
-    "ContainingType": "StoresPlace_APIs.Types.TypeController",
-    "Method": "GetTypeNameArByTypeID",
-    "RelativePath": "api/Types/GetTypeIDByTypeNameAr/{TypeNameAr}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "TypeNameAr",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Int32",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
-      }
-    ],
-    "EndpointName": "GetTypeIDByTypeNameAr"
-  },
-  {
-    "ContainingType": "StoresPlace_APIs.Types.TypeController",
-    "Method": "GetTypeIDByTypeNameEn",
-    "RelativePath": "api/Types/GetTypeIDByTypeNameEn/{TypeNameEn}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "TypeNameEn",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Int32",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
-      }
-    ],
-    "EndpointName": "GetTypeIDByTypeNameEn"
-  },
-  {
-    "ContainingType": "StoresPlace_APIs.Types.TypeController",
-    "Method": "GetTypeNameArByTypeID",
-    "RelativePath": "api/Types/GetTypeNameArByTypeID/{TypeID}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "TypeID",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.String",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
-      }
-    ],
-    "EndpointName": "GetTypeNameArByTypeID"
-  },
-  {
-    "ContainingType": "StoresPlace_APIs.Types.TypeController",
-    "Method": "GetTypeNameEnByTypeID",
-    "RelativePath": "api/Types/GetTypeNameEnByTypeID/{TypeID}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "TypeID",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.String",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
-      }
-    ],
-    "EndpointName": "GetTypeNameEnByTypeID"
   }
 ]

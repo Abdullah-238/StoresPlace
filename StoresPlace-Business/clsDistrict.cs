@@ -71,23 +71,6 @@ namespace StoresPlace_Business
                 return null;
         }
 
-        public static clsDistrict FindDistrictsNameAr(string DistrictsNameAr)
-        {
-            DistrictDTO DDTO = clsDistrictData.FindDistrictsNameAr(DistrictsNameAr);
-            if (DDTO != null)
-                return new clsDistrict(DDTO, enMode.UPDATE);
-            else
-                return null;
-        }
-
-        public static clsDistrict FindDistrictsNameEn(string DistrictsNameEn)
-        {
-            DistrictDTO DDTO = clsDistrictData.FindDistrictsNameEn(DistrictsNameEn);
-            if (DDTO != null)
-                return new clsDistrict(DDTO, enMode.UPDATE);
-            else
-                return null;
-        }
         public static bool IsExist(int? DistrictsID)
         {
             return clsDistrictData.IsDistrictExists(DistrictsID);
@@ -104,48 +87,6 @@ namespace StoresPlace_Business
             return clsDistrictData.GetAllDistrict();
         }
 
-        //public static List<DistrictDTO> GetDistrictsByCity(int cityId)
-        //{
-        //    // Replace with actual logic to filter districts based on cityId
-        //    return GetAllStoresForSaleAr().Where(d => d.CityID == cityId).ToList();
-        //}
 
-        public static List<string> GetAllDistrictByCityNameEn(string CityNameEn)
-        {
-            return clsDistrictData.GetAllDistrictByCityNameEn(CityNameEn);
-        }
-
-        public static List<string> GetAllDistrictByCityNameAr(string CityNameAr)
-        {
-            return clsDistrictData.GetAllDistrictByCityNameAr(CityNameAr);
-        }
-
-
-
-        public static string GetDistrictsNameArByDistrictsID(int? DistrictsID)
-        {
-            return clsDistrictData.GetDistrictsNameArByDistrictsID(DistrictsID);
-        }
-
-
-        public static string GetDistrictsNameEnByDistrictsID(int? DistrictsID)
-        {
-            return clsDistrictData.GetDistrictsNameEnByDistrictsID(DistrictsID);
-        }
-
-
-
-
-
-
-        public static int? GetDistrictsIDByDistrictNameAr(string DistrictNameAr)
-        {
-            return clsDistrictData.GetDistrictsIDByDistrictNameAr(DistrictNameAr);
-        }
-
-        public static int? GetDistrictsIDByDistrictNameEn(string DistrictNameEn)
-        {
-            return clsDistrictData.GetDistrictsIDByDistrictNameEn(DistrictNameEn);
-        }
     }
 }
